@@ -1,0 +1,8 @@
+(use-package evil-leader
+  :config
+  (evil-leader/set-leader ","))
+
+(use-package evil)
+
+(global-evil-leader-mode)
+(evil-mode 1)
