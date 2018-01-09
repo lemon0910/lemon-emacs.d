@@ -1,49 +1,14 @@
-;; init-company.el --- Initialize company configurations.	-*- lexical-binding: t -*-
-;;
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; Version: 3.2.0
-;; URL: https://github.com/seagle0128/.emacs.d
-;; Keywords:
-;; Compatibility:
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Commentary:
-;;             Company configurations.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 2, or
-;; (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with this program; see the file COPYING.  If not, write to
-;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
-;; Floor, Boston, MA 02110-1301, USA.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Code:
-
 (use-package company
   :diminish company-mode
-  :bind (("M-/" . company-complete)
-         ("C-c C-y" . company-yasnippet)
+  :bind (
          :map company-active-map
-         ("C-p" . company-select-previous)
-         ("C-n" . company-select-next)
-         ;; ("<tab>" . company-complete-selection)
+              ([tab] . company-complete-common-or-cycle)
+              ("C-p" . company-select-previous)
+              ("C-n" . company-select-next)
          :map company-search-map
-         ("C-p" . company-select-previous)
-         ("C-n" . company-select-next))
-  :init (add-hook 'after-init-hook #'global-company-mode)
+         ("`" . company-select-next))
+  :init
+   (add-hook 'after-init-hook #'global-company-mode)
   :config
   ;; aligns annotation to the right hand side
   (setq company-tooltip-align-annotations t)
@@ -52,29 +17,34 @@
         company-minimum-prefix-length 2
         company-require-match nil
         company-dabbrev-ignore-case nil
-        company-dabbrev-downcase nil)
+        company-dabbrev-downcase nil
+        company-dabbrev-code-other-buffers t
+        company-show-numbers t
+        company-backends '(company-files company-dabbrev-code company-dabbrev company-keywords company-etags)))
 
-  ;; Popup documentation for completion candidates
-  (use-package company-quickhelp
-    :if (display-graphic-p)
-    :bind (:map company-active-map
-                ("M-h" . company-quickhelp-manual-begin))
-    :init (company-quickhelp-mode 1)
-    :config (setq company-quickhelp-delay 1))
+(setq company-frontends
+      '(company-pseudo-tooltip-unless-just-one-frontend
+        company-preview-if-just-one-frontend))
 
-  ;; Support yas in commpany
-  ;; Note: Must be the last to involve all backends
-  (defvar company-enable-yas t
-    "Enable yasnippet for all backends.")
+(defun ora-company-number ()
+  "Forward to `company-complete-number'.
+Unless the number is potentially part of the candidate.
+In that case, insert the number."
+  (interactive)
+  (let* ((k (this-command-keys))
+         (re (concat "^" company-prefix k)))
+    (if (cl-find-if (lambda (s) (string-match re s))
+                    company-candidates)
+        (self-insert-command 1)
+      (company-complete-number
+       (if (equal k "0")
+           10
+         (string-to-number k))))))
 
-  (defun company-backend-with-yas (backend)
-    (if (or (not company-enable-yas)
-            (and (listp backend) (member 'company-yasnippet backend)))
-        backend
-      (append (if (consp backend) backend (list backend))
-              '(:with company-yasnippet))))
-
-  (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
+(with-eval-after-load 'company
+(let ((map company-active-map))
+  (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
+        (number-sequence 0 9))))
 
 (provide 'init-company)
 

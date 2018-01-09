@@ -1,37 +1,3 @@
-;; init-funcs.el --- Initialize functions.	-*- lexical-binding: t -*-
-;;
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; Version: 3.2.0
-;; URL: https://github.com/seagle0128/.emacs.d
-;; Keywords:
-;; Compatibility:
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Commentary:
-;;             Some functions.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 2, or
-;; (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with this program; see the file COPYING.  If not, write to
-;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth
-;; Floor, Boston, MA 02110-1301, USA.
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;; Code:
-
 ;; Dos2Unix/Unix2Dos
 (defun dos2unix ()
   "Convert the current buffer to UNIX file format."
@@ -42,33 +8,6 @@
   "Convert the current buffer to DOS file format."
   (interactive)
   (set-buffer-file-coding-system 'undecided-dos nil))
-
-;; Revert buffer
-(defun revert-current-buffer ()
-  "Revert the current buffer."
-  (interactive)
-  (message "Revert this buffer.")
-  (revert-buffer t t))
-(bind-key "<f5>" 'revert-current-buffer)
-(bind-key "s-r" 'revert-current-buffer)
-
-;; Update configurations
-(defun update-config ()
-  "Update Emacs configurations to the latest version."
-  (interactive)
-  (message "Updating Emacs configurations...")
-  (cd "~/.emacs.d/")
-  (shell-command "git pull")
-  (message "Update finished. Restart Emacs to complete the process."))
-
-;; Update org files
-(defun update-org ()
-  "Update Org files to the latest version."
-  (interactive)
-  (message "Updating Org files...")
-  (cd "~/org/")
-  (shell-command "git pull")
-  (message "Update finished."))
 
 ;; Create a new scratch buffer
 (defun create-scratch-buffer ()
@@ -112,6 +51,110 @@
   (if url-proxy-services
       (unset-proxy)
     (set-proxy)))
+
+(defun lemon/kill-this-buffer (&optional arg)
+  "Kill the current buffer.
+   If the universal prefix argument is used then kill also the window."
+  (interactive "P")
+  (if (window-minibuffer-p)
+      (abort-recursive-edit)
+    (if (equal '(4) arg)
+        (kill-buffer-and-window)
+      (kill-buffer))))
+
+(defun lemon/kill-other-buffers (&optional arg)
+  "Kill all other buffers.
+   If the universal prefix argument is used then will the windows too."
+  (interactive "P")
+  (when (yes-or-no-p (format "Killing all buffers except \"%s\"? "
+                             (buffer-name)))
+    (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
+    (when (equal '(4) arg) (delete-other-windows))
+    (message "Buffers deleted!")))
+
+(defun lemon/kill-all-buffers (&optional arg)
+  "Kill all other buffers.
+   If the universal prefix argument is used then will the windows too."
+  (interactive "P")
+    (mapc 'kill-buffer (buffer-list))
+    (when (equal '(4) arg) (delete-other-windows))
+    (message "Buffers deleted!"))
+
+(defun lemon/prompt-kill-emacs ()
+  "Prompt to save changed buffers and exit Spacemacs"
+  (interactive)
+  (save-some-buffers)
+  (kill-emacs))
+
+(defun lemon/kill-emacs ()
+  "Lose all changes and exit Spacemacs"
+  (interactive)
+  (kill-emacs))
+
+;; Minor additions by Nicholas D. Matsakis:
+ ;; - added "m" etc for obj. c files
+ ;; - added (provide 'cOpenRelational) at the end
+ ;; - modified to use emacs built-in functions for removing extension, etc,
+ ;;   which preserves full path
+ 
+ ;; Author:Tatsuhiko Kubo
+ ;; This elisp can keeping in touch between header file and source file for C or C++
+ 
+ ;; This program is free software; you can redistribute it and/or modify
+ ;; it under the terms of the GNU General Public License as published by
+ ;; the Free Software Foundation; either version 2, or (at your option)
+ ;; any later version.
+ 
+;; http://blog.sina.com.cn/s/blog_70b2dfb80100lvii.html
+(defun c-open-relational-file-get-opening-file-name (file-name-prefix ext-list)
+  (let ((opening-file-name (concat file-name-prefix "." (car ext-list))))
+    (cond ((null (car ext-list))             nil)
+          ((file-exists-p opening-file-name) opening-file-name)
+          (t                                 (c-open-relational-file-get-opening-file-name file-name-prefix 
+                                                                                           (cdr ext-list))))))
+
+(defun c-open-relational-file ()
+  "keeping in touch between header file and source file for C or C++"
+  (interactive)
+  (let* ((c-or-cpp-header-map (list "m" "mm" "mpp" "M" "c" 
+                                    "cpp" "cxx" "cc" "c++" "C"))
+         (c-source-map        (list "h" "s"))
+         (asm-source-map      (list "c"))
+         (cpp-source-map      (list "hpp" "h" "hxx" "h++" "hh" "H"))
+         (cpp-header-map      (list "cpp" "cxx" "cc" "c++" "C"))
+         (ext-map (list
+                   (cons "h"   c-or-cpp-header-map)
+                   (cons "m"   c-source-map)
+                   (cons "c"   c-source-map)
+                   (cons "s"   asm-source-map)
+                   (cons "C"   cpp-source-map)
+                   (cons "cc"  cpp-source-map)
+                   (cons "cpp" cpp-source-map)
+                   (cons "cxx" cpp-source-map)
+                   (cons "c++" cpp-source-map)
+                   (cons "M"   cpp-source-map)
+                   (cons "H"   cpp-header-map)
+                   (cons "hh"  cpp-header-map)
+                   (cons "hpp" cpp-header-map)
+                   (cons "hxx" cpp-header-map)
+                   (cons "h++" cpp-header-map)))
+         (opened-file-name (buffer-file-name (window-buffer)))
+         (opened-file-name-prefix (file-name-sans-extension opened-file-name))
+         (opened-file-ext-type (file-name-extension opened-file-name))
+         (opening-file-ext-type-list (cdr (assoc opened-file-ext-type ext-map)))
+         (opening-file-name (c-open-relational-file-get-opening-file-name opened-file-name-prefix
+                                                                          opening-file-ext-type-list))
+         (opening-file-buffer (if (null opening-file-name)
+                                  nil
+                                (find-file-noselect opening-file-name))))
+    (progn 
+      ;(print opened-file-name)
+      ;(print opened-file-name-prefix)
+      ;(print opened-file-ext-type)
+      ;(print opening-file-name)
+      (if (null opening-file-buffer)
+          (message "not found relational file")
+        (switch-to-buffer opening-file-buffer)))))
 
 (provide 'init-funcs)
 
