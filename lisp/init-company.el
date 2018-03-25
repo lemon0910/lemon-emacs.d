@@ -3,10 +3,10 @@
   :bind (
          :map company-active-map
               ([tab] . company-complete-common-or-cycle)
-              ("C-p" . company-select-previous)
-              ("C-n" . company-select-next)
+              ("C-n" . company-complete-common-or-cycle)
+              ("C-m" . company-complete-selection)
          :map company-search-map
-         ("`" . company-select-next))
+         ([tab] . company-select-next))
   :init
    (add-hook 'after-init-hook #'global-company-mode)
   :config
