@@ -18,7 +18,8 @@
 (add-hook 'text-mode-hook
           (lambda ()
             (turn-on-auto-fill)
-            (diminish 'auto-fill-function)))
+            (diminish 'auto-fill-function)
+            (linum-mode t)))
 
 (add-hook 'abbrev-mode-hook (lambda () (diminish 'abbrev-mode)))
 
