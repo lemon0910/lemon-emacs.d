@@ -17,11 +17,10 @@
   "ff"  'counsel-find-file
   "fz"   'counsel-fzf
   "fg"  'counsel-git
-  "fp"  'counsel-projectile-find-file
+  "rg"  'counsel-rg
   "ft"  'counsel-imenu
   "fa"  'counsel-etags-find-tag
   "ag"  'counsel-ag
-  "pa"  'counsel-projectile-ag
   "ww"  'save-buffer
   "q"  'save-buffers-kill-terminal
   "Q"  'lemon/kill-emacs

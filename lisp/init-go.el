@@ -24,15 +24,7 @@
 
   (with-eval-after-load 'company
     (use-package company-go
-      :init (cl-pushnew 'company-go company-backends)))
-
-  (with-eval-after-load 'projectile
-    ;; M-x `go-projectile-install-tools'
-    (use-package go-projectile
-      :commands (go-projectile-mode go-projectile-switch-project)
-      :init
-      (add-hook 'projectile-after-switch-project-hook #'go-projectile-switch-project)
-      (add-hook 'go-mode-hook #'go-projectile-mode))))
+      :init (cl-pushnew 'company-go company-backends))))
 
 (evil-define-key 'normal go-mode-map "gd" 'godef-jump)
 

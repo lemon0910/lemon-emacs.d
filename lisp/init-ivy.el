@@ -23,16 +23,15 @@
   (setq counsel-find-file-at-point t)
   (setq counsel-yank-pop-separator "\n-------\n")
 
+  (setq counsel-rg-base-command
+        "rg -i -M 120 --no-heading --line-number --color never %s .")
+  
   ;; Use faster search tools: ripgrep or the silver search
   (let ((command
          (cond
           ((executable-find "ag")
            "ag -i --noheading --nocolor --nofilename --numbers '%s' %s"))))
     (setq counsel-grep-base-command command))
-
-  ;; Integration with `projectile'
-  (with-eval-after-load 'projectile
-    (setq projectile-completion-system 'ivy))
 
   ;; Integration with `magit'
   (with-eval-after-load 'magit
@@ -49,17 +48,7 @@
     (setq ivy-rich-path-style 'abbrev)
 
     (ivy-set-display-transformer 'ivy-switch-buffer
-                                 'ivy-rich-switch-buffer-transformer)
-
-    (with-eval-after-load 'counsel-projectile
-      (ivy-set-display-transformer 'counsel-projectile
-                                   'ivy-rich-switch-buffer-transformer)
-      (ivy-set-display-transformer 'counsel-projectile-switch-to-buffer
-                                   'ivy-rich-switch-buffer-transformer)))
-
-  ;; Ivy integration for Projectile
-  (use-package counsel-projectile
-    :init (counsel-projectile-mode 1))
+                                 'ivy-rich-switch-buffer-transformer))
 
   ;; Ivy for GNU global
   (use-package counsel-etags)
