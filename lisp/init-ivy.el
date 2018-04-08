@@ -2,6 +2,12 @@
 
 (use-package counsel
   :diminish ivy-mode counsel-mode
+  :bind (
+         :map ivy-minibuffer-map
+         ([escape] . minibuffer-keyboard-quit)
+         :map swiper-map
+         ([escape] . minibuffer-keyboard-quit)
+         )
   :init (add-hook 'after-init-hook
                   (lambda ()
                     (ivy-mode 1)

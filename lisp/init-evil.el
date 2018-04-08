@@ -46,9 +46,6 @@
   "gm"  'magit-dispatch-popup
 )
 
-(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-;; (global-set-key (kbd "<escape>") 'keyboard-quit)
-
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (define-key evil-normal-state-map (kbd "H") 'mwim-beginning-of-code-or-line)
