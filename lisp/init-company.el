@@ -46,6 +46,15 @@ In that case, insert the number."
   (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
         (number-sequence 0 9))))
 
+(with-eval-after-load 'company
+(let ((map company-active-map))
+  (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
+        (number-sequence 0 9))
+  (define-key map [escape] (lambda()
+                          (interactive)
+                          (company-abort)
+                          (self-insert-command 1)))))
+
 (provide 'init-company)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
