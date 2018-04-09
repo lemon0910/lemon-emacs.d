@@ -44,6 +44,7 @@
   "wk"  'evil-window-up
   "gs"  'magit-status
   "gm"  'magit-dispatch-popup
+  "`"   'switch-to-previous-buffer
 )
 
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
