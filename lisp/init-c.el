@@ -100,7 +100,8 @@
             (lambda ()
               (c-set-style "bsd")
               (setq tab-width 2)
-              (setq c-basic-offset 2))))
+              (setq c-basic-offset 2)
+              (modify-syntax-entry ?_ "w"))))
 
   :config
   ;; Company mode backend for C/C++ header files
