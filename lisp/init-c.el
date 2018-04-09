@@ -108,6 +108,17 @@
   (with-eval-after-load 'company
     (use-package company-c-headers))
 
+;; (use-package cc-mode
+;;   :ensure nil
+;;   :init
+;;   (add-hook 'c-mode-common-hook #'ooo-c-mode-common-hook)
+;;   (add-hook 'c-mode-common-hook #'(lambda() (modify-syntax-entry ?_ "w"))))
+
+;;   :config
+;;   ;; Company mode backend for C/C++ header files
+;;   (with-eval-after-load 'company
+;;     (use-package company-c-headers))
+
 (provide 'init-c)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
