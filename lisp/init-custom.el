@@ -30,15 +30,6 @@
           (const :tag "Light theme" light)
           (const :tag "Daylight theme" daylight)))
 
-(defcustom my-emoji-enabled nil
-  "Enable emoji features or not."
-  :type 'boolean)
-
-(defcustom my-benchmark-enabled nil
-  "Enable the init benchmark or not."
-  :type 'boolean)
-
-
 (provide 'init-custom)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

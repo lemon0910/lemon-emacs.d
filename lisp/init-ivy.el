@@ -16,7 +16,7 @@
   (setq enable-recursive-minibuffers t) ; Allow commands in minibuffers
 
   (setq ivy-use-selectable-prompt t)
-  (setq ivy-use-virtual-buffers t)    ; Enable bookmarks and recentf
+  ;; (setq ivy-use-virtual-buffers t)    ; Enable bookmarks and recentf
   (setq ivy-height 10)
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-on-del-error-function nil)
@@ -29,9 +29,6 @@
   (setq counsel-find-file-at-point t)
   (setq counsel-yank-pop-separator "\n-------\n")
 
-  (setq counsel-rg-base-command
-        "rg -i -M 120 --no-heading --line-number --color never %s .")
-  
   ;; Use faster search tools: ripgrep or the silver search
   (let ((command
          (cond

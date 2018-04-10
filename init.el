@@ -22,7 +22,6 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-;;(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 ;; Constants
 (require 'init-const)
@@ -54,8 +53,7 @@
 ;; Programming
 (require 'init-lisp)
 (require 'init-c)
-(require 'init-go)
+; (require 'init-go)
 (require 'init-python)
 
 (require 'init-eshell)
-(require 'init-restore)

@@ -17,7 +17,7 @@
   "ff"  'counsel-find-file
   "fz"   'counsel-fzf
   "fg"  'counsel-git
-  "rg"  'counsel-rg
+  "cg"  'cgounsel-git-grep
   "ft"  'counsel-imenu
   "fa"  'counsel-etags-find-tag
   "ag"  'counsel-ag
@@ -60,5 +60,6 @@
 (define-key evil-normal-state-map (kbd "C-f") (lambda ()
                                                 (interactive)
                                                 (evil-scroll-down nil)))
+
 ;; esc quits
 (provide 'init-evil)

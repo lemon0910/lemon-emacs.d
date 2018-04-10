@@ -12,15 +12,16 @@
 (use-package paren
   :ensure nil
   :init (add-hook 'after-init-hook #'show-paren-mode)
-  :config
-  (setq show-paren-when-point-inside-paren t)
-  (setq show-paren-when-point-in-periphery t))
+  ;; :config
+  ;; (setq show-paren-when-point-inside-paren t)
+  ;; (setq show-paren-when-point-in-periphery t))
+)
 
 ;; Highlight surrounding parentheses
-(use-package highlight-parentheses
-  :diminish highlight-parentheses-mode
-  :init (add-hook 'prog-mode-hook #'highlight-parentheses-mode)
-  :config (set-face-attribute 'hl-paren-face nil :weight 'ultra-bold))
+;; (use-package highlight-parentheses
+;;   :diminish highlight-parentheses-mode
+;;   :init (add-hook 'prog-mode-hook #'highlight-parentheses-mode)
+;;   :config (set-face-attribute 'hl-paren-face nil :weight 'ultra-bold))
 
 ;; Highlight brackets according to their depth
 (use-package rainbow-delimiters

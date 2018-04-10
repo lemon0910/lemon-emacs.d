@@ -43,11 +43,6 @@ In that case, insert the number."
 (with-eval-after-load 'company
 (let ((map company-active-map))
   (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
-        (number-sequence 0 9))))
-
-(with-eval-after-load 'company
-(let ((map company-active-map))
-  (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
         (number-sequence 0 9))
   (define-key map [escape] (lambda()
                           (interactive)

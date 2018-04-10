@@ -18,11 +18,7 @@
 
     ;; Use GNU ls as `gls' from `coreutils' if available.
     (when (executable-find "gls")
-      (setq insert-directory-program "gls")))
-   (sys/win32p
-    (when (executable-find "ls")
-      ;; `dired-quick-sort' needs it
-      (setq ls-lisp-use-insert-directory-program t))))
+      (setq insert-directory-program "gls"))))
 
   ;; Extra Dired functionality
   (use-package dired-aux :ensure nil)

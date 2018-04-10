@@ -13,12 +13,11 @@
 (setq auto-save-default nil)               ; Disable auto save
 (setq set-mark-command-repeat-pop t)       ; Repeating C-SPC after popping mark pops it again
 ;; (setq-default kill-whole-line t)           ; Kill line including '\n'
+(setq truncate-lines nil)
 
 (setq-default major-mode 'text-mode)
 (add-hook 'text-mode-hook
           (lambda ()
-            (turn-on-auto-fill)
-            (diminish 'auto-fill-function)
             (linum-mode t)))
 
 (add-hook 'abbrev-mode-hook (lambda () (diminish 'abbrev-mode)))
@@ -74,17 +73,6 @@
 
 ;; Move to the beginning/end of line or code
 (use-package mwim)
-
-;; Windows-scroll commands
-(use-package pager
-  :bind (("\C-v"   . pager-page-down)
-         ([next]   . pager-page-down)
-         ("\ev"    . pager-page-up)
-         ([prior]  . pager-page-up)
-         ([M-up]   . pager-row-up)
-         ([M-kp-8] . pager-row-up)
-         ([M-down] . pager-row-down)
-         ([M-kp-2] . pager-row-down)))
 
 ;; Treat undo history as a tree
 (use-package undo-tree

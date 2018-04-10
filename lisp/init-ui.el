@@ -39,29 +39,29 @@
   (use-package leuven-theme
     :init (load-theme 'leuven t))))
 
-(use-package spaceline-config
-  :ensure spaceline
-  :commands spaceline-spacemacs-theme
-  :init (add-hook 'after-init-hook #'spaceline-spacemacs-theme)
-  :config
-  (setq spaceline-pre-hook #'powerline-reset) ; Fix for changing themes
-  (setq powerline-default-separator (if window-system 'slant 'utf-8))
-  (setq powerline-image-apple-rgb sys/mac-x-p))
+;; (use-package spaceline-config
+;;   :ensure spaceline
+;;   :commands spaceline-spacemacs-theme
+;;   :init (add-hook 'after-init-hook #'spaceline-spacemacs-theme)
+;;   :config
+;;   (setq spaceline-pre-hook #'powerline-reset) ; Fix for changing themes
+;;   (setq powerline-default-separator (if window-system 'slant 'utf-8))
+;;   (setq powerline-image-apple-rgb sys/mac-x-p))
 
 ;; Fonts
-(use-package cnfonts
-  :init
-  (add-hook 'after-init-hook #'cnfonts-enable)
-  :config
-  (setq cnfonts-keep-frame-size nil)
-  (setq cnfonts-use-cache t)
-  (setq cnfonts-profiles
-        '("program1" "program2" "program3" "org-mode" "read-book"))
-  (setq cnfonts--profiles-steps '(("program1" . 4)
-                                  ("program2" . 5)
-                                  ("program3" . 3)
-                                  ("org-mode" . 6)
-                                  ("read-book" . 8))))
+; (use-package cnfonts
+  ; :init
+  ; (add-hook 'after-init-hook #'cnfonts-enable)
+  ; :config
+  ; (setq cnfonts-keep-frame-size nil)
+  ; (setq cnfonts-use-cache t)
+  ; (setq cnfonts-profiles
+        ; '("program1" "program2" "program3" "org-mode" "read-book"))
+  ; (setq cnfonts--profiles-steps '(("program1" . 4)
+                                  ; ("program2" . 5)
+                                  ; ("program3" . 3)
+                                  ; ("org-mode" . 6)
+                                  ; ("read-book" . 8))))
 
 ;; Line and Column
 (setq-default fill-column 80)
