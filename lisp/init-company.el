@@ -2,7 +2,6 @@
   :diminish company-mode
   :bind (
          :map company-active-map
-              ([tab] . company-complete-common-or-cycle)
               ("C-n" . company-complete-common-or-cycle)
               ("C-m" . company-complete-selection)
          :map company-search-map
@@ -54,6 +53,12 @@ In that case, insert the number."
                           (interactive)
                           (company-abort)
                           (self-insert-command 1)))))
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "<return>") nil)
+  (define-key company-active-map (kbd "RET") nil)
+  (define-key company-active-map (kbd "`") #'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "TAB") #'company-complete-selection))
 
 (provide 'init-company)
 
