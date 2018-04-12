@@ -1,10 +1,5 @@
 ;;; Code:
 
-;; Directional window-selection routines
-(use-package windmove
-  :ensure nil
-  :init (add-hook 'after-init-hook #'windmove-default-keybindings))
-
 ;; Restore old window configurations
 (use-package winner
   :ensure nil
@@ -22,8 +17,7 @@
   (add-hook 'after-init-hook #'winner-mode))
 
 ;; Quickly switch windows
-(use-package ace-window
-  :bind ("C-x o" . ace-window))
+(use-package ace-window)
 
 ;; Numbered window shortcuts
 (use-package window-numbering

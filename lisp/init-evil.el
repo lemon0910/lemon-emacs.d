@@ -38,13 +38,14 @@
   "as"  'swiper-all 
   "cc"  'comment-dwim-2
   "wd"  'delete-window
-  "wh"  'evil-window-left
-  "wl"  'evil-window-right
-  "wj"  'evil-window-down
-  "wk"  'evil-window-up
   "gs"  'magit-status
   "gm"  'magit-dispatch-popup
   "`"   'switch-to-previous-buffer
+  "1"   'select-window-1
+  "2"   'select-window-2
+  "3"   'select-window-3
+  "4"   'select-window-4
+  "o"   'ace-window
 )
 
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
