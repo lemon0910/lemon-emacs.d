@@ -25,11 +25,6 @@
     (setq exec-path-from-shell-arguments '("-l"))
     (exec-path-from-shell-initialize)))
 
-;; Start server
-(use-package server
-  :ensure nil
-  :init (add-hook 'after-init-hook #'server-mode))
-
 ;; History
 (use-package saveplace
   :ensure nil
@@ -38,21 +33,6 @@
   (if (fboundp 'save-place-mode)
       (add-hook 'after-init-hook #'save-place-mode)
     (setq save-place t)))
-
-(use-package recentf
-  :ensure nil
-  :init
-  (setq recentf-max-saved-items 200)
-
-  ;; lazy load recentf
-  ;; (add-hook 'after-init-hook #'recentf-mode)
-  (add-hook 'find-file-hook (lambda () (unless recentf-mode
-                                    (recentf-mode)
-                                    (recentf-track-opened-file))))
-  :config
-  (add-to-list 'recentf-exclude (expand-file-name package-user-dir))
-  (add-to-list 'recentf-exclude "bookmarks")
-  (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'"))
 
 (use-package savehist
   :ensure nil

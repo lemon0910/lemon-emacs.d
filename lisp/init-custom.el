@@ -26,7 +26,6 @@
   :type '(choice
           (const :tag "Default theme" default)
           (const :tag "Dark theme" dark)
-          (const :tag "Zenburn theme" zenburn)
           (const :tag "Light theme" light)
           (const :tag "Daylight theme" daylight)))
 

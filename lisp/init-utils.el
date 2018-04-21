@@ -4,12 +4,6 @@
   (require 'init-const)
   (require 'init-custom))
 
-;; Display available keybindings in popup
-(use-package which-key
-  :diminish which-key-mode
-  :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
-  :init (add-hook 'after-init-hook #'which-key-mode))
-
 ;; Discover key bindings and their meaning for the current Emacs major mode
 (use-package discover-my-major
   :bind (("C-h M-m" . discover-my-major)
@@ -26,6 +20,9 @@
 (use-package esup)                      ; Emacs startup profiler
 (use-package fontawesome)
 (use-package magit)
+(use-package elpa-mirror
+  :config
+  (setq elpamr-default-output-directory "~/.emacs.d/myelpa/"))
 
 (provide 'init-utils)
 

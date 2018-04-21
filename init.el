@@ -22,7 +22,7 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-;;(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 ;; Constants
 (require 'init-const)
@@ -52,6 +52,7 @@
 (require 'init-utils)
 
 ;; Programming
+(require 'init-prog)
 (require 'init-lisp)
 (require 'init-c)
 (require 'init-go)

@@ -58,7 +58,8 @@ In that case, insert the number."
   (define-key company-active-map (kbd "<return>") nil)
   (define-key company-active-map (kbd "RET") nil)
   (define-key company-active-map (kbd "`") #'company-complete-common-or-cycle)
-  (define-key company-active-map (kbd "TAB") #'company-complete-selection))
+  (define-key company-active-map (kbd "TAB") #'company-complete-selection)
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 
 (provide 'init-company)
 

@@ -24,34 +24,6 @@
   (set-buffer-file-coding-system 'utf-8)
   (save-buffer))
 
-;; Configure network proxy
-(defun show-proxy ()
-  "Show http/https proxy."
-  (interactive)
-  (if url-proxy-services
-      (message "Current proxy is \"%s\"" my-proxy)
-    (message "No proxy")))
-
-(defun set-proxy ()
-  "Set http/https proxy."
-  (interactive)
-  (setq url-proxy-services `(("http" . ,my-proxy)
-                             ("https" . ,my-proxy)))
-  (show-proxy))
-
-(defun unset-proxy ()
-  "Unset http/https proxy."
-  (interactive)
-  (setq url-proxy-services nil)
-  (show-proxy))
-
-(defun toggle-proxy ()
-  "Toggle http/https proxy."
-  (interactive)
-  (if url-proxy-services
-      (unset-proxy)
-    (set-proxy)))
-
 (defun lemon/kill-this-buffer (&optional arg)
   "Kill the current buffer.
    If the universal prefix argument is used then kill also the window."
@@ -91,21 +63,6 @@
   (interactive)
   (kill-emacs))
 
-;; Minor additions by Nicholas D. Matsakis:
- ;; - added "m" etc for obj. c files
- ;; - added (provide 'cOpenRelational) at the end
- ;; - modified to use emacs built-in functions for removing extension, etc,
- ;;   which preserves full path
- 
- ;; Author:Tatsuhiko Kubo
- ;; This elisp can keeping in touch between header file and source file for C or C++
- 
- ;; This program is free software; you can redistribute it and/or modify
- ;; it under the terms of the GNU General Public License as published by
- ;; the Free Software Foundation; either version 2, or (at your option)
- ;; any later version.
- 
-;; http://blog.sina.com.cn/s/blog_70b2dfb80100lvii.html
 (defun c-open-relational-file-get-opening-file-name (file-name-prefix ext-list)
   (let ((opening-file-name (concat file-name-prefix "." (car ext-list))))
     (cond ((null (car ext-list))             nil)
