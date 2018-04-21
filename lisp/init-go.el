@@ -24,7 +24,7 @@
 
   (with-eval-after-load 'company
     (use-package company-go
-      :init (cl-pushnew 'company-go company-backends))))
+      :init (cl-pushnew (company-backend-with-yas 'company-go) company-backends))))
 
 (evil-define-key 'normal go-mode-map "gd" 'godef-jump)
 

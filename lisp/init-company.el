@@ -19,7 +19,18 @@
         company-dabbrev-downcase nil
         company-dabbrev-code-other-buffers t
         company-show-numbers t
-        company-backends '(company-files company-dabbrev-code company-dabbrev company-keywords company-etags)))
+        company-backends '(company-files company-dabbrev-code company-dabbrev company-keywords company-etags))
+
+  (defvar company-enable-yas t
+    "Enable yasnippet for all backends.")
+  (defun company-backend-with-yas (backend)
+    (if (or (not company-enable-yas)
+            (and (listp backend) (member 'company-yasnippet backend)))
+        backend
+      (append (if (consp backend) backend (list backend))
+              '(:with company-yasnippet))))
+
+  (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
 
 (setq company-frontends
       '(company-pseudo-tooltip-unless-just-one-frontend

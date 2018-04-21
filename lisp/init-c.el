@@ -1,6 +1,6 @@
 (defconst ooo-c-style
   '((c-backslash-column . 70)
-    (c-basic-offset . 4)
+    (c-basic-offset . 2)
     (c-cleanup-list scope-operator)
     (c-comment-only-line-offset . 0)
     (c-electric-pound-behavior)
@@ -97,7 +97,8 @@
 
 ;; Company mode backend for C/C++ header files
 (with-eval-after-load 'company
-  (use-package company-c-headers))
+    (use-package company-c-headers
+      :init (cl-pushnew (company-backend-with-yas 'company-c-headers) company-backends)))
 
 (provide 'init-c)
 

@@ -52,6 +52,7 @@
 (require 'init-utils)
 
 ;; Programming
+(require 'init-yasnippet)
 (require 'init-prog)
 (require 'init-lisp)
 (require 'init-c)
