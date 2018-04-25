@@ -98,10 +98,6 @@
              nil))))
   )
 
-(with-eval-after-load 'counsel
-  (define-key ivy-minibuffer-map (kbd "TAB") #'ivy-occur)
-  (define-key ivy-minibuffer-map (kbd "<tab>") #'ivy-occur))
-
 (provide 'init-ivy)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
