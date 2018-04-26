@@ -21,7 +21,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'dark
+(defcustom my-theme 'light
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
