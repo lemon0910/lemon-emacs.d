@@ -39,14 +39,21 @@
   (use-package leuven-theme
     :init (load-theme 'leuven t))))
 
-(use-package spaceline-config
-  :ensure spaceline
-  :commands spaceline-spacemacs-theme
-  :init (add-hook 'after-init-hook #'spaceline-spacemacs-theme)
-  :config
-  (setq spaceline-pre-hook #'powerline-reset) ; Fix for changing themes
-  (setq powerline-default-separator (if window-system 'slant 'utf-8))
-  (setq powerline-image-apple-rgb sys/mac-x-p))
+(use-package telephone-line
+  :init
+  (setq telephone-line-lhs
+        '((evil   . (telephone-line-evil-tag-segment))
+          (accent . (telephone-line-vc-segment
+                     telephone-line-erc-modified-channels-segment
+                     telephone-line-process-segment))
+          (nil    . (telephone-line-minor-mode-segment
+                     telephone-line-buffer-segment))))
+  (setq telephone-line-rhs
+        '((nil    . (telephone-line-misc-info-segment))
+          (accent . (telephone-line-major-mode-segment))
+          (evil   . (telephone-line-airline-position-segment))))
+  (add-hook 'after-init-hook #'(lambda()
+                                 (telephone-line-mode 1))))
 
 ;; Fonts
 (use-package cnfonts
