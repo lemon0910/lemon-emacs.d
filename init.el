@@ -57,7 +57,7 @@
 (require 'init-lisp)
 (require 'init-c)
 (require 'init-go)
-(require 'init-python)
+; (require 'init-python)
 
 (require 'init-eshell)
 (require 'init-restore)
