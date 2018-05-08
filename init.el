@@ -23,6 +23,8 @@
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+(setq my-saved-launch-directory default-directory)
+
 ;; Constants
 (require 'init-const)
 

@@ -15,7 +15,7 @@
 
 (evil-leader/set-key
   "ff"  'counsel-find-file
-  "fz"   'counsel-fzf
+  "fz"   'my-fzf
   "fg"  'counsel-git
   "cg"  'cgounsel-git-grep
   "ft"  'counsel-imenu
