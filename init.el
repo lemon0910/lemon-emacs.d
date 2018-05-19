@@ -24,6 +24,8 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 ;; (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
+(setq my-saved-launch-directory default-directory)
+
 ;; Constants
 (require 'init-const)
 

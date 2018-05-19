@@ -125,6 +125,11 @@ Repeated invocations toggle between the two most recently open buffers."
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
+(defun my-helm-find()
+  (interactive)
+  (setq my-directory my-saved-launch-directory)
+  (helm-find my-directory))
+
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
