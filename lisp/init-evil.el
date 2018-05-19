@@ -14,37 +14,29 @@
 ; (add-hook 'evil-insert-state-entry-hook 'linum-relative-off)
 
 (evil-leader/set-key
-  "ff"  'counsel-find-file
-  "fz"   'counsel-fzf
-  "fg"  'counsel-git
-  "rg"  'counsel-rg
-  "ft"  'counsel-imenu
-  "fa"  'counsel-etags-find-tag
-  "ag"  'counsel-ag
+  "ff"  'helm-find-files
+  "fg"  'helm-ls-git-ls
+  "ft"  'helm-imenu
+  "ag"  'helm-do-ag
   "ww"  'save-buffer
   "q"  'save-buffers-kill-terminal
   "Q"  'lemon/kill-emacs
-  "bb"  'ivy-switch-buffer
+  "bb"  'helm-mini
   "bd"  'lemon/kill-this-buffer
   "bm"  'lemon/kill-other-buffers
   "ba"  'lemon/kill-all-buffers
-  ","   'counsel-M-x
+  ","   'helm-M-x
   "k"   'symbol-overlay-put
   "K"   'symbol-overlay-remove-all
   "dr"  'dired
-  "ss"  'swiper
+  "ss"  'helm-swoop
   "sc"  'evil-search-highlight-persist-remove-all
   "aa"  'c-open-relational-file
-  "as"  'swiper-all 
   "cc"  'comment-dwim-2
   "wd"  'delete-window
   "gs"  'magit-status
   "gm"  'magit-dispatch-popup
   "`"   'switch-to-previous-buffer
-  "1"   'select-window-1
-  "2"   'select-window-2
-  "3"   'select-window-3
-  "4"   'select-window-4
   "o"   'ace-window
 )
 
@@ -53,7 +45,6 @@
 (define-key evil-normal-state-map (kbd "H") 'mwim-beginning-of-code-or-line)
 (define-key evil-normal-state-map (kbd "L") 'mwim-end-of-code-or-line)
 (define-key evil-normal-state-map (kbd "<SPC>s") 'evil-avy-goto-char)
-(define-key evil-normal-state-map (kbd "gd") 'counsel-etags-find-tag-at-point)
 (define-key evil-normal-state-map (kbd "gb") 'evil-jump-backward)
 (define-key evil-normal-state-map (kbd "C-b") (lambda ()
                                                 (interactive)

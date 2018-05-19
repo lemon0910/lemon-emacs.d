@@ -25,7 +25,11 @@
 (cond
  ((eq my-theme 'default)
   (use-package monokai-theme
-    :init (load-theme 'monokai t)))
+    :init (load-theme 'monokai t)
+    :config (setq ;; foreground and background
+      ;; highlights and comments
+      monokai-highlight-alt  "#66D9EF"
+      monokai-highlight-line "#1B1D1E")))
  ((eq my-theme 'dark)
   (use-package spacemacs-theme
     :init (load-theme 'spacemacs-dark t)))
@@ -35,25 +39,15 @@
  ((eq my-theme 'zenburn)
   (use-package zenburn-theme
     :init (load-theme 'zenburn t)))
+ ((eq my-theme 'moe)
+  (progn
+    (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme.el/")
+    (add-to-list 'load-path "~/.emacs.d/site-lisp/moe-theme.el/")
+    (require 'moe-theme)
+    (load-theme 'moe-dark t)))
  ((eq my-theme 'daylight)
   (use-package leuven-theme
     :init (load-theme 'leuven t))))
-
-(use-package telephone-line
-  :init
-  (setq telephone-line-lhs
-        '((evil   . (telephone-line-evil-tag-segment))
-          (accent . (telephone-line-vc-segment
-                     telephone-line-erc-modified-channels-segment
-                     telephone-line-process-segment))
-          (nil    . (telephone-line-minor-mode-segment
-                     telephone-line-buffer-segment))))
-  (setq telephone-line-rhs
-        '((nil    . (telephone-line-misc-info-segment))
-          (accent . (telephone-line-major-mode-segment))
-          (evil   . (telephone-line-airline-position-segment))))
-  (add-hook 'after-init-hook #'(lambda()
-                                 (telephone-line-mode 1))))
 
 ;; Fonts
 (use-package cnfonts

@@ -21,12 +21,13 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'default
+(defcustom my-theme 'moe
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
           (const :tag "Dark theme" dark)
           (const :tag "Light theme" light)
+          (const :tag "moe theme" moe)
           (const :tag "Daylight theme" daylight)))
 
 (defcustom my-emoji-enabled nil
