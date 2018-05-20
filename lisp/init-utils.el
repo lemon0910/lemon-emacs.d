@@ -23,6 +23,7 @@
 (use-package elpa-mirror
   :config
   (setq elpamr-default-output-directory "~/.emacs.d/myelpa/"))
+(use-package fzf)
 
 (provide 'init-utils)
 
