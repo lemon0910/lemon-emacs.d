@@ -13,7 +13,6 @@
 (use-package helm-swoop)
 (use-package helm-ls-git)
 (use-package helm-gtags)
-(use-package helm-projectile)
 (helm-mode 1)
 
 (provide 'init-helm)
