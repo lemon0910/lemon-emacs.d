@@ -16,6 +16,7 @@
 (evil-leader/set-key
   "ff"  'helm-find-files
   "fg"  'helm-ls-git-ls
+  "fz"  'fzf
   "ft"  'helm-imenu
   "ag"  'helm-do-ag
   "ww"  'save-buffer
