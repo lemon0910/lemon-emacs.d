@@ -24,7 +24,7 @@
 (use-package helm-ag)
 (use-package helm-swoop)
 (use-package helm-ls-git)
-(use-package helm-gtags)
+(use-package helm-etags-plus)
 (helm-mode 1)
 
 (provide 'init-helm)

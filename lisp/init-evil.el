@@ -46,6 +46,7 @@
 (define-key evil-normal-state-map (kbd "H") 'mwim-beginning-of-code-or-line)
 (define-key evil-normal-state-map (kbd "L") 'mwim-end-of-code-or-line)
 (define-key evil-normal-state-map (kbd "<SPC>s") 'evil-avy-goto-char)
+(define-key evil-normal-state-map (kbd "gd") 'evil-jump-backward)
 (define-key evil-normal-state-map (kbd "gb") 'evil-jump-backward)
 (define-key evil-normal-state-map (kbd "C-b") (lambda ()
                                                 (interactive)
