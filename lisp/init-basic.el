@@ -25,6 +25,15 @@
   :config
   (setq save-place-forget-unreadable-files nil))
 
+(use-package recentf
+  :ensure nil
+  :init
+  (setq recentf-max-saved-items 200)
+  :config
+  (add-to-list 'recentf-exclude (expand-file-name package-user-dir))
+  (add-to-list 'recentf-exclude "bookmarks")
+  (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'"))
+
 (provide 'init-basic)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

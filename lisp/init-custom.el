@@ -21,12 +21,14 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'dark
+(defcustom my-theme 'moe
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
           (const :tag "Dark theme" dark)
           (const :tag "Zenburn theme" zenburn)
+          (const :tag "moe theme" moe)
+          (const :tag "doom theme" doom)
           (const :tag "Light theme" light)
           (const :tag "Daylight theme" daylight)))
 

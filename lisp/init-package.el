@@ -19,19 +19,21 @@
 (defun switch-package-archives (archives)
   "Switch to specific package ARCHIVES repository."
   (interactive
-    (list
-      (intern (completing-read "Switch to archives: "
-                               package-archives-list))))
+   (list
+    (intern (completing-read "Switch to archives: "
+                             package-archives-list))))
   (cond
-    ((eq my-package-archives 'melpa)
-     (setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
-                              ("melpa" . "http://melpa.org/packages/"))))
-    ((eq my-package-archives 'emacs-china)
-     (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                              ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
-    ((eq my-package-archives 'tuna)
-     (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                              ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))))
+   ((eq my-package-archives 'melpa)
+    (setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
+                             ("melpa" . "http://melpa.org/packages/"))))
+   ((eq my-package-archives 'emacs-china)
+    (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                             ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+   ((eq my-package-archives 'tuna)
+    (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                             ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))))
+
+(switch-package-archives my-package-archives)
 
 ;; Initialize packages
 (setq package-enable-at-startup nil)    ; To prevent initialising twice

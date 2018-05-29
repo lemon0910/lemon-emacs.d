@@ -15,10 +15,10 @@
 
 (evil-leader/set-key
   "ff"  'counsel-find-file
-  "fz"   'my-fzf
   "fg"  'counsel-git
-  "cg"  'cgounsel-git-grep
+  "fz"  'my-fzf
   "ft"  'counsel-imenu
+  "fr"  'counsel-recentf
   "fa"  'counsel-etags-find-tag
   "ag"  'counsel-ag
   "ww"  'save-buffer
@@ -35,16 +35,11 @@
   "ss"  'swiper
   "sc"  'evil-search-highlight-persist-remove-all
   "aa"  'c-open-relational-file
-  "as"  'swiper-all 
   "cc"  'comment-dwim-2
   "wd"  'delete-window
   "gs"  'magit-status
   "gm"  'magit-dispatch-popup
   "`"   'switch-to-previous-buffer
-  "1"   'select-window-1
-  "2"   'select-window-2
-  "3"   'select-window-3
-  "4"   'select-window-4
   "o"   'ace-window
 )
 
@@ -61,6 +56,5 @@
 (define-key evil-normal-state-map (kbd "C-f") (lambda ()
                                                 (interactive)
                                                 (evil-scroll-down nil)))
-
 ;; esc quits
 (provide 'init-evil)

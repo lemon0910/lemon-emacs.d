@@ -121,11 +121,10 @@ Repeated invocations toggle between the two most recently open buffers."
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-(defun my-fzf()
+(defun my-fzf ()
   (interactive)
   (setq default-directory my-saved-launch-directory)
   (counsel-fzf))
-
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

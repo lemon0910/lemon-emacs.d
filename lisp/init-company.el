@@ -4,10 +4,10 @@
          :map company-active-map
               ("C-n" . company-complete-common-or-cycle)
               ("C-m" . company-complete-selection)
-         :map company-search-map
-         ([tab] . company-select-next))
+              :map company-search-map
+              ([tab] . company-select-next))
   :init
-   (add-hook 'after-init-hook #'global-company-mode)
+  (add-hook 'after-init-hook #'global-company-mode)
   :config
   ;; aligns annotation to the right hand side
   (setq company-tooltip-align-annotations t)

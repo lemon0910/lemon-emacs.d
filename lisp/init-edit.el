@@ -5,6 +5,7 @@
 
 ;; Miscs
 ;; (setq initial-scratch-message nil)
+(add-hook 'after-init-hook #'(lambda() (modify-syntax-entry ?_ "w")))
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets) ; Show path if names are same
 (setq adaptive-fill-regexp "[ t]+|[ t]*([0-9]+.|*+)[ t]*")
 (setq adaptive-fill-first-line-regexp "^* *$")

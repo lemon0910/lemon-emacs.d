@@ -37,23 +37,17 @@
     :init (load-theme 'zenburn t)))
  ((eq my-theme 'daylight)
   (use-package leuven-theme
-    :init (load-theme 'leuven t))))
+    :init (load-theme 'leuven t)))
+ ((eq my-theme 'doom-one-light)
+  (load-theme 'doom-one-light t))
+ ((eq my-theme 'moe)
+  (progn
+    (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme.el/")
+    (add-to-list 'load-path "~/.emacs.d/site-lisp/moe-theme.el/")
+    (require 'moe-theme)
+    (load-theme 'moe-dark t)
+    )))
 
-(use-package telephone-line
-  :init
-  (setq telephone-line-lhs
-        '((evil   . (telephone-line-evil-tag-segment))
-          (accent . (telephone-line-vc-segment
-                     telephone-line-erc-modified-channels-segment
-                     telephone-line-process-segment))
-          (nil    . (telephone-line-minor-mode-segment
-                     telephone-line-buffer-segment))))
-  (setq telephone-line-rhs
-        '((nil    . (telephone-line-misc-info-segment))
-          (accent . (telephone-line-major-mode-segment))
-          (evil   . (telephone-line-airline-position-segment))))
-  (add-hook 'after-init-hook #'(lambda()
-                                 (telephone-line-mode 1))))
 ;; (use-package spaceline-config
 ;;   :ensure spaceline
 ;;   :commands spaceline-spacemacs-theme
@@ -78,12 +72,27 @@
                                   ; ("org-mode" . 6)
                                   ; ("read-book" . 8))))
 
+;; (use-package telephone-line
+;;   :init
+;;   (setq telephone-line-lhs
+;;         '((evil   . (telephone-line-evil-tag-segment))
+;;           (accent . (telephone-line-vc-segment
+;;                      telephone-line-erc-modified-channels-segment
+;;                      telephone-line-process-segment))
+;;           (nil    . (telephone-line-minor-mode-segment
+;;                      telephone-line-buffer-segment))))
+;;   (setq telephone-line-rhs
+;;         '((nil    . (telephone-line-misc-info-segment))
+;;           (accent . (telephone-line-major-mode-segment))
+;;           (evil   . (telephone-line-airline-position-segment))))
+;;   (add-hook 'after-init-hook #'(lambda()
+;;                                  (telephone-line-mode 1))))
 ;; Line and Column
 (setq-default fill-column 80)
 (setq column-number-mode t)
 (setq line-number-mode t)
 
-;; Show native line numbers if possible, otherwise use linum
+; Show native line numbers if possible, otherwise use linum
 (if (fboundp 'display-line-numbers-mode)
     (use-package display-line-numbers
       :ensure nil
