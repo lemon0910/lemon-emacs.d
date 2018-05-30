@@ -15,10 +15,7 @@
 ;; (setq-default kill-whole-line t)           ; Kill line including '\n'
 
 (setq-default major-mode 'text-mode)
-(add-hook 'text-mode-hook
-          (lambda ()
-            (diminish 'auto-fill-function)
-            (linum-mode t)))
+(add-hook 'text-mode-hook #'display-line-numbers-mode)
 
 (add-hook 'abbrev-mode-hook (lambda () (diminish 'abbrev-mode)))
 
