@@ -17,9 +17,7 @@
 (setq truncate-lines nil)
 
 (setq-default major-mode 'text-mode)
-(add-hook 'text-mode-hook
-          (lambda ()
-            (linum-mode t)))
+(add-hook 'text-mode-hook #'display-line-numbers-mode)
 
 (add-hook 'abbrev-mode-hook (lambda () (diminish 'abbrev-mode)))
 
