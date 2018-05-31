@@ -40,11 +40,8 @@
   (use-package zenburn-theme
     :init (load-theme 'zenburn t)))
  ((eq my-theme 'moe)
-  (progn
-    (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/moe-theme.el/")
-    (add-to-list 'load-path "~/.emacs.d/site-lisp/moe-theme.el/")
-    (require 'moe-theme)
-    (load-theme 'moe-dark t)))
+  (use-package moe-theme
+    :init (load-theme 'moe-dark t)))
  ((eq my-theme 'daylight)
   (use-package leuven-theme
     :init (load-theme 'leuven t))))
