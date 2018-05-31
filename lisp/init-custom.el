@@ -6,10 +6,6 @@
   "Set user full name."
   :type 'string)
 
-(defcustom my-mail-address "lemon9010@gmail.com"
-  "Set user email address."
-  :type 'string)
-
 (defcustom my-proxy "127.0.0.1:1087"
   "Set network proxy."
   :type 'string)

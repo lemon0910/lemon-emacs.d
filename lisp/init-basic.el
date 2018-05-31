@@ -4,7 +4,6 @@
 
 ;; Personal information
 (setq user-full-name 'lemon)
-(setq user-mail-address 'lemon9010@gmail.com)
 
 ;; Key Modifiers
 (when sys/win32p
