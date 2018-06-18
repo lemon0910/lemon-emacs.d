@@ -17,23 +17,22 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'moe
+(defcustom my-theme 'doom
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
           (const :tag "Dark theme" dark)
           (const :tag "Light theme" light)
-          (const :tag "moe theme" moe)
-          (const :tag "Daylight theme" daylight)))
+          (const :tag "Daylight theme" daylight)
+          (const :tag "Doom theme" doom)))
 
-(defcustom my-emoji-enabled nil
-  "Enable emoji features or not."
+(defcustom my-company-backend-with-yas nil
+  "Enable yasnippet for company backends or not."
   :type 'boolean)
 
 (defcustom my-benchmark-enabled nil
   "Enable the init benchmark or not."
   :type 'boolean)
-
 
 (provide 'init-custom)
 

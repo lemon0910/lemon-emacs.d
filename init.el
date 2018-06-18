@@ -22,9 +22,10 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-;; (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (setq my-saved-launch-directory default-directory)
+(setq my-company-backend-with-yas nil)
 
 ;; Constants
 (require 'init-const)
@@ -60,6 +61,7 @@
 (require 'init-lisp)
 (require 'init-c)
 (require 'init-go)
+(require 'init-markdown)
 ; (require 'init-python)
 
 (require 'init-eshell)

@@ -16,7 +16,7 @@
 (evil-leader/set-key
   "ff"  'counsel-find-file
   "fg"  'counsel-git
-  "fz"  'my-fzf
+  "fz"  'counsel-fzf
   "ft"  'counsel-imenu
   "fr"  'counsel-recentf
   "fa"  'counsel-etags-find-tag
@@ -41,6 +41,7 @@
   "gm"  'magit-dispatch-popup
   "`"   'switch-to-previous-buffer
   "o"   'ace-window
+  "gb"  'magit-blame
 )
 
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)

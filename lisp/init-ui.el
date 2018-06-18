@@ -22,14 +22,43 @@
   (scroll-bar-mode -1))
 
 ;; Theme
+(defun is-doom-theme-p (theme)
+  "Check whether the THEME is a doom theme. THEME is a symbol."
+  (string-prefix-p "doom" (symbol-name theme)))
+(defvar after-load-theme-hook nil
+  "Hook run after a color theme is loaded using `load-theme'.")
+(defadvice load-theme (after run-after-load-theme-hook activate)
+  "Run `after-load-theme-hook'."
+  (run-hooks 'after-load-theme-hook))
+;; Modeline
+(if (is-doom-theme-p my-theme)
+    (use-package doom-modeline
+      :ensure nil
+      :commands (+doom-modeline|init)
+      :init (add-hook 'after-load-theme-hook #'+doom-modeline|init))
+  (use-package spaceline-config
+    :ensure spaceline
+    :commands spaceline-spacemacs-theme1
+    :init
+    (setq powerline-default-separator (if window-system 'arrow 'utf-8))
+    (setq powerline-image-apple-rgb sys/mac-x-p)
+    (add-hook 'after-init-hook #'spaceline-spacemacs-theme)
+    :config
+    (setq spaceline-pre-hook #'powerline-reset) ; For changing themes
+    (setq spaceline-highlight-face-func 'spaceline-highlight-face-modified)))
+(use-package hide-mode-line
+  :init
+  (dolist (hook '(completion-list-mode-hook
+                  completion-in-region-mode-hook
+                  neotree-mode-hook
+                  treemacs-mode-hook))
+    (add-hook hook #'hide-mode-line-mode)))
+
+;;Color Theme
 (cond
  ((eq my-theme 'default)
   (use-package monokai-theme
-    :init (load-theme 'monokai t)
-    :config (setq ;; foreground and background
-      ;; highlights and comments
-      monokai-highlight-alt  "#66D9EF"
-      monokai-highlight-line "#1B1D1E")))
+    :init (load-theme 'monokai t)))
  ((eq my-theme 'dark)
   (use-package spacemacs-theme
     :init (load-theme 'spacemacs-dark t)))
@@ -39,12 +68,28 @@
  ((eq my-theme 'zenburn)
   (use-package zenburn-theme
     :init (load-theme 'zenburn t)))
- ((eq my-theme 'moe)
-  (use-package moe-theme
-    :init (load-theme 'moe-dark t)))
+ ((eq my-theme 'seoul256)
+  (use-package seoul256-theme
+    :init (load-theme 'seoul256 t)))
  ((eq my-theme 'daylight)
   (use-package leuven-theme
-    :init (load-theme 'leuven t))))
+    :init (load-theme 'leuven t)))
+ ((is-doom-theme-p my-theme)
+  (use-package doom-themes
+    :preface (defvar region-fg nil)
+    :init
+    (if (eq my-theme 'doom)
+        (load-theme 'doom-one t)
+      (load-theme my-theme t))
+    :config
+    (doom-themes-visual-bell-config)
+    (doom-themes-org-config)
+    (use-package solaire-mode
+      :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+             (minibuffer-setup . solaire-mode-in-minibuffer))
+      :init (solaire-mode-swap-bg))))
+ (t
+  (ignore-errors (load-theme my-theme t))))
 
 ;; Fonts
 (use-package cnfonts
@@ -95,6 +140,7 @@
            ([(control super f)] . toggle-frame-fullscreen) ; Compatible with macOS
            ([(super return)] . toggle-frame-fullscreen)
            ([(meta shift return)] . toggle-frame-fullscreen))
+
 
 (provide 'init-ui)
 
