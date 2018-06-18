@@ -31,7 +31,7 @@
 
   (setq counsel-rg-base-command
         "rg -i -M 120 --no-heading --line-number --color never %s .")
-  
+
   ;; Use faster search tools: ripgrep or the silver search
   (let ((command
          (cond
@@ -99,6 +99,7 @@
                         ""))
             (t
              nil))))
+
   )
 
 (provide 'init-ivy)

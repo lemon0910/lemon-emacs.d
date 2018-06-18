@@ -30,6 +30,10 @@
   "Enable yasnippet for company backends or not."
   :type 'boolean)
 
+(defcustom more-feature t
+  "Enable more feature for mac"
+  :type 'boolean)
+
 (defcustom my-benchmark-enabled nil
   "Enable the init benchmark or not."
   :type 'boolean)

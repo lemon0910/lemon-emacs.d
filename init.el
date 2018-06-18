@@ -26,6 +26,7 @@
 
 (setq my-saved-launch-directory default-directory)
 (setq my-company-backend-with-yas nil)
+(setq more-feature t)
 
 ;; Constants
 (require 'init-const)
@@ -45,7 +46,6 @@
 (require 'init-evil)
 (require 'init-edit)
 (require 'init-ivy)
-; (require 'init-helm)
 (require 'init-company)
 
 (require 'init-dired)
