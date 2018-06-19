@@ -23,8 +23,8 @@
 ;;   :config (set-face-attribute 'hl-paren-face nil :weight 'ultra-bold))
 
 ;; Highlight brackets according to their depth
-(use-package rainbow-delimiters
-  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+;; (use-package rainbow-delimiters
+;;   :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (provide 'init-highlight)
 

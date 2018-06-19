@@ -16,7 +16,7 @@
 (evil-leader/set-key
   "ff"  'counsel-find-file
   "fg"  'counsel-git
-  "fz"  'counsel-fzf
+  "fz"  'my-fzf
   "ft"  'counsel-imenu
   "fr"  'counsel-recentf
   "fa"  'counsel-etags-find-tag
