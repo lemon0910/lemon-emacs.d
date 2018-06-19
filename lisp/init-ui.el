@@ -112,21 +112,22 @@
 (setq column-number-mode t)
 (setq line-number-mode t)
 
-(defun buffer-too-big-p ()
-   (or (> (buffer-size) (* 5000 80))
-       (> (line-number-at-pos (point-max)) 5000)))
-(add-hook 'prog-mode-hook
-          (lambda ()
-            ;; turn off `linum-mode' when there are more than 5000 lines
-            (if (buffer-too-big-p)
-                nil
-              (display-line-numbers-mode +1))))
-(add-hook 'text-mode-hook
-          (lambda ()
-            ;; turn off `linum-mode' when there are more than 5000 lines
-            (if (buffer-too-big-p)
-                nil
-              (display-line-numbers-mode +1))))
+(when more-feature
+  (defun buffer-too-big-p ()
+    (or (> (buffer-size) (* 5000 80))
+        (> (line-number-at-pos (point-max)) 5000)))
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              ;; turn off `linum-mode' when there are more than 5000 lines
+              (if (buffer-too-big-p)
+                  nil
+                (display-line-numbers-mode +1))))
+  (add-hook 'text-mode-hook
+            (lambda ()
+              ;; turn off `linum-mode' when there are more than 5000 lines
+              (if (buffer-too-big-p)
+                  nil
+                (display-line-numbers-mode +1)))))
 
 (use-package smooth-scrolling
   :init (add-hook 'after-init-hook #'smooth-scrolling-mode)

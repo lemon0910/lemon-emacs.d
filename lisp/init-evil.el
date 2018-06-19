@@ -57,5 +57,6 @@
 (define-key evil-normal-state-map (kbd "C-f") (lambda ()
                                                 (interactive)
                                                 (evil-scroll-down nil)))
+(global-set-key (kbd "C-c n") 'display-line-numbers-mode)
 ;; esc quits
 (provide 'init-evil)
