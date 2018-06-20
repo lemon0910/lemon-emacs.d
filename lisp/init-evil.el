@@ -51,12 +51,6 @@
 (define-key evil-normal-state-map (kbd "<SPC>s") 'evil-avy-goto-char)
 (define-key evil-normal-state-map (kbd "gd") 'counsel-etags-find-tag-at-point)
 (define-key evil-normal-state-map (kbd "gb") 'evil-jump-backward)
-(define-key evil-normal-state-map (kbd "C-b") (lambda ()
-                                                (interactive)
-                                                (evil-scroll-up nil)))
-(define-key evil-normal-state-map (kbd "C-f") (lambda ()
-                                                (interactive)
-                                                (evil-scroll-down nil)))
 (global-set-key (kbd "C-c n") 'display-line-numbers-mode)
 ;; esc quits
 (provide 'init-evil)
