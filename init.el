@@ -65,4 +65,5 @@
 ; (require 'init-python)
 
 (require 'init-eshell)
+(require 'init-gdb)
 (require 'init-restore)
