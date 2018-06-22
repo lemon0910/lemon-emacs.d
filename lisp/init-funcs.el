@@ -74,7 +74,7 @@
   "keeping in touch between header file and source file for C or C++"
   (interactive)
   (let* ((c-or-cpp-header-map (list "m" "mm" "mpp" "M" "c" 
-                                    "cpp" "cxx" "cc" "c++" "C"))
+                                    "cpp" "cxx" "cc" "c++" "C" "ipp"))
          (c-source-map        (list "h" "s"))
          (asm-source-map      (list "c"))
          (cpp-source-map      (list "hpp" "h" "hxx" "h++" "hh" "H"))
@@ -94,7 +94,8 @@
                    (cons "hh"  cpp-header-map)
                    (cons "hpp" cpp-header-map)
                    (cons "hxx" cpp-header-map)
-                   (cons "h++" cpp-header-map)))
+                   (cons "h++" cpp-header-map)
+                   (cons "ipp" cpp-source-map)))
          (opened-file-name (buffer-file-name (window-buffer)))
          (opened-file-name-prefix (file-name-sans-extension opened-file-name))
          (opened-file-ext-type (file-name-extension opened-file-name))
