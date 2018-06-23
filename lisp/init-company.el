@@ -63,6 +63,7 @@ In that case, insert the number."
   (define-key map [escape] (lambda()
                           (interactive)
                           (company-abort)
+                          (evil-force-normal-state)
                           (self-insert-command 1)))))
 
 (with-eval-after-load 'company
