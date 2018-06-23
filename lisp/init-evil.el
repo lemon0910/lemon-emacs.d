@@ -1,38 +1,28 @@
-(use-package evil-leader
-  :config
-   (evil-leader/set-leader ","))
-
 (use-package evil)
-(use-package evil-search-highlight-persist)
-
-(global-evil-leader-mode)
 (evil-mode 1)
-(global-evil-search-highlight-persist t)
-(setq evil-leader/in-all-states 1)
+(use-package evil-search-highlight-persist
+  :init
+  (add-hook 'after-init-hook '(lambda()
+                                (global-evil-search-highlight-persist t))))
 
-; (add-hook 'evil-normal-state-entry-hook 'linum-relative-on)
-; (add-hook 'evil-insert-state-entry-hook 'linum-relative-off)
+(use-package general)
+(define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
 
-(evil-leader/set-key
-  "ff"  'counsel-find-file
-  "fg"  'counsel-git
-  "fz"  'my-fzf
-  "ft"  'counsel-imenu
-  "fr"  'counsel-recentf
-  "fa"  'counsel-etags-find-tag
-  "ag"  'counsel-ag
+(use-package evil-magit)
+
+(general-define-key
+ :states 'motion
+ :prefix ","
+ :keymaps 'override
   "ww"  'save-buffer
   "q"  'save-buffers-kill-terminal
   "Q"  'lemon/kill-emacs
-  "bb"  'ivy-switch-buffer
   "bd"  'lemon/kill-this-buffer
   "bm"  'lemon/kill-other-buffers
   "ba"  'lemon/kill-all-buffers
-  ","   'counsel-M-x
   "k"   'symbol-overlay-put
   "K"   'symbol-overlay-remove-all
   "dr"  'dired
-  "ss"  'swiper
   "sc"  'evil-search-highlight-persist-remove-all
   "aa"  'c-open-relational-file
   "cc"  'comment-dwim-2
@@ -44,13 +34,51 @@
   "gb"  'magit-blame
 )
 
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-(define-key evil-normal-state-map (kbd "H") 'mwim-beginning-of-code-or-line)
-(define-key evil-normal-state-map (kbd "L") 'mwim-end-of-code-or-line)
-(define-key evil-normal-state-map (kbd "<SPC>s") 'evil-avy-goto-char)
-(define-key evil-normal-state-map (kbd "gd") 'counsel-etags-find-tag-at-point)
-(define-key evil-normal-state-map (kbd "gb") 'evil-jump-backward)
-(global-set-key (kbd "C-c n") 'display-line-numbers-mode)
+(general-define-key
+ :prefix "C-c"
+ "n" 'display-line-numbers-mode
+ "s" 'avy-goto-char-2
+ "j" 'avy-goto-line-below
+ "k" 'avy-goto-line-above)
+
+(general-define-key
+ :states 'motion
+ "j" 'evil-next-visual-line
+ "k" 'evil-previous-visual-line
+ "H" 'mwim-beginning-of-code-or-line
+ "L" 'mwim-end-of-code-or-line
+ "gd" 'counsel-etags-find-tag-at-point
+ "gb" 'evil-jump-backward)
+
+(cond
+ ((eq my-completion 'ivy)
+  (general-define-key
+   :states 'motion
+   :prefix ","
+   :keymaps 'override
+   "ff"  'counsel-find-file
+   "fg"  'counsel-git
+   "fz"  'my-fzf
+   "ft"  'counsel-imenu
+   "fr"  'counsel-recentf
+   "fa"  'counsel-etags-find-tag
+   "ag"  'counsel-ag
+   "bb"  'ivy-switch-buffer
+   ","   'counsel-M-x
+   "ss"  'swiper
+   ))
+ ((eq my-completion 'helm)
+  (general-define-key
+   :states 'motion
+   :prefix ","
+   :keymaps 'override
+   "ff" 'helm-find-files
+   "fg" 'helm-ls-git-ls
+   "ft" 'helm-imenu
+   "ag" 'helm-do-ag
+   "bb" 'helm-mini
+   ","  'helm-M-x
+   "ss" 'helm-swoop)))
+
 ;; esc quits
 (provide 'init-evil)

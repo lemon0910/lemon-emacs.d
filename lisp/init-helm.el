@@ -21,6 +21,7 @@
   (setq helm-mode-fuzzy-match t)
   (setq helm-completion-in-region-fuzzy-match t))
 
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
 (use-package helm-ag)
 (use-package helm-swoop)
 (use-package helm-ls-git)

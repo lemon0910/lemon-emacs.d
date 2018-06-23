@@ -19,7 +19,6 @@
 (use-package diffview)                  ; side-by-side diff view
 (use-package esup)                      ; Emacs startup profiler
 (use-package fontawesome)
-(use-package magit)
 (use-package elpa-mirror
   :config
   (setq elpamr-default-output-directory "~/.emacs.d/myelpa/"))

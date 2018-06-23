@@ -26,7 +26,10 @@
     (use-package company-go
       :init (cl-pushnew (company-backend-with-yas 'company-go) company-backends))))
 
-(evil-define-key 'normal go-mode-map "gd" 'godef-jump)
+(general-define-key
+ :states 'motion
+ :keymaps 'go-mode-map
+ "gd" 'godef-jump)
 
 (provide 'init-go)
 

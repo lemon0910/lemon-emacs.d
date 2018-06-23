@@ -74,6 +74,11 @@
  ((eq my-theme 'daylight)
   (use-package leuven-theme
     :init (load-theme 'leuven t)))
+ ((eq my-theme 'modern)
+  (add-to-list 'load-path "~/.emacs.d/site-lisp/modern-light-theme")
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/modern-light-theme")
+  (require 'modern-doom)
+  (load-theme 'modern-doom t))
  ((is-doom-theme-p my-theme)
   (use-package doom-themes
     :preface (defvar region-fg nil)

@@ -24,7 +24,8 @@
           (const :tag "Dark theme" dark)
           (const :tag "Light theme" light)
           (const :tag "Daylight theme" daylight)
-          (const :tag "Doom theme" doom)))
+          (const :tag "Doom theme" doom)
+          (const :tag "modern theme" modern)))
 
 (defcustom my-company-backend-with-yas nil
   "Enable yasnippet for company backends or not."
@@ -33,6 +34,12 @@
 (defcustom more-feature t
   "Enable more feature for mac"
   :type 'boolean)
+
+(defcustom my-completion 'ivy
+  "set completion type"
+  :type '(choice
+          (const :tag "ivy" ivy)
+          (const :tag "helm" helm)))
 
 (defcustom my-benchmark-enabled nil
   "Enable the init benchmark or not."
