@@ -11,9 +11,8 @@
 (use-package evil-magit)
 
 (general-define-key
- :states 'motion
+ :states '(normal visual)
  :prefix ","
- :keymaps 'override
   "ww"  'save-buffer
   "q"  'save-buffers-kill-terminal
   "Q"  'lemon/kill-emacs
@@ -42,20 +41,20 @@
  "k" 'avy-goto-line-above)
 
 (general-define-key
- :states 'motion
+ :states '(normal visual)
  "j" 'evil-next-visual-line
  "k" 'evil-previous-visual-line
  "H" 'mwim-beginning-of-code-or-line
  "L" 'mwim-end-of-code-or-line
  "gd" 'counsel-etags-find-tag-at-point
- "gb" 'evil-jump-backward)
+ "gb" 'evil-jump-backward
+ "s" 'avy-goto-char-2)
 
 (cond
  ((eq my-completion 'ivy)
   (general-define-key
-   :states 'motion
+   :states '(normal visual)
    :prefix ","
-   :keymaps 'override
    "ff"  'counsel-find-file
    "fg"  'counsel-git
    "fz"  'my-fzf
@@ -69,9 +68,8 @@
    ))
  ((eq my-completion 'helm)
   (general-define-key
-   :states 'motion
+   :states '(normal visual)
    :prefix ","
-   :keymaps 'override
    "ff" 'helm-find-files
    "fg" 'helm-ls-git-ls
    "ft" 'helm-imenu

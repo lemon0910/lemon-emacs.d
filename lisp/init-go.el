@@ -27,7 +27,7 @@
       :init (cl-pushnew (company-backend-with-yas 'company-go) company-backends))))
 
 (general-define-key
- :states 'motion
+ :states '(normal visual)
  :keymaps 'go-mode-map
  "gd" 'godef-jump)
 
