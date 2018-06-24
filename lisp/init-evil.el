@@ -38,7 +38,8 @@
  "n" 'display-line-numbers-mode
  "s" 'avy-goto-char-2
  "j" 'avy-goto-line-below
- "k" 'avy-goto-line-above)
+ "k" 'avy-goto-line-above
+ "f" 'avy-goto-char)
 
 (general-define-key
  :states '(normal visual)
@@ -47,8 +48,7 @@
  "H" 'mwim-beginning-of-code-or-line
  "L" 'mwim-end-of-code-or-line
  "gd" 'counsel-etags-find-tag-at-point
- "gb" 'evil-jump-backward
- "s" 'avy-goto-char-2)
+ "gb" 'evil-jump-backward)
 
 (cond
  ((eq my-completion 'ivy)
@@ -61,7 +61,7 @@
    "ft"  'counsel-imenu
    "fr"  'counsel-recentf
    "fa"  'counsel-etags-find-tag
-   "ag"  'counsel-ag
+   "ag"  'my-ag
    "bb"  'ivy-switch-buffer
    ","   'counsel-M-x
    "ss"  'swiper

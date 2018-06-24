@@ -24,8 +24,7 @@
           (const :tag "Dark theme" dark)
           (const :tag "Light theme" light)
           (const :tag "Daylight theme" daylight)
-          (const :tag "Doom theme" doom)
-          (const :tag "modern theme" modern)))
+          (const :tag "Doom theme" doom)))
 
 (defcustom my-company-backend-with-yas nil
   "Enable yasnippet for company backends or not."

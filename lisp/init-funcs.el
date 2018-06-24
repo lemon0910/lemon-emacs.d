@@ -131,6 +131,11 @@ Repeated invocations toggle between the two most recently open buffers."
   (let ((default-directory my-saved-launch-directory))
     (counsel-fzf)))
 
+(defun my-ag ()
+  (interactive)
+  (let ((default-directory my-saved-launch-directory))
+    (counsel-ag)))
+
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
