@@ -17,12 +17,10 @@
 ;; A Simmple and cool pomodoro timer
 ;; Misc
 (use-package diffview)                  ; side-by-side diff view
-(use-package esup)                      ; Emacs startup profiler
 (use-package fontawesome)
 (use-package elpa-mirror
   :config
   (setq elpamr-default-output-directory "~/.emacs.d/myelpa/"))
-(use-package fzf)
 
 (provide 'init-utils)
 
