@@ -122,13 +122,15 @@
               ;; turn off `linum-mode' when there are more than 5000 lines
               (if (buffer-too-big-p)
                   nil
-                (display-line-numbers-mode +1))))
+                (display-line-numbers-mode +1)
+                (lemon-relative-line-number))))
   (add-hook 'text-mode-hook
             (lambda ()
               ;; turn off `linum-mode' when there are more than 5000 lines
               (if (buffer-too-big-p)
                   nil
-                (display-line-numbers-mode +1)))))
+                (display-line-numbers-mode +1)
+                (lemon-relative-line-number)))))
 
 (use-package smooth-scrolling
   :init (add-hook 'after-init-hook #'smooth-scrolling-mode)

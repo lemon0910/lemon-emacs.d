@@ -142,6 +142,12 @@ Repeated invocations toggle between the two most recently open buffers."
     (setq my-saved-launch-directory (expand-file-name filename))
     (message "%s" my-saved-launch-directory)))
 
+(defun lemon-relative-line-number ()
+  (setq-local display-line-numbers 'visual))
+
+(defun lemon-absolute-line-number ()
+  (setq-local display-line-numbers t))
+
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
