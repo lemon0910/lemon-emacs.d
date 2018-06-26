@@ -43,6 +43,7 @@
 
 (general-define-key
  :states '(normal visual)
+ "s" 'avy-goto-char-2
  "j" 'evil-next-visual-line
  "k" 'evil-previous-visual-line
  "H" 'mwim-beginning-of-code-or-line

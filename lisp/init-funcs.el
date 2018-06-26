@@ -136,6 +136,12 @@ Repeated invocations toggle between the two most recently open buffers."
   (let ((default-directory my-saved-launch-directory))
     (counsel-ag)))
 
+(defun lemon-set-project-directory ()
+  (interactive)
+  (let ((filename (read-directory-name "the project directory is ")))
+    (setq my-saved-launch-directory (expand-file-name filename))
+    (message "%s" my-saved-launch-directory)))
+
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
