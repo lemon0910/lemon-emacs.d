@@ -53,6 +53,7 @@
  ((eq my-completion 'helm)
   (require 'init-helm)))
 
+(require 'init-yasnippet)
 (require 'init-company)
 
 (require 'init-dired)
@@ -63,7 +64,7 @@
 (require 'init-utils)
 
 ;; Programming
-(require 'init-yasnippet)
+(require 'init-flycheck)
 (require 'init-prog)
 (require 'init-lisp)
 (require 'init-c)
