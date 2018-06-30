@@ -105,9 +105,7 @@
       :config
       (set-variable 'ycmd-server-command '("python" "/Users/lemon/.emacs.d/ycmd/ycmd"))
       (use-package company-ycmd)
-      (company-ycmd-setup)
-      (require 'ycmd-eldoc)
-      (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup))))
+      (company-ycmd-setup))))
 
 (provide 'init-c)
 

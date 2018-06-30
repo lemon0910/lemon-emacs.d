@@ -22,9 +22,6 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save)
 
-  (use-package go-eldoc
-    :hook (go-mode . go-eldoc-setup))
-
   (use-package go-guru)
 
   (with-eval-after-load 'company

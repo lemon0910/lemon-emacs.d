@@ -25,7 +25,7 @@
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (setq my-saved-launch-directory default-directory)
-(setq my-company-backend-with-yas t)
+(setq my-company-backend-with-yas nil)
 (setq more-feature t)
 (setq my-completion 'ivy)
 
