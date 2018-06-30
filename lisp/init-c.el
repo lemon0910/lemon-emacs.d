@@ -87,18 +87,27 @@
   (setq tab-width 2)
   (setq indent-tabs-mode nil)	;; use spaces instead of tabs
   ;; (c-toggle-auto-state 1)
-  (define-key c-mode-base-map "\C-m" 'newline-and-indent)
-  )
+  (define-key c-mode-base-map "\C-m" 'newline-and-indent))
 
 (use-package cc-mode
   :ensure nil
   :init
-  (add-hook 'c-mode-common-hook #'ooo-c-mode-common-hook))
-
-;; Company mode backend for C/C++ header files
-(with-eval-after-load 'company
+  (add-hook 'c-mode-common-hook #'ooo-c-mode-common-hook)
+  :config
+  ;; Company mode backend for C/C++ header files
+  (with-eval-after-load 'company
     (use-package company-c-headers
       :init (cl-pushnew (company-backend-with-yas 'company-c-headers) company-backends)))
+  (when more-feature
+    (use-package ycmd
+      :init
+      (add-hook 'c-mode-common-hook 'ycmd-mode)
+      :config
+      (set-variable 'ycmd-server-command '("python" "/Users/lemon/.emacs.d/ycmd/ycmd"))
+      (use-package company-ycmd)
+      (company-ycmd-setup)
+      (require 'ycmd-eldoc)
+      (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup))))
 
 (provide 'init-c)
 

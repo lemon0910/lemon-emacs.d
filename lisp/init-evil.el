@@ -52,7 +52,7 @@
  "H" 'mwim-beginning-of-code-or-line
  "L" 'mwim-end-of-code-or-line
  "gd" 'counsel-etags-find-tag-at-point
- "gb" 'evil-jump-backward)
+ "gb" 'pop-tag-mark)
 
 (cond
  ((eq my-completion 'ivy)

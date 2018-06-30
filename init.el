@@ -25,7 +25,7 @@
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (setq my-saved-launch-directory default-directory)
-(setq my-company-backend-with-yas nil)
+(setq my-company-backend-with-yas t)
 (setq more-feature t)
 (setq my-completion 'ivy)
 
@@ -69,7 +69,7 @@
 (require 'init-c)
 (require 'init-go)
 (require 'init-markdown)
-; (require 'init-python)
+(require 'init-python)
 
 (require 'init-eshell)
 (require 'init-gdb)

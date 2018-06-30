@@ -19,7 +19,7 @@
         company-dabbrev-downcase nil
         company-dabbrev-code-other-buffers t
         company-show-numbers t
-        company-backends '(company-files company-dabbrev-code company-dabbrev company-keywords company-etags))
+        company-backends '(company-files company-dabbrev-code company-dabbrev company-keywords))
 
   (defvar company-enable-yas my-company-backend-with-yas
     "Enable yasnippet for all backends.")

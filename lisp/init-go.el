@@ -22,14 +22,20 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save)
 
+  (use-package go-eldoc
+    :hook (go-mode . go-eldoc-setup))
+
+  (use-package go-guru)
+
   (with-eval-after-load 'company
     (use-package company-go
-      :init (cl-pushnew (company-backend-with-yas 'company-go) company-backends))))
+      :init (cl-pushnew (company-backend-with-yas 'company-go) 'company-backends))))
 
 (general-define-key
  :states '(normal visual)
  :keymaps 'go-mode-map
- "gd" 'godef-jump)
+ "gd" 'godef-jump
+ "gr" 'go-guru-referrers)
 
 (provide 'init-go)
 
