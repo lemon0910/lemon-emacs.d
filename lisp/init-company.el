@@ -1,9 +1,6 @@
 (use-package company
   :diminish company-mode
   :bind (
-         :map company-active-map
-              ("C-n" . company-complete-common-or-cycle)
-              ("C-m" . company-complete-selection)
          :map company-search-map
          ([tab] . company-select-next))
   :init
@@ -69,7 +66,6 @@ In that case, insert the number."
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "<return>") nil)
   (define-key company-active-map (kbd "RET") nil)
-  (define-key company-active-map (kbd "`") #'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "TAB") #'company-complete-selection)
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 
