@@ -97,16 +97,19 @@
   ;; Company mode backend for C/C++ header files
   (with-eval-after-load 'company
     (use-package company-c-headers
-      :init (cl-pushnew (company-backend-with-yas 'company-c-headers) company-backends)))
-  (when more-feature
-    (use-package ycmd
-      :init
-      (add-hook 'c-mode-common-hook 'ycmd-mode)
-      :config
-      (set-variable 'ycmd-server-command '("python" "/Users/lemon/.emacs.d/ycmd/ycmd"))
-      (use-package company-ycmd)
-      (company-ycmd-setup))))
+      :init (cl-pushnew (company-backend-with-yas 'company-c-headers) company-backends))))
 
+(defun ccls//enable ()
+  (condition-case nil
+      (lsp-ccls-enable)
+    (user-error nil)))
+
+(use-package ccls
+  :commands lsp-ccls-enable
+  :init (add-hook 'c-mode-common-hook #'ccls//enable)
+  :config
+  (setq ccls-executable "/usr/local/bin/ccls")
+  (setq ccls-extra-init-params '(:cacheFormat "msgpack")))
 (provide 'init-c)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

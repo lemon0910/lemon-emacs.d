@@ -64,6 +64,7 @@
 (require 'init-utils)
 
 ;; Programming
+(require 'init-lsp)
 (require 'init-flycheck)
 (require 'init-prog)
 (require 'init-lisp)
