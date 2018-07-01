@@ -7,6 +7,13 @@
   :init
   (add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
   :config
+  (use-package lsp-ui
+    :defines lsp-ui-mode-map
+    :commands (lsp-ui-mode lsp-ui-peek-find-definistions lsp-ui-peek-find-references)
+    :bind (:map lsp-ui-mode-map
+                ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+                ([remap xref-find-references] . lsp-ui-peek-find-references))
+    :hook (lsp-mode . lsp-ui-mode))
   (with-eval-after-load 'company
     (use-package company-lsp
       :defines company-backends
