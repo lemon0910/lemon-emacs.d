@@ -99,17 +99,18 @@
     (use-package company-c-headers
       :init (cl-pushnew (company-backend-with-yas 'company-c-headers) company-backends))))
 
-(defun ccls//enable ()
-  (condition-case nil
-      (lsp-ccls-enable)
-    (user-error nil)))
+(when my-lsp
+  (defun ccls//enable ()
+    (condition-case nil
+        (lsp-ccls-enable)
+      (user-error nil)))
 
-(use-package ccls
-  :commands lsp-ccls-enable
-  :init (add-hook 'c-mode-common-hook #'ccls//enable)
-  :config
-  (setq ccls-executable "/usr/local/bin/ccls")
-  (setq ccls-extra-init-params '(:cacheFormat "msgpack")))
+  (use-package ccls
+    :commands lsp-ccls-enable
+    :init (add-hook 'c-mode-common-hook #'ccls//enable)
+    :config
+    (setq ccls-executable "/usr/local/bin/ccls")
+    (setq ccls-extra-init-params '(:cacheFormat "msgpack"))))
 (provide 'init-c)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -24,15 +24,17 @@
 
   (use-package go-guru)
 
+  (when (not my-lsp)
   (with-eval-after-load 'company
     (use-package company-go
-      :init (cl-pushnew (company-backend-with-yas 'company-go) 'company-backends))))
+      :init (cl-pushnew (company-backend-with-yas 'company-go) 'company-backends)))))
 
+(when (not my-lsp)
 (general-define-key
  :states '(normal visual)
  :keymaps 'go-mode-map
  "gd" 'godef-jump
- "gr" 'go-guru-referrers)
+ "gr" 'go-guru-referrers))
 
 (provide 'init-go)
 

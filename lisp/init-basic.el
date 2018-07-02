@@ -2,6 +2,15 @@
   (require 'init-const)
   (require 'init-custom))
 
+;; Prefers the newest version of a file
+(setq load-prefer-newer t)
+
+;; warn when opening files bigger than 100MB
+(setq large-file-warning-threshold 100000000)
+
+;; disable the annoying bell ring
+(setq ring-bell-function 'ignore)
+
 ;; Personal information
 (setq user-full-name 'lemon)
 

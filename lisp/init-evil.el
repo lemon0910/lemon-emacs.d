@@ -82,5 +82,14 @@
    ","  'helm-M-x
    "ss" 'helm-swoop)))
 
+(when my-lsp
+  (general-define-key
+   :states '(normal visual)
+   :keymaps 'ccls-tree-mode-map
+   "f" 'ccls-tree-press
+   "q" 'ccls-tree-quit
+   "Q" 'quit-window
+   "RET" 'ccls-tree-press-and-switch))
+
 ;; esc quits
 (provide 'init-evil)

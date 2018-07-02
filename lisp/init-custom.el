@@ -26,7 +26,7 @@
           (const :tag "Daylight theme" daylight)
           (const :tag "Doom theme" doom)))
 
-(defcustom my-company-backend-with-yas nil
+(defcustom my-yas nil
   "Enable yasnippet for company backends or not."
   :type 'boolean)
 
@@ -42,6 +42,10 @@
 
 (defcustom my-benchmark-enabled nil
   "Enable the init benchmark or not."
+  :type 'boolean)
+
+(defcustom my-lsp nil
+  "enable lsp-mode"
   :type 'boolean)
 
 (provide 'init-custom)

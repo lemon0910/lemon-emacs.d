@@ -1,4 +1,4 @@
-(when more-feature
+(when my-yas 
   (use-package yasnippet
     :diminish yas-minor-mode
     :init (add-hook 'prog-mode-hook #'yas-global-mode))

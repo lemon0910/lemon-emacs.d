@@ -1,5 +1,5 @@
-(when (version< emacs-version "24.4")
-  (error "This requires Emacs 24.4 and above!"))
+(when (version< emacs-version "25.2")
+  (error "This requires Emacs 25.2 and above!"))
 
 ;; Optimize loading performance
 (defvar default-file-name-handler-alist file-name-handler-alist)
@@ -11,23 +11,16 @@
             (setq file-name-handler-alist default-file-name-handler-alist)
             (setq gc-cons-threshold 800000)))
 
-;; Prefers the newest version of a file
-(setq load-prefer-newer t)
-
-;; warn when opening files bigger than 100MB
-(setq large-file-warning-threshold 100000000)
-
-;; disable the annoying bell ring
-(setq ring-bell-function 'ignore)
-
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
+;; set my own configuration
 (setq my-saved-launch-directory default-directory)
-(setq my-company-backend-with-yas nil)
+(setq my-yas nil)
 (setq more-feature t)
 (setq my-completion 'ivy)
+(setq my-lsp t)
 
 ;; Constants
 (require 'init-const)
@@ -47,11 +40,8 @@
 (require 'init-evil)
 (require 'init-edit)
 
-(cond
- ((eq my-completion 'ivy)
-  (require 'init-ivy))
- ((eq my-completion 'helm)
-  (require 'init-helm)))
+(require 'init-ivy)
+; (require 'init-helm)
 
 (require 'init-yasnippet)
 (require 'init-company)
