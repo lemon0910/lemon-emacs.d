@@ -111,6 +111,7 @@
     :config
     (setq ccls-executable "/usr/local/bin/ccls")
     (setq ccls-extra-init-params '(:cacheFormat "msgpack"))))
+
 (provide 'init-c)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

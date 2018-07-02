@@ -14,7 +14,10 @@
       :bind (:map lsp-ui-mode-map
                   ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
                   ([remap xref-find-references] . lsp-ui-peek-find-references))
-     :hook (lsp-mode . lsp-ui-mode))
+     :hook (lsp-mode . lsp-ui-mode)
+     :after lsp-mode
+     :config
+     (lsp-ui-sideline-mode -1))
     (with-eval-after-load 'company
       (use-package company-lsp
         :defines company-backends
