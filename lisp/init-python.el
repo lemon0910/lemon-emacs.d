@@ -3,7 +3,8 @@
 ;; Python Mode
 
 (defun lemon-python-mode-hook()
-  (cl-pushnew (company-backend-with-yas 'company-jedi) 'company-backends))
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends (company-backend-with-yas 'company-jedi))))
 
 (use-package python
   :ensure nil

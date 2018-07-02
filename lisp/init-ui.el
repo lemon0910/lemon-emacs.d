@@ -32,21 +32,16 @@
   (run-hooks 'after-load-theme-hook))
 ;; Modeline
 (when more-feature
-  (if (is-doom-theme-p my-theme)
-      (use-package doom-modeline
-        :ensure nil
-        :commands (+doom-modeline|init)
-        :init (add-hook 'after-load-theme-hook #'+doom-modeline|init))
-    (use-package spaceline-config
-      :ensure spaceline
-      :commands spaceline-spacemacs-theme1
-      :init
-      (setq powerline-default-separator (if window-system 'arrow 'utf-8))
-      (setq powerline-image-apple-rgb sys/mac-x-p)
-      (add-hook 'after-init-hook #'spaceline-spacemacs-theme)
-      :config
-      (setq spaceline-pre-hook #'powerline-reset) ; For changing themes
-      (setq spaceline-highlight-face-func 'spaceline-highlight-face-modified))))
+  (use-package spaceline-config
+               :ensure spaceline
+               :commands spaceline-spacemacs-theme1
+               :init
+               (setq powerline-default-separator (if window-system 'arrow 'utf-8))
+               (setq powerline-image-apple-rgb sys/mac-x-p)
+               (add-hook 'after-init-hook #'spaceline-spacemacs-theme)
+               :config
+               (setq spaceline-pre-hook #'powerline-reset) ; For changing themes
+               (setq spaceline-highlight-face-func 'spaceline-highlight-face-modified)))
 (use-package hide-mode-line
   :init
   (dolist (hook '(completion-list-mode-hook
