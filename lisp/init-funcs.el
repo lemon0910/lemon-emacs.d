@@ -136,16 +136,16 @@ Repeated invocations toggle between the two most recently open buffers."
   (let ((default-directory my-saved-launch-directory))
     (counsel-ag)))
 
-(defun lemon//set-project-directory ()
+(defun lemon/set-project-directory ()
   (interactive)
   (let ((filename (read-directory-name "the project directory is ")))
     (setq my-saved-launch-directory (expand-file-name filename))
     (message "%s" my-saved-launch-directory)))
 
-(defun lemon-relative-line-number ()
+(defun lemon/relative-line-number ()
   (setq-local display-line-numbers 'visual))
 
-(defun lemon-absolute-line-number ()
+(defun lemon/absolute-line-number ()
   (setq-local display-line-numbers t))
 
 (defun buffer-too-big-p ()

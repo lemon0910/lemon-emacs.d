@@ -41,7 +41,7 @@
   ;;   (with-eval-after-load 'company
   ;;     (use-package company-anaconda
   ;;       :defines company-backends
-  ;;       :init (cl-pushnew (company-backend-with-yas 'company-anaconda) company-backends)))))
+  ;;       :init (add-to-list 'company-backends (company-backend-with-yas 'company-anaconda))))))
   (use-package company-jedi
     :init
     (add-hook 'python-mode-hook #'lemon-python-mode-hook)

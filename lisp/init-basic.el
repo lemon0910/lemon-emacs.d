@@ -11,9 +11,6 @@
 ;; disable the annoying bell ring
 (setq ring-bell-function 'ignore)
 
-;; Personal information
-(setq user-full-name 'lemon)
-
 ;; Key Modifiers
 (when sys/win32p
   ;; make PC keyboard's Win key or other to type Super or Hyper
@@ -42,11 +39,6 @@
       (add-hook 'after-init-hook #'save-place-mode)
     (setq save-place t)))
 
-;; History
-(use-package saveplace
-  :ensure nil
-  :hook (after-init . save-place-mode))
-
 (use-package recentf
   :ensure nil
   :init
@@ -74,11 +66,8 @@
         savehist-autosave-interval 60)
   (add-hook 'after-init-hook #'savehist-mode))
 
-(use-package expand-region
-  :ensure t
-  :bind ("C-=" . er/expand-region))
-
 (setq mouse-drag-copy-region t)
+
 (provide 'init-basic)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

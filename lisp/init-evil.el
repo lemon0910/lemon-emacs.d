@@ -8,8 +8,8 @@
 (use-package general)
 (define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
 (when more-feature
-  (add-hook 'evil-insert-state-entry-hook #'lemon-absolute-line-number)
-  (add-hook 'evil-insert-state-exit-hook #'lemon-relative-line-number))
+  (add-hook 'evil-insert-state-entry-hook #'lemon/absolute-line-number)
+  (add-hook 'evil-insert-state-exit-hook #'lemon/relative-line-number))
 
 (use-package evil-magit)
 
@@ -34,6 +34,7 @@
   "`"   'switch-to-previous-buffer
   "o"   'ace-window
   "gb"  'magit-blame
+  "u"   'undo-tree-visualizer-mode
 )
 
 (general-define-key
@@ -89,7 +90,13 @@
    "f" 'ccls-tree-press
    "q" 'ccls-tree-quit
    "Q" 'quit-window
-   "RET" 'ccls-tree-press-and-switch))
+   "RET" 'ccls-tree-press-and-switch)
+  (general-define-key
+   :states '(normal visual)
+   :keymaps '(c++-mode-map c-mode-map)
+   "gd" 'xref-find-definitions
+   "fa" 'xref-find-apropos
+   "fc" 'ccls-call-hierarchy))
 
 ;; esc quits
 (provide 'init-evil)

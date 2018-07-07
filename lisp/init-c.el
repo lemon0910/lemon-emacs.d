@@ -1,4 +1,4 @@
-(defconst ooo-c-style
+(defconst lemon-c-style
   '((c-backslash-column . 70)
     (c-basic-offset . 2)
     (c-cleanup-list scope-operator)
@@ -78,11 +78,11 @@
      (lambda-intro-cont . +)
      (inexpr-statement . 0)
      (inexpr-class . +)))
-  "OOo Programming Style")
+  "lemon Programming Style")
 
-(defun ooo-c-mode-common-hook ()
-  (c-add-style "ooo" ooo-c-style t)
-  (c-set-style "ooo")
+(defun lemon-c-mode-common-hook ()
+  (c-add-style "lemon-c" lemon-c-style t)
+  (c-set-style "lemon-c")
   (c-set-offset 'member-init-intro '++)
   (setq tab-width 2)
   (setq indent-tabs-mode nil)	;; use spaces instead of tabs
@@ -92,12 +92,12 @@
 (use-package cc-mode
   :ensure nil
   :init
-  (add-hook 'c-mode-common-hook #'ooo-c-mode-common-hook)
+  (add-hook 'c-mode-common-hook #'lemon-c-mode-common-hook)
   :config
   ;; Company mode backend for C/C++ header files
   (with-eval-after-load 'company
     (use-package company-c-headers
-      :init (cl-pushnew (company-backend-with-yas 'company-c-headers) company-backends))))
+      :init (add-to-list 'company-backends (company-backend-with-yas 'company-c-headers)))))
 
 (when my-lsp
   (defun ccls//enable ()
@@ -107,7 +107,8 @@
 
   (use-package ccls
     :commands lsp-ccls-enable
-    :init (add-hook 'c-mode-common-hook #'ccls//enable)
+    :init (add-hook 'c-mode-common-hook #'(lambda()
+                                            (ignore-errors (ccls//enable))))
     :config
     (setq ccls-executable "/usr/local/bin/ccls")
     (setq ccls-extra-init-params '(:cacheFormat "msgpack"))))

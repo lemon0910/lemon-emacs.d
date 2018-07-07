@@ -1,15 +1,3 @@
-(defgroup my nil
-  "Personal Emacs configurations."
-  :group 'extensions)
-
-(defcustom my-full-name "lemon"
-  "Set user full name."
-  :type 'string)
-
-(defcustom my-proxy "127.0.0.1:1087"
-  "Set network proxy."
-  :type 'string)
-
 (defcustom my-package-archives 'emacs-china
   "Set package archives from which to fetch."
   :type '(choice
