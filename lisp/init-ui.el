@@ -21,6 +21,8 @@
 (when (and (fboundp 'scroll-bar-mode) scroll-bar-mode)
   (scroll-bar-mode -1))
 
+(show-paren-mode 1)
+
 ;; Theme
 (defun is-doom-theme-p (theme)
   "Check whether the THEME is a doom theme. THEME is a symbol."

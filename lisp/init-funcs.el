@@ -126,16 +126,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-(defun my-fzf ()
-  (interactive)
-  (let ((default-directory my-saved-launch-directory))
-    (counsel-fzf)))
-
-(defun my-ag ()
-  (interactive)
-  (let ((default-directory my-saved-launch-directory))
-    (counsel-ag)))
-
 (defun lemon/set-project-directory ()
   (interactive)
   (let ((filename (read-directory-name "the project directory is ")))

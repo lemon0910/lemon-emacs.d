@@ -26,6 +26,8 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
+(use-package fzf)
+
 (provide 'init-utils)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

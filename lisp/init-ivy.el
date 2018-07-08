@@ -101,6 +101,8 @@
               (t
                nil))))
 
+    (use-package counsel-projectile)
+
     ))
 
 (provide 'init-ivy)

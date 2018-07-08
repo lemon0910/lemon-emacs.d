@@ -7,6 +7,7 @@
 
 (use-package general)
 (define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
+
 (when more-feature
   (add-hook 'evil-insert-state-entry-hook #'lemon/absolute-line-number)
   (add-hook 'evil-insert-state-exit-hook #'lemon/relative-line-number))
@@ -62,11 +63,11 @@
    :prefix ","
    "ff"  'counsel-find-file
    "fg"  'counsel-git
-   "fz"  'my-fzf
+   "fz"  'fzf-projectile
    "ft"  'counsel-imenu
    "fr"  'counsel-recentf
    "fa"  'counsel-etags-find-tag
-   "ag"  'my-ag
+   "ag"  'counsel-projectile-ag
    "bb"  'ivy-switch-buffer
    ","   'counsel-M-x
    "ss"  'swiper

@@ -8,8 +8,6 @@
 ;; Highlight symbols
 (use-package symbol-overlay)
 
-(show-paren-mode 1)
-
 (provide 'init-highlight)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
