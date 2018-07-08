@@ -20,7 +20,7 @@
 (setq my-yas nil)
 (setq more-feature t)
 (setq my-completion 'ivy)
-(setq my-lsp t)
+(setq my-lsp nil)
 
 ;; Constants
 (require 'init-const)

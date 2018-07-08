@@ -113,6 +113,19 @@
     (setq ccls-executable "/usr/local/bin/ccls")
     (setq ccls-extra-init-params '(:cacheFormat "msgpack"))))
 
+(when more-feature
+  ;; git clone https://github.com/Valloric/ycmd.git
+  ;; cd ycmd && git submodule --init --recursive && ./build.py --all
+  (use-package ycmd
+    :init
+    (add-hook 'c-mode-common-hook 'ycmd-mode)
+    :config
+    ;; (set-variable 'ycmd-global-config "/path/to/global_config.py")
+    (set-variable 'ycmd-server-command `("python" ,(file-truename "~/.emacs.d/ycmd/ycmd/")))
+    (set-variable 'ycmd-global-config (file-truename "~/.emacs.d/ycmd/examples/.ycm_extra_conf.py"))
+    (use-package company-ycmd)
+    (company-ycmd-setup)))
+
 (provide 'init-c)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
