@@ -9,8 +9,8 @@
 (define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
 
 (when more-feature
-  (add-hook 'evil-insert-state-entry-hook #'lemon/absolute-line-number)
-  (add-hook 'evil-insert-state-exit-hook #'lemon/relative-line-number))
+  (add-hook 'evil-insert-state-entry-hook #'lemon-absolute-line-number)
+  (add-hook 'evil-insert-state-exit-hook #'lemon-relative-line-number))
 
 (use-package evil-magit)
 
@@ -19,10 +19,10 @@
  :prefix ","
   "ww"  'save-buffer
   "q"  'save-buffers-kill-terminal
-  "Q"  'lemon/kill-emacs
-  "bd"  'lemon/kill-this-buffer
-  "bm"  'lemon/kill-other-buffers
-  "ba"  'lemon/kill-all-buffers
+  "Q"  'lemon-kill-emacs
+  "bd"  'lemon-kill-this-buffer
+  "bm"  'lemon-kill-other-buffers
+  "ba"  'lemon-kill-all-buffers
   "k"   'symbol-overlay-put
   "K"   'symbol-overlay-remove-all
   "dr"  'dired
@@ -67,7 +67,7 @@
    "ft"  'counsel-imenu
    "fr"  'counsel-recentf
    "fa"  'counsel-etags-find-tag
-   "ag"  'counsel-projectile-ag
+   "ag"  'lemon-ag
    "bb"  'ivy-switch-buffer
    ","   'counsel-M-x
    "ss"  'swiper

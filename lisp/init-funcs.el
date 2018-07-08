@@ -24,7 +24,7 @@
   (set-buffer-file-coding-system 'utf-8)
   (save-buffer))
 
-(defun lemon/kill-this-buffer (&optional arg)
+(defun lemon-kill-this-buffer (&optional arg)
   "Kill the current buffer.
    If the universal prefix argument is used then kill also the window."
   (interactive "P")
@@ -34,7 +34,7 @@
         (kill-buffer-and-window)
       (kill-buffer))))
 
-(defun lemon/kill-other-buffers (&optional arg)
+(defun lemon-kill-other-buffers (&optional arg)
   "Kill all other buffers.
    If the universal prefix argument is used then will the windows too."
   (interactive "P")
@@ -44,7 +44,7 @@
     (when (equal '(4) arg) (delete-other-windows))
     (message "Buffers deleted!")))
 
-(defun lemon/kill-all-buffers (&optional arg)
+(defun lemon-kill-all-buffers (&optional arg)
   "Kill all other buffers.
    If the universal prefix argument is used then will the windows too."
   (interactive "P")
@@ -52,13 +52,13 @@
     (when (equal '(4) arg) (delete-other-windows))
     (message "Buffers deleted!"))
 
-(defun lemon/prompt-kill-emacs ()
+(defun lemon-prompt-kill-emacs ()
   "Prompt to save changed buffers and exit Spacemacs"
   (interactive)
   (save-some-buffers)
   (kill-emacs))
 
-(defun lemon/kill-emacs ()
+(defun lemon-kill-emacs ()
   "Lose all changes and exit Spacemacs"
   (interactive)
   (kill-emacs))
@@ -126,16 +126,22 @@ Repeated invocations toggle between the two most recently open buffers."
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-(defun lemon/set-project-directory ()
+(defun lemon-set-project-directory ()
   (interactive)
   (let ((filename (read-directory-name "the project directory is ")))
     (setq my-saved-launch-directory (expand-file-name filename))
     (message "%s" my-saved-launch-directory)))
 
-(defun lemon/relative-line-number ()
+(defun lemon-ag ()
+  (interactive)
+  (let ((directory-name (read-directory-name "the directory name : ")))
+    (setq root-directory (expand-file-name directory-name))
+    (counsel-ag nil root-directory)))
+
+(defun lemon-relative-line-number ()
   (setq-local display-line-numbers 'visual))
 
-(defun lemon/absolute-line-number ()
+(defun lemon-absolute-line-number ()
   (setq-local display-line-numbers t))
 
 (defun buffer-too-big-p ()
