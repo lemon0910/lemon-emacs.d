@@ -14,7 +14,9 @@
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (dolist (dir_names (directory-files (expand-file-name "site-lisp" user-emacs-directory)))
-  (add-to-list 'load-path (expand-file-name dir_names)))
+  (if
+    (not (or (string= dir_names ".") (string= dir_names "..")))
+    (add-to-list 'load-path (expand-file-name dir_names))))
 
 ;; set my own configuration
 (setq my-saved-launch-directory default-directory)
