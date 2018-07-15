@@ -75,6 +75,9 @@
  ((eq my-theme 'daylight)
   (use-package leuven-theme
     :init (load-theme 'leuven t)))
+ ((eq my-theme 'cyberpunk)
+  (use-package cyberpunk-theme
+    :init (load-theme 'cyberpunk t)))
  ((is-doom-theme-p my-theme)
   (use-package doom-themes
     :preface (defvar region-fg nil)

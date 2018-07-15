@@ -5,13 +5,15 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'doom
+(defcustom my-theme 'cyberpunk
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
           (const :tag "Dark theme" dark)
           (const :tag "Light theme" light)
           (const :tag "Daylight theme" daylight)
+          (const :tag "zenburn theme" zenburn)
+          (const :tag "cyberpunk theme" cyberpunk)
           (const :tag "Doom theme" doom)))
 
 (defcustom my-completion 'ivy
