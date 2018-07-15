@@ -37,13 +37,18 @@
   "o"   'ace-window
   "gb"  'magit-blame
   "u"   'undo-tree-visualizer-mode
+  "fz"  'fzf-projectile
+  "fp"  'counsel-projectile-find-file
 )
 
 (general-define-key
  :prefix "C-c"
  "n" 'display-line-numbers-mode
  "j" 'avy-goto-line-below
- "k" 'avy-goto-line-above)
+ "k" 'avy-goto-line-above
+ "hk" 'describe-key
+ "hf" 'describe-function
+ "hv" 'descirbe-variable)
 
 (general-define-key
  :states '(normal visual)
@@ -63,7 +68,6 @@
    :prefix ","
    "ff"  'counsel-find-file
    "fg"  'counsel-git
-   "fz"  'fzf-projectile
    "ft"  'counsel-imenu
    "fr"  'counsel-recentf
    "fa"  'counsel-etags-find-tag
