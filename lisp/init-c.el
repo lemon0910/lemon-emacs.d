@@ -113,7 +113,7 @@
     (setq ccls-executable "/usr/local/bin/ccls")
     (setq ccls-extra-init-params '(:cacheFormat "msgpack"))))
 
-(when more-feature
+(when (and more-feature (not my-lsp))
   ;; git clone https://github.com/Valloric/ycmd.git
   ;; cd ycmd && git submodule --init --recursive && ./build.py --all
   (use-package ycmd

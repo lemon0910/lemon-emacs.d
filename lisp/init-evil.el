@@ -1,5 +1,6 @@
 (use-package evil)
 (evil-mode 1)
+
 (use-package evil-search-highlight-persist
   :init
   (add-hook 'after-init-hook '(lambda()
@@ -41,18 +42,17 @@
 (general-define-key
  :prefix "C-c"
  "n" 'display-line-numbers-mode
- "s" 'avy-goto-char-2
  "j" 'avy-goto-line-below
- "k" 'avy-goto-line-above
- "f" 'avy-goto-char)
+ "k" 'avy-goto-line-above)
 
 (general-define-key
  :states '(normal visual)
- "s" 'avy-goto-char-2
+ "s" 'avy-goto-char-timer
  "j" 'evil-next-visual-line
  "k" 'evil-previous-visual-line
  "H" 'mwim-beginning-of-code-or-line
  "L" 'mwim-end-of-code-or-line
+ "f" 'avy-goto-char-in-line
  "gd" 'counsel-etags-find-tag-at-point
  "gb" 'pop-tag-mark)
 

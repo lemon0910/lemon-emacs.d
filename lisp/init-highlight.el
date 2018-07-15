@@ -1,9 +1,9 @@
 ;;; Code:
 
 ;; Highlight the current line
-(use-package hl-line
-  :ensure nil
-  :init (add-hook 'after-init-hook #'global-hl-line-mode))
+;; (use-package hl-line
+;;   :ensure nil
+;;   :init (add-hook 'after-init-hook #'global-hl-line-mode))
 
 ;; Highlight symbols
 (use-package symbol-overlay)

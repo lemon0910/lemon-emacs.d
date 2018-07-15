@@ -4,12 +4,13 @@
          :map company-search-map
          ([tab] . company-select-next))
   :init
-   (add-hook 'after-init-hook #'global-company-mode)
+  (add-hook 'after-init-hook #'global-company-mode)
   :config
   ;; aligns annotation to the right hand side
   (setq company-tooltip-align-annotations t)
 
   (setq company-idle-delay 0.2
+        company-tooltip-limit 10
         company-minimum-prefix-length 2
         company-require-match nil
         company-dabbrev-ignore-case nil
@@ -20,6 +21,7 @@
 
   (defvar company-enable-yas my-yas
     "Enable yasnippet for all backends.")
+
   (defun company-backend-with-yas (backend)
     (if (or (not company-enable-yas)
             (and (listp backend) (member 'company-yasnippet backend)))
@@ -27,11 +29,16 @@
       (append (if (consp backend) backend (list backend))
               '(:with company-yasnippet))))
 
-  (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
+  (setq company-backends (mapcar #'company-backend-with-yas company-backends))
 
-(setq company-frontends
-      '(company-pseudo-tooltip-unless-just-one-frontend
-        company-preview-if-just-one-frontend))
+  (setq company-frontends
+        '(company-pseudo-tooltip-unless-just-one-frontend
+          company-preview-if-just-one-frontend))
+
+  (define-key company-active-map (kbd "<return>") nil)
+  (define-key company-active-map (kbd "RET") nil)
+  (define-key company-active-map (kbd "TAB") #'company-complete-selection)
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 
 (defun ora-company-number ()
   "Forward to `company-complete-number'.
@@ -63,11 +70,6 @@ In that case, insert the number."
                           (evil-force-normal-state)
                           (self-insert-command 1)))))
 
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "<return>") nil)
-  (define-key company-active-map (kbd "RET") nil)
-  (define-key company-active-map (kbd "TAB") #'company-complete-selection)
-  (define-key company-active-map (kbd "<tab>") #'company-complete-selection))
 
 (provide 'init-company)
 

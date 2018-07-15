@@ -64,9 +64,6 @@
   :init (add-hook 'after-init-hook #'global-hungry-delete-mode)
   :config (setq-default hungry-delete-chars-to-skip " \t\f\v"))
 
-;; Framework for mode-specific buffer indexes
-(use-package imenu)
-
 ;; Move to the beginning/end of line or code
 (use-package mwim)
 

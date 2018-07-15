@@ -13,7 +13,8 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
+(dolist (dir_names (directory-files (expand-file-name "site-lisp" user-emacs-directory)))
+  (add-to-list 'load-path (expand-file-name dir_names)))
 
 ;; set my own configuration
 (setq my-saved-launch-directory default-directory)
@@ -41,11 +42,7 @@
 (require 'init-edit)
 
 (require 'init-ivy)
-; (require 'init-helm)
-
-(require 'init-yasnippet)
 (require 'init-company)
-
 (require 'init-dired)
 (require 'init-highlight)
 (require 'init-window)
@@ -54,15 +51,10 @@
 (require 'init-utils)
 
 ;; Programming
-(require 'init-lsp)
-(require 'init-flycheck)
 (require 'init-prog)
 (require 'init-lisp)
 (require 'init-c)
 (require 'init-go)
-(require 'init-markdown)
 (require 'init-python)
 
 (require 'init-eshell)
-(require 'init-gdb)
-(require 'init-restore)
