@@ -130,7 +130,9 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (let ((filename (read-directory-name "the project directory is ")))
     (setq my-saved-launch-directory (expand-file-name filename))
-    (message "%s" my-saved-launch-directory)))
+    (setq projectile-file (concat my-saved-launch-directory "/.projectile"))
+    (if (not (file-exists-p projectile-file))
+        (write-region "" nil projectile-file))))
 
 (defun lemon-ag ()
   (interactive)
