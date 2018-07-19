@@ -48,7 +48,7 @@
  "k" 'avy-goto-line-above
  "hk" 'describe-key
  "hf" 'describe-function
- "hv" 'descirbe-variable)
+ "hv" 'describe-variable)
 
 (general-define-key
  :states '(normal visual)
