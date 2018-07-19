@@ -38,7 +38,7 @@
   "gb"  'magit-blame
   "u"   'undo-tree-visualizer-mode
   "fz"  'fzf-projectile
-  "fp"  'counsel-projectile-find-file
+  "pf"  'counsel-projectile-find-file
 )
 
 (general-define-key
