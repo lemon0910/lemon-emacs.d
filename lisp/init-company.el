@@ -1,8 +1,12 @@
 (use-package company
   :diminish company-mode
   :bind (
+         :map company-active-map
+              ("C-p" . company-select-previous)
+              ("C-n" . company-select-next)
          :map company-search-map
-         ([tab] . company-select-next))
+              ("C-p" . company-select-previous)
+              ("C-n" . company-select-next))
   :init
   (add-hook 'after-init-hook #'global-company-mode)
   :config
