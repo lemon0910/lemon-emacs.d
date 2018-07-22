@@ -24,9 +24,9 @@
 
   (use-package go-guru)
 
-  (with-eval-after-load 'company
-    (use-package company-go
-      :init (add-to-list 'company-backends (company-backend-with-yas 'company-go)))))
+  (use-package company-go
+    :init (add-to-list 'company-backends (company-backend-with-yas 'company-go))
+    :after company))
 
 (general-define-key
  :states '(normal visual)

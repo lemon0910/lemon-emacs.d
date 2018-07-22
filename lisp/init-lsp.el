@@ -16,13 +16,13 @@
    :hook (lsp-mode . lsp-ui-mode)
    :config
    (setq lsp-ui-sideline-enable nil))
-  (with-eval-after-load 'company
     (use-package company-lsp
       :defines company-backends
       :functions company-backend-with-yas
       :init (add-to-list 'company-backends (company-backend-with-yas 'company-lsp))
+      :after company
       :config
-      (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil))))
+      (setq company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)))
 
 ;; Go support for lsp-mode using Sourcegraph's Go Language Server
 ;; Install: go get github.com/sourcegraph/go-langserver

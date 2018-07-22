@@ -95,9 +95,9 @@
   (add-hook 'c-mode-common-hook #'lemon-c-mode-common-hook)
   :config
   ;; Company mode backend for C/C++ header files
-  (with-eval-after-load 'company
-    (use-package company-c-headers
-      :init (add-to-list 'company-backends (company-backend-with-yas 'company-c-headers)))))
+  (use-package company-c-headers
+    :init (add-to-list 'company-backends (company-backend-with-yas 'company-c-headers))
+    :after company))
 
 (when my-lsp
   (defun ccls//enable ()
