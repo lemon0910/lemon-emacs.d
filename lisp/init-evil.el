@@ -37,7 +37,7 @@
   "o"   'ace-window
   "gb"  'magit-blame
   "u"   'undo-tree-visualizer-mode
-  "fz"  'fzf-projectile
+  "fz"  'fzf
   "pf"  'counsel-projectile-find-file
 )
 
