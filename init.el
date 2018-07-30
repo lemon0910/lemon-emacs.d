@@ -18,6 +18,9 @@
     (not (or (string= dir_names ".") (string= dir_names "..")))
     (add-to-list 'load-path (expand-file-name dir_names))))
 
+(add-to-list 'custom-theme-load-path
+             (expand-file-name "themes" user-emacs-directory))
+
 ;; set my own configuration
 (setq my-saved-launch-directory default-directory)
 (setq my-yas nil)
