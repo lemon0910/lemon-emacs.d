@@ -5,7 +5,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'doom
+(defcustom my-theme 'organic-green
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
@@ -14,7 +14,9 @@
           (const :tag "Daylight theme" daylight)
           (const :tag "zenburn theme" zenburn)
           (const :tag "cyberpunk theme" cyberpunk)
-          (const :tag "Doom theme" doom)))
+          (const :tag "Doom theme" doom)
+          (const :tag "organic green theme" organic-green)
+          (const :tag "madhat2r" madhat2r)))
 
 (defcustom my-completion 'ivy
   "set completion type"

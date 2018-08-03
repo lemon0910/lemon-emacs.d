@@ -78,6 +78,12 @@
  ((eq my-theme 'cyberpunk)
   (use-package cyberpunk-theme
     :init (load-theme 'cyberpunk t)))
+ ((eq my-theme 'organic-green)
+  (use-package organic-green-theme
+    :init (load-theme 'organic-green t)))
+ ((eq my-theme 'madhat2r)
+  (use-package madhat2r
+    :init (load-theme 'madhat2r t)))
  ((is-doom-theme-p my-theme)
   (use-package doom-themes
     :preface (defvar region-fg nil)
