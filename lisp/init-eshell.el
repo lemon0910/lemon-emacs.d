@@ -1,4 +1,10 @@
 ;; Emacs command shell
+(defun start-eshell()
+  (interactive)
+  (let ((w (split-window-below)))
+    (select-window w)
+    (eshell)))
+
 (use-package eshell
   :ensure nil
   :config
@@ -74,6 +80,8 @@
             (eshell-view-file file)
             (forward-line line))
         (eshell-view-file (pop args)))))
+
+  (add-hook 'eshell-exit-hook #'delete-window)
 
   (defalias 'eshell/more 'eshell/less))
 
