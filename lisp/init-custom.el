@@ -16,7 +16,8 @@
           (const :tag "cyberpunk theme" cyberpunk)
           (const :tag "Doom theme" doom)
           (const :tag "organic green theme" organic-green)
-          (const :tag "madhat2r" madhat2r)))
+          (const :tag "madhat2r" madhat2r)
+          (const :tag "tangotango" tangotango)))
 
 (defcustom my-completion 'ivy
   "set completion type"

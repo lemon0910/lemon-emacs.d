@@ -84,6 +84,9 @@
  ((eq my-theme 'madhat2r)
   (use-package madhat2r
     :init (load-theme 'madhat2r t)))
+ ((eq my-theme 'tangotango)
+  (use-package tangotango-theme
+    :init (load-theme 'tangotango t)))
  ((is-doom-theme-p my-theme)
   (use-package doom-themes
     :preface (defvar region-fg nil)
