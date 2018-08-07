@@ -7,6 +7,7 @@
 
 ;; Highlight symbols
 (use-package symbol-overlay)
+(global-hl-line-mode t)
 
 (provide 'init-highlight)
 
