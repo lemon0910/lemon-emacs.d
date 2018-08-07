@@ -14,7 +14,6 @@
 
 (use-package ielm
   :config
-  (add-hook 'ielm-mode-hook #'eldoc-mode)
-  (add-hook 'ielm-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'ielm-mode-hook #'eldoc-mode))
 
 (provide 'init-lisp)
