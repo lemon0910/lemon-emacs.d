@@ -150,6 +150,12 @@ Repeated invocations toggle between the two most recently open buffers."
   (or (> (buffer-size) (* 5000 80))
       (> (line-number-at-pos (point-max)) 5000)))
 
+(defun lemon-counsel-fzf()
+  (interactive)
+  (let ((directory-name (read-directory-name "fzf directory name : ")))
+    (setq root-directory (expand-file-name directory-name))
+    (counsel-fzf nil root-directory nil)))
+
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

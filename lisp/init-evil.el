@@ -37,8 +37,6 @@
   "o"   'ace-window
   "gb"  'magit-blame
   "u"   'undo-tree-visualizer-mode
-  "fz"  'fzf
-  "pf"  'counsel-projectile-find-file
 )
 
 (general-define-key
@@ -75,6 +73,8 @@
    "bb"  'ivy-switch-buffer
    ","   'counsel-M-x
    "ss"  'swiper
+   "fz"  'lemon-counsel-fzf
+   "pf"  'counsel-projectile-find-file
    ))
  ((eq my-completion 'helm)
   (general-define-key
