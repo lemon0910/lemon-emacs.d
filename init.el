@@ -1,5 +1,5 @@
-(when (version< emacs-version "25.2")
-  (error "This requires Emacs 25.2 and above!"))
+(when (version< emacs-version "26.1")
+  (error "This requires Emacs 26.1 and above!"))
 
 ;; Optimize loading performance
 (defvar default-file-name-handler-alist file-name-handler-alist)
@@ -13,6 +13,7 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
 (dolist (dir_names (directory-files (expand-file-name "site-lisp" user-emacs-directory)))
   (if
     (not (or (string= dir_names ".") (string= dir_names "..")))
@@ -22,11 +23,6 @@
              (expand-file-name "themes" user-emacs-directory))
 
 ;; set my own configuration
-(setq my-saved-launch-directory default-directory)
-(setq my-yas nil)
-(setq more-feature t)
-(setq my-completion 'ivy)
-(setq my-lsp nil)
 
 ;; Constants
 (require 'init-const)
