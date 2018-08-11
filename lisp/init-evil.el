@@ -9,9 +9,9 @@
 (use-package general)
 (define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
 
-(when more-feature
-  (add-hook 'evil-insert-state-entry-hook #'lemon-absolute-line-number)
-  (add-hook 'evil-insert-state-exit-hook #'lemon-relative-line-number))
+;; (when more-feature
+;;   (add-hook 'evil-insert-state-entry-hook #'lemon-absolute-line-number)
+;;   (add-hook 'evil-insert-state-exit-hook #'lemon-relative-line-number))
 
 (use-package evil-magit)
 

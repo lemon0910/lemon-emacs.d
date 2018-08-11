@@ -123,25 +123,25 @@
 ;; Line and Column
 (setq-default fill-column 80)
 (setq column-number-mode t)
-(setq line-number-mode t)
+;; (setq line-number-mode t)
 
-(when more-feature
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              ;; turn off `linum-mode' when there are more than 5000 lines
-              (if (buffer-too-big-p)
-                  nil
-                (progn
-                  (display-line-numbers-mode +1)
-                  (lemon-relative-line-number)))))
-  (add-hook 'text-mode-hook
-            (lambda ()
-              ;; turn off `linum-mode' when there are more than 5000 lines
-              (if (buffer-too-big-p)
-                  nil
-                (progn
-                  (display-line-numbers-mode +1)
-                  (lemon-relative-line-number))))))
+;; (when more-feature
+;;   (add-hook 'prog-mode-hook
+;;             (lambda ()
+;;               ;; turn off `linum-mode' when there are more than 5000 lines
+;;               (if (buffer-too-big-p)
+;;                   nil
+;;                 (progn
+;;                   (display-line-numbers-mode +1)
+;;                   (lemon-relative-line-number)))))
+;;   (add-hook 'text-mode-hook
+;;             (lambda ()
+;;               ;; turn off `linum-mode' when there are more than 5000 lines
+;;               (if (buffer-too-big-p)
+;;                   nil
+;;                 (progn
+;;                   (display-line-numbers-mode +1)
+;;                   (lemon-relative-line-number))))))
 
 (use-package smooth-scrolling
   :init (add-hook 'after-init-hook #'smooth-scrolling-mode)
