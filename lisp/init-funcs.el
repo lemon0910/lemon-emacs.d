@@ -156,6 +156,20 @@ Repeated invocations toggle between the two most recently open buffers."
     (setq root-directory (expand-file-name directory-name))
     (counsel-fzf nil root-directory nil)))
 
+(defun lemon-sync-local-to-remote()
+  "sync local to remote"
+  (interactive)
+  (require 'toml)
+  (if (foundp #'projectile-project-root)
+      (let* ((conf-list (toml:read-from-file
+                         (expand-file-name (concat (projectile-project-root "/.lemon/sync.conf")))))
+             (remote-ip (cdr (assoc "remote-ip" conf-list)))
+             (remote-path (cdr (assoc "remote-path" conf-list)))
+             (local-path (cdr (assoc "local-path" conf-list)))
+             (user-name (cdr (assoc "user-nmae" conf-list)))
+             (cmd (concat "rsync -a" local-path user-name "@" remote-ip ":" remote-path "--delete")))
+        (shell-command cmd))))
+
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
