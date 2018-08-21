@@ -87,6 +87,9 @@
  ((eq my-theme 'tangotango)
   (use-package tangotango-theme
     :init (load-theme 'tangotango t)))
+ ((eq my-theme 'rebecca)
+  (use-package rebecca-theme
+    :init (load-theme 'rebecca t)))
  ((is-doom-theme-p my-theme)
   (use-package doom-themes
     :preface (defvar region-fg nil)

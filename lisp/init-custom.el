@@ -17,6 +17,7 @@
           (const :tag "Doom theme" doom)
           (const :tag "organic green theme" organic-green)
           (const :tag "madhat2r" madhat2r)
+          (const :tag "rebecca theme" rebecca)
           (const :tag "tangotango" tangotango)))
 
 (defcustom my-completion 'ivy

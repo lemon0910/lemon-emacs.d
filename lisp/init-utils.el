@@ -26,7 +26,11 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
-(use-package fzf)
+(use-package magit
+  :init
+  (add-hook 'magit-blame-mode-hook
+              (lambda ()
+                (setq magit-blame--style '(headings (heading-format . "%H %-20a %C %s\n"))))))
 
 (provide 'init-utils)
 
