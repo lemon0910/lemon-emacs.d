@@ -21,6 +21,11 @@
   ;; (w32-register-hot-key [s-])
   (w32-register-hot-key [s-t]))
 
+(unless sys/win32p
+  (setq ns-command-modifier 'meta)
+  (setq ns-option-modifier 'super)
+  (setq ns-function-modifier 'hyper))
+
 ;; Environment
 (when (or sys/mac-x-p sys/linux-x-p)
   (use-package exec-path-from-shell
@@ -37,7 +42,8 @@
   ;; Emacs 25 has a proper mode for `save-place'
   (if (fboundp 'save-place-mode)
       (add-hook 'after-init-hook #'save-place-mode)
-    (setq save-place t)))
+    (setq save-place t)
+    (setq save-place-file (expand-file-name ".places" user-emacs-directory))))
 
 (use-package recentf
   :ensure nil

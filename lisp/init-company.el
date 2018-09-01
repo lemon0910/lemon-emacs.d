@@ -74,7 +74,6 @@ In that case, insert the number."
                           (evil-force-normal-state)
                           (self-insert-command 1)))))
 
-
 (provide 'init-company)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

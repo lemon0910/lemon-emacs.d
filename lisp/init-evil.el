@@ -9,10 +9,6 @@
 (use-package general)
 (define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
 
-;; (when more-feature
-;;   (add-hook 'evil-insert-state-entry-hook #'lemon-absolute-line-number)
-;;   (add-hook 'evil-insert-state-exit-hook #'lemon-relative-line-number))
-
 (general-define-key
  :states '(normal visual)
  :prefix ","
@@ -39,12 +35,15 @@
 
 (general-define-key
  :prefix "C-c"
- "n" 'display-line-numbers-mode
  "j" 'avy-goto-line-below
  "k" 'avy-goto-line-above
  "hk" 'describe-key
  "hf" 'describe-function
- "hv" 'describe-variable)
+ "hv" 'describe-variable
+ "R" 'lemon-rename-current-buffer-file
+ "K" 'lemon-delete-current-buffer-file
+ "on" 'lemon-toggle-display-absolute-line-number
+ "or" 'lemon-toggle-display-relative-line-number)
 
 (general-define-key
  :states '(normal visual)
