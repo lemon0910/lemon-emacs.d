@@ -13,11 +13,7 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-
-(dolist (dir_names (directory-files (expand-file-name "site-lisp" user-emacs-directory)))
-  (if
-    (not (or (string= dir_names ".") (string= dir_names "..")))
-    (add-to-list 'load-path (expand-file-name dir_names))))
+(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (add-to-list 'custom-theme-load-path
              (expand-file-name "themes" user-emacs-directory))
