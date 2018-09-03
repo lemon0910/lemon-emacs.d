@@ -45,6 +45,9 @@
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
+(require 'aweshell)
+(use-package color-moccur)
+
 (provide 'init-utils)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
