@@ -21,10 +21,10 @@
   ;; (w32-register-hot-key [s-])
   (w32-register-hot-key [s-t]))
 
-(unless sys/win32p
-  (setq ns-command-modifier 'meta)
-  (setq ns-option-modifier 'super)
-  (setq ns-function-modifier 'hyper))
+;; (unless sys/win32p
+;;   (setq ns-command-modifier 'meta)
+;;   (setq ns-option-modifier 'super)
+;;   (setq ns-function-modifier 'hyper))
 
 ;; Environment
 (when (or sys/mac-x-p sys/linux-x-p)
