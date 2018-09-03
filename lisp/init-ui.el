@@ -87,6 +87,8 @@
  ((eq my-theme 'rebecca)
   (use-package rebecca-theme
     :init (load-theme 'rebecca t)))
+ ((eq my-theme 'lazycat)
+  (require 'lazycat-theme))
  ((is-doom-theme-p my-theme)
   (use-package doom-themes
     :preface (defvar region-fg nil)

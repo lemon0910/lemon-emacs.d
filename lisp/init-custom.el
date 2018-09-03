@@ -18,7 +18,8 @@
           (const :tag "organic green theme" organic-green)
           (const :tag "madhat2r" madhat2r)
           (const :tag "rebecca theme" rebecca)
-          (const :tag "tangotango" tangotango)))
+          (const :tag "tangotango" tangotango)
+          (const :tag "lazycat theme" lazycat)))
 
 (defcustom my-completion 'ivy
   "set completion type"
