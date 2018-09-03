@@ -30,6 +30,10 @@
   (use-package helm-projectile)
   (use-package helm-ls-git)
   (use-package helm-etags-plus)
+  (use-package helm-swoop
+    :config
+    (setq helm-swoop-pre-input-function
+          (lambda () "")))
   )
 
 (provide 'init-helm)
