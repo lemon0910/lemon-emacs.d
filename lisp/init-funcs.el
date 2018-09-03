@@ -1,6 +1,6 @@
 ;; 定义后面函数使用的一些变量
-(defvar-local lemon-relative-line-number-v t)
-(defvar-local lemon-absolute-line-number-v t)
+(defvar lemon-relative-line-number-v t)
+(defvar lemon-absolute-line-number-v t)
 
 ;; Dos2Unix/Unix2Dos
 (defun dos2unix ()
@@ -289,12 +289,12 @@ Including indent-buffer, which should not be called automatically on save."
   (interactive)
   (if lemon-absolute-line-number-v
       (progn
-        (display-line-numbers-mode 1)
+        (global-display-line-numbers-mode 1)
         (lemon-absolute-line-number)
         (setq lemon-absolute-line-number-v nil)
         (setq lemon-relative-line-number-v t))
     (progn
-      (display-line-numbers-mode -1)
+      (global-display-line-numbers-mode -1)
       (setq lemon-absolute-line-number-v t))))
 
 (provide 'init-funcs)
