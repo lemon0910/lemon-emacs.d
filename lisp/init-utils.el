@@ -45,6 +45,9 @@
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
+(use-package fzf)
+(use-package ag)
+
 (provide 'init-utils)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
