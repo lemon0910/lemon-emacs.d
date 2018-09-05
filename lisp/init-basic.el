@@ -41,9 +41,7 @@
   :init
   ;; Emacs 25 has a proper mode for `save-place'
   (if (fboundp 'save-place-mode)
-      (add-hook 'after-init-hook #'save-place-mode)
-    (setq save-place t)
-    (setq save-place-file (expand-file-name ".places" user-emacs-directory))))
+      (add-hook 'after-init-hook #'save-place-mode)))
 
 (use-package recentf
   :ensure nil
