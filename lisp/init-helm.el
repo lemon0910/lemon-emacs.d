@@ -22,8 +22,6 @@
              (setq helm-mode-fuzzy-match t)
              (setq helm-completion-in-region-fuzzy-match t)
 
-             (global-set-key (kbd "C-c h") 'helm-command-prefix)
-             (global-unset-key (kbd "C-x c"))
              (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
              (define-key helm-map (kbd "TAB") 'helm-execute-persistent-action) ; rebind tab to do persistent action
              (define-key helm-map (kbd "C-z") 'helm-select-action) ; list actions using C-z
