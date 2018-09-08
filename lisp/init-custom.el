@@ -5,7 +5,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'organic-green
+(defcustom my-theme 'lazycat
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
@@ -21,7 +21,7 @@
           (const :tag "tangotango" tangotango)
           (const :tag "lazycat theme" lazycat)))
 
-(defcustom my-completion 'ivy
+(defcustom my-completion 'helm
   "set completion type"
   :type '(choice
           (const :tag "ivy" ivy)
