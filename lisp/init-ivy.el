@@ -41,8 +41,6 @@
 
   ;; Ivy for GNU global
   (use-package counsel-etags)
-  ;; for projectile
-  (use-package counsel-projectile)
 
   )
 

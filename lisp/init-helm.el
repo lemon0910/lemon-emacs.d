@@ -36,10 +36,13 @@
                                  ("f" . helm-ag-mode-jump-other-window)
                                  ("RET" . helm-ag-mode-jump)
                                  ("<return>" . helm-ag-mode-jump)))
-             (use-package helm-projectile)
              (use-package helm-ls-git)
              (use-package helm-etags-plus)
-             (use-package helm-swoop)
+             (use-package helm-swoop
+               :config
+               ;; Disable pre-input
+               (setq helm-swoop-pre-input-function
+                     (lambda () "")))
 
              (with-eval-after-load 'helm-ag
                               (evil-define-key 'normal helm-ag-mode-map (kbd "f") 'helm-ag-mode-jump-other-window)

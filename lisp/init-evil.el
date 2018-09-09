@@ -43,7 +43,10 @@
  "R" 'lemon-rename-current-buffer-file
  "K" 'lemon-delete-current-buffer-file
  "on" 'lemon-toggle-display-absolute-line-number
- "or" 'lemon-toggle-display-relative-line-number)
+ "or" 'lemon-toggle-display-relative-line-number
+ "oc" 'occur
+ "ff" 'lemon-fzf
+ )
 
 (general-define-key
  :states '(normal visual)
@@ -70,8 +73,6 @@
    "bb"  'ivy-switch-buffer
    ","   'counsel-M-x
    "ss"  'swiper
-   "fz"  'lemon-counsel-fzf
-   "pf"  'counsel-projectile-find-file
    ))
  ((eq my-completion 'helm)
   (general-define-key

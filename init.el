@@ -1,6 +1,7 @@
 (when (version< emacs-version "26.1")
   (error "This requires Emacs 26.1 and above!"))
 
+(setq current-directory default-directory)
 ;; Optimize loading performance
 (defvar default-file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)

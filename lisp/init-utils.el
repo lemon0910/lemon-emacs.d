@@ -45,8 +45,11 @@
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
+(use-package find-file-in-project
+  :config
+  (setq ffip-project-root current-directory))
+
 (use-package fzf)
-(use-package ag)
 
 (provide 'init-utils)
 
