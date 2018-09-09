@@ -5,7 +5,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'lazycat
+(defcustom my-theme 'gruvbox
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
@@ -17,9 +17,9 @@
           (const :tag "Doom theme" doom)
           (const :tag "organic green theme" organic-green)
           (const :tag "madhat2r" madhat2r)
-          (const :tag "rebecca theme" rebecca)
           (const :tag "tangotango" tangotango)
-          (const :tag "lazycat theme" lazycat)))
+          (const :tag "lazycat theme" lazycat)
+          (const :tag "gruvbox theme" gruvbox)))
 
 (defcustom my-completion 'helm
   "set completion type"
