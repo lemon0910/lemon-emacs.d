@@ -1,7 +1,3 @@
-;; 定义后面函数使用的一些变量
-(defvar lemon-relative-line-number-v t)
-(defvar lemon-absolute-line-number-v t)
-
 ;; Dos2Unix/Unix2Dos
 (defun dos2unix ()
   "Convert the current buffer to UNIX file format."
@@ -251,33 +247,6 @@ Including indent-buffer, which should not be called automatically on save."
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
-
-
-(defun lemon-toggle-display-relative-line-number ()
-  "show relative line number"
-  (interactive)
-  (if lemon-relative-line-number-v
-      (progn
-        (display-line-numbers-mode 1)
-        (lemon-relative-line-number)
-        (setq lemon-relative-line-number-v nil)
-        (setq lemon-absolute-line-number-v t))
-    (progn
-      (display-line-numbers-mode -1)
-      (setq lemon-relative-line-number-v t))))
-
-(defun lemon-toggle-display-absolute-line-number ()
-  "show absolute line number"
-  (interactive)
-  (if lemon-absolute-line-number-v
-      (progn
-        (global-display-line-numbers-mode 1)
-        (lemon-absolute-line-number)
-        (setq lemon-absolute-line-number-v nil)
-        (setq lemon-relative-line-number-v t))
-    (progn
-      (global-display-line-numbers-mode -1)
-      (setq lemon-absolute-line-number-v t))))
 
 (defun lemon-counsel-fzf()
   (interactive)

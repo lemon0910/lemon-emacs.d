@@ -42,8 +42,7 @@
  "hv" 'describe-variable
  "R" 'lemon-rename-current-buffer-file
  "K" 'lemon-delete-current-buffer-file
- "on" 'lemon-toggle-display-absolute-line-number
- "or" 'lemon-toggle-display-relative-line-number
+ "n" 'global-display-line-numbers-mode
  "oc" 'occur
  "ff" 'lemon-fzf
  )
