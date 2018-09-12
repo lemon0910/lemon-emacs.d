@@ -19,9 +19,8 @@
   "bm"  'lemon-kill-other-buffers
   "ba"  'lemon-kill-all-buffers
   "k"   'symbol-overlay-put
-  "K"   'symbol-overlay-remove-all
   "dr"  'dired
-  "sc"  'evil-search-highlight-persist-remove-all
+  "sc"  'lemon-no-hlsearch
   "aa"  'c-open-relational-file
   "cc"  'comment-dwim-2
   "wd"  'delete-window

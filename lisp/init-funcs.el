@@ -258,6 +258,12 @@ Including indent-buffer, which should not be called automatically on save."
   (require 'fzf)
   (fzf/start current-directory nil))
 
+(defun lemon-no-hlsearch ()
+  (interactive)
+  ;; (require 'symbol-overlay)
+  (evil-search-highlight-persist-remove-all)
+  (symbol-overlay-remove-all))
+
 (provide 'init-funcs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
