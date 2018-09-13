@@ -8,6 +8,7 @@
 ;; Highlight symbols
 (use-package symbol-overlay)
 (global-hl-line-mode t)
+;; (set-face-background 'hl-line "#434343")
 
 (provide 'init-highlight)
 
