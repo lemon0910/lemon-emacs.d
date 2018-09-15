@@ -22,20 +22,25 @@
 
 (show-paren-mode 1)
 
-;; Theme
-(defun is-doom-theme-p (theme)
-  "Check whether the THEME is a doom theme. THEME is a symbol."
-  (string-prefix-p "doom" (symbol-name theme)))
+(defun doom-theme-tabbar ()
+  (custom-set-variables
+   '(tabbar-background-color "black")
+   )
+  (custom-set-faces
+   '(tabbar-button ((t (:inherit tabbar-default :background "black" :foreground "red" :box (:line-width 1 :color "black" :style released-button)))))
+   '(tabbar-button-highlight ((t (:inherit tabbar-default :background "black" :foreground "green" :box (:color "red")))))
+   '(tabbar-default ((t (:height 1))))
+   '(tabbar-selected ((t (:inherit tabbar-default :background "black" :foreground "#00ccff" :overline "#00ccff" :weight ultra-bold :width semi-expanded))))
+   '(tabbar-selected-face ((t (:inherit tabbar-default-face :background "black" :foreground "grey" :box (:line-width -1 :color "grey" :style released-button)))))
+   '(tabbar-separator ((t (:background "black" :distant-foreground "red" :foreground "brown" :height 0.1 :width condensed))))
+   '(tabbar-unselected ((t (:background "black" :foreground "dark grey" :overline "dark grey" :height 1.3))))
+   '(tabbar-unselected-face ((t (:inherit tabbar-default-face :background "black" :foreground "white" :box (:line-width -1 :color "black" :style pressed-button)))))))
+
 (defvar after-load-theme-hook nil
   "Hook run after a color theme is loaded using `load-theme'.")
 (defadvice load-theme (after run-after-load-theme-hook activate)
   "Run `after-load-theme-hook'."
   (run-hooks 'after-load-theme-hook))
-;; Modeline
-(when more-feature
-  (if (is-doom-theme-p my-theme)
-    (use-package doom-modeline
-      :hook (after-load-theme . doom-modeline-init))))
 
 (use-package hide-mode-line
   :init
@@ -56,45 +61,34 @@
  ((eq my-theme 'light)
   (use-package spacemacs-theme
     :init (load-theme 'spacemacs-light t)))
- ((eq my-theme 'zenburn)
-  (use-package zenburn-theme
-    :init (load-theme 'zenburn t)))
- ((eq my-theme 'seoul256)
-  (use-package seoul256-theme
-    :init (load-theme 'seoul256 t)))
  ((eq my-theme 'daylight)
   (use-package leuven-theme
     :init (load-theme 'leuven t)))
- ((eq my-theme 'cyberpunk)
-  (use-package cyberpunk-theme
-    :init (load-theme 'cyberpunk t)))
  ((eq my-theme 'organic-green)
   (use-package organic-green-theme
     :init (load-theme 'organic-green t)))
- ((eq my-theme 'madhat2r)
-  (use-package madhat2r
-    :init (load-theme 'madhat2r t)))
  ((eq my-theme 'tangotango)
   (use-package tangotango-theme
     :init (load-theme 'tangotango t)))
- ((eq my-theme 'rebecca)
-  (use-package rebecca-theme
-    :init (load-theme 'rebecca t)))
  ((eq my-theme 'gruvbox)
   (use-package gruvbox-theme
     :init (load-theme 'gruvbox t)))
  ((eq my-theme 'lazycat)
-  (require 'lazycat-theme))
- ((is-doom-theme-p my-theme)
+  (use-package lazycat-theme
+    :load-path "site-lisp/lazycat-theme"
+    :init
+    (require 'lazycat-theme)))
+ ((eq my-theme 'doom)
   (use-package doom-themes
     :preface (defvar region-fg nil)
     :init
-    (if (eq my-theme 'doom)
-        (load-theme 'doom-one t)
-      (load-theme my-theme t))
+    (load-theme 'doom-vibrant t)
     :config
     (doom-themes-visual-bell-config)
     (doom-themes-org-config)
+    (doom-theme-tabbar)
+    (use-package doom-modeline
+      :hook (after-load-theme . doom-modeline-init))
     (use-package solaire-mode
       :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
              (minibuffer-setup . solaire-mode-in-minibuffer))
@@ -142,12 +136,6 @@
 ;; Don't use GTK+ tooltip
 (when (boundp 'x-gtk-use-system-tooltips)
   (setq x-gtk-use-system-tooltips nil))
-
-;; Toggle fullscreen
-(bind-keys ([(control f11)] . toggle-frame-fullscreen)
-           ([(control super f)] . toggle-frame-fullscreen) ; Compatible with macOS
-           ([(super return)] . toggle-frame-fullscreen)
-           ([(meta shift return)] . toggle-frame-fullscreen))
 
 (provide 'init-ui)
 

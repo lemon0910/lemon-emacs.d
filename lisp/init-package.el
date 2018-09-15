@@ -56,22 +56,6 @@
 (use-package diminish)
 (use-package bind-key)
 
-;; Initialization benchmark
-(when my-benchmark-enabled
-  (use-package benchmark-init
-    :init
-    (benchmark-init/activate)
-    (add-hook 'after-init-hook #'benchmark-init/deactivate)))
-
-;; A mondern package interface
-(use-package paradox
-  :init (defalias 'upgrade-packages 'paradox-upgrade-packages)
-  :config
-  (setq paradox-github-token t)
-  (setq paradox-execute-asynchronously t)
-  (setq paradox-automatically-star nil)
-  (setq paradox-display-star-count nil))
-
 (provide 'init-package)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

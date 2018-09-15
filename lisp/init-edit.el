@@ -4,7 +4,6 @@
 (set-keyboard-coding-system 'utf-8)
 
 ;; Miscs
-;; (setq initial-scratch-message nil)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets) ; Show path if names are same
 (setq adaptive-fill-regexp "[ t]+|[ t]*([0-9]+.|*+)[ t]*")
 (setq adaptive-fill-first-line-regexp "^* *$")
@@ -12,7 +11,6 @@
 (setq make-backup-files nil)               ; Forbide to make backup files
 (setq auto-save-default nil)               ; Disable auto save
 (setq set-mark-command-repeat-pop t)       ; Repeating C-SPC after popping mark pops it again
-;; (setq-default kill-whole-line t)           ; Kill line including '\n'
 
 (setq-default major-mode 'text-mode)
 
@@ -37,21 +35,6 @@
 
 ;; An all-in-one comment command to rule them all
 (use-package comment-dwim-2)
-
-;; A comprehensive visual interface to diff & patch
-(use-package ediff
-  :ensure nil
-  :init
-  ;; show org ediffs unfolded
-  (with-eval-after-load 'outline
-    (add-hook 'ediff-prepare-buffer-hook #'show-all))
-  ;; restore window layout when done
-  (with-eval-after-load 'winner
-    (add-hook 'ediff-quit-hook #'winner-undo))
-  :config
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-  (setq ediff-split-window-function 'split-window-horizontally)
-  (setq ediff-merge-split-window-function 'split-window-horizontally))
 
 ;; Automatic parenthesis pairing
 (use-package elec-pair

@@ -255,7 +255,9 @@ Including indent-buffer, which should not be called automatically on save."
 
 (defun lemon-fzf ()
   (interactive)
-  (require 'fzf)
+  (use-package fzf
+    :commands
+    (fzf/start))
   (fzf/start current-directory nil))
 
 (defun lemon-no-hlsearch ()
@@ -263,6 +265,12 @@ Including indent-buffer, which should not be called automatically on save."
   ;; (require 'symbol-overlay)
   (evil-search-highlight-persist-remove-all)
   (symbol-overlay-remove-all))
+
+(defun lemon-add-subdirs-to-load-path (dir)
+  "Recursive add directories to `load-path'."
+  (let ((default-directory (file-name-as-directory dir)))
+    (add-to-list 'load-path dir)
+    (normal-top-level-add-subdirs-to-load-path)))
 
 (provide 'init-funcs)
 

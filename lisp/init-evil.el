@@ -55,7 +55,9 @@
  "L" 'mwim-end-of-code-or-line
  "f" 'avy-goto-char-in-line
  "gd" 'counsel-etags-find-tag-at-point
- "gb" 'pop-tag-mark)
+ "gb" 'pop-tag-mark
+ "C-n" 'tabbar-forward
+ "C-p" 'tabbar-backward)
 
 (cond
  ((eq my-completion 'ivy)

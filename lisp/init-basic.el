@@ -2,6 +2,9 @@
   (require 'init-const)
   (require 'init-custom))
 
+(defvar current-directory default-directory
+  "启动目录")
+
 ;; Prefers the newest version of a file
 (setq load-prefer-newer t)
 
