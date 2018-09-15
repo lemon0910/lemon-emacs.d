@@ -88,7 +88,7 @@
     (doom-themes-org-config)
     (doom-theme-tabbar)
     (use-package doom-modeline
-      :hook (after-load-theme . doom-modeline-init))
+      :hook (after-init . doom-modeline-init))
     (use-package solaire-mode
       :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
              (minibuffer-setup . solaire-mode-in-minibuffer))
