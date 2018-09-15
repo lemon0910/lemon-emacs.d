@@ -9,7 +9,9 @@
   :commands
   (aweshell-new)
   :init
-  (add-hook 'eshell-exit-hook #'delete-window)
+  (add-hook 'eshell-exit-hook #'(lambda ()
+                                  (if (> (count-windows) 1)
+                                      (delete-window))))
   :load-path "site-lisp/aweshell")
 
 
