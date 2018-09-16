@@ -16,7 +16,12 @@
   :init
   (add-hook 'magit-blame-mode-hook
             (lambda ()
-              (setq magit-blame--style '(headings (heading-format . "%H %-20a %C %s\n")))))
+              (setq magit-blame--style
+                    '(margin
+                      (margin-format " %s%f" " %C %a" " %H")
+                      (margin-width . 42)
+                      (margin-face . magit-blame-margin)
+                      (margin-body-face magit-blame-dimmed)))))
   :config
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)
@@ -29,7 +34,9 @@
     (kill-buffer)
     (jump-to-register :magit-fullscreen))
 
-  (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
+  (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+  (evil-define-key 'normal 'magit-blame-read-only-mode-map (kbd "RET") 'magit-show-commit)
+  (evil-define-key 'normal 'magit-blame-read-only-mode-map (kbd "<return>") 'magit-show-commit))
 
 (use-package find-file-in-project
   :config

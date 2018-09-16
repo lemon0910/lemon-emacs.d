@@ -9,6 +9,9 @@
 (use-package general)
 (define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
 
+(evil-set-initial-state 'helm-ag-mode 'emacs)
+(define-key evil-emacs-state-map (kbd "C-c z") 'evil-normal-state)
+
 (general-define-key
  :states '(normal visual)
  :prefix ","
@@ -44,6 +47,7 @@
  "n" 'global-display-line-numbers-mode
  "oc" 'occur
  "ff" 'lemon-fzf
+ "z" 'evil-emacs-state
  )
 
 (general-define-key
