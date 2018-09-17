@@ -5,6 +5,8 @@
 ;; find ivy (or helm) or even `buffer-menu' is better suited for this purpose.
 
 (use-package tabbar
+  :load-path "site-lisp/tabbar"
+  :commands tabbar-mode
   :init
   (add-hook 'after-init-hook #'tabbar-mode)
   :config
