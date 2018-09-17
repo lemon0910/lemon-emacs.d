@@ -39,12 +39,8 @@ Default is t."
      (lambda (x)
        (let ((name (format "%s" x)))
          (and
-          (not (string-prefix-p "*epc" name))
-          (not (string-prefix-p "*helm" name))
-          (not (string-prefix-p "*scratch" name))
-          (not (string-prefix-p "*minibuffer tray" name))
-          (not (string-prefix-p "*WoMan-Log*" name))
-          (not (string-prefix-p "*Messages*" name))
+          (not (string-prefix-p "*" name))
+          (not (string-match "^magit.*:\\s-" name))
           )))
      (delq nil
            (mapcar #'(lambda (b)
@@ -56,6 +52,39 @@ Default is t."
                         ((buffer-live-p b) b)))
                    (buffer-list)))))
 
-  (setq tabbar-buffer-list-function 'tabbar-filter-buffer-list))
+  (setq tabbar-buffer-list-function 'tabbar-filter-buffer-list)
+  (defun tabbar-buffer-groups-by-mixin-rules ()
+    "Mixin multiple rules.
+Group tabbar with mode if buffer is derived from `eshell-mode' `emacs-lisp-mode' `dired-mode' `org-mode' `magit-mode'.
+All buffer name start with * will group to \"Emacs\".
+Other buffer group by `projectile-project-p' with project name."
+    (list
+     (cond
+      ((derived-mode-p 'eshell-mode)
+       "EShell")
+      ((derived-mode-p 'emacs-lisp-mode)
+       "Elisp")
+      ((derived-mode-p 'dired-mode)
+       "Dired")
+      ((memq major-mode '(org-mode org-agenda-mode diary-mode))
+       "OrgMode")
+      ((memq major-mode '(magit-process-mode
+                          magit-status-mode
+                          magit-diff-mode
+                          magit-log-mode
+                          magit-file-mode
+                          magit-blob-mode
+                          magit-blame-mode
+                          ))
+       "Magit")
+      ((string-equal "*" (substring (buffer-name) 0 1))
+       "Emacs")
+      (t
+       (if (projectile-project-p)
+           (projectile-project-name)
+         "Common"))
+      )))
+
+  (setq tabbar-buffer-groups-function 'tabbar-buffer-groups-by-mixin-rules))
 
 (provide 'init-tabbar)
