@@ -29,6 +29,8 @@
 
   ;; Preferences
   (require 'init-basic)
+  (require 'init-funcs)
+  (require 'init-utils)
   (require 'init-ui)
   (require 'init-tabbar)
 
@@ -40,9 +42,6 @@
   (require 'init-dired)
   (require 'init-highlight)
   (require 'init-window)
-
-  (require 'init-funcs)
-  (require 'init-utils)
 
   ;; Programming
   (require 'init-prog)

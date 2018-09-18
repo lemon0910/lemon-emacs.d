@@ -36,6 +36,9 @@
   :config
   (setq ffip-project-root current-directory))
 
+(use-package projectile
+  :commands projectile-project-p)
+
 (provide 'init-utils)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
