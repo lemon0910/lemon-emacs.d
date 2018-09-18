@@ -82,17 +82,13 @@
   (use-package doom-themes
     :preface (defvar region-fg nil)
     :init
+    (doom-theme-tabbar)
+    (use-package doom-modeline
+      :hook (after-load-theme . doom-modeline-init))
     (load-theme 'doom-vibrant t)
     :config
     (doom-themes-visual-bell-config)
-    (doom-themes-org-config)
-    (doom-theme-tabbar)
-    (use-package doom-modeline
-      :hook (after-init . doom-modeline-init))
-    (use-package solaire-mode
-      :hook (((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-             (minibuffer-setup . solaire-mode-in-minibuffer))
-      :init (solaire-mode-swap-bg))))
+    (doom-themes-org-config)))
  (t
   (ignore-errors (load-theme my-theme t))))
 
