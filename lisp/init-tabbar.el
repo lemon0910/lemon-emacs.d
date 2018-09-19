@@ -39,6 +39,21 @@ Default is t."
                 (format "%s" (cdr group)))
             (tabbar-tabs tabbar-tabsets-tabset)))
 
+  (defvar tabbar-groups-hash (make-hash-table :test 'equal))
+  (defun tabbar-init-groups-name ()
+    (interactive)
+    (setq tabbar-groups-hash (make-hash-table :test 'equal)))
+  (defun tabbar-get-group-name (buf)
+    (let ((group-name (gethash buf tabbar-groups-hash)))
+      (if group-name
+          group-name
+        (tabbar-set-group-name buf))))
+  (defun tabbar-set-group-name (buf)
+    (with-current-buffer buf
+      (let ((project-name (projectile-project-name)))
+        (puthash buf project-name tabbar-groups-hash)
+        project-name)))
+
 ;;;;;;;;;;;;;;;;;;;;;;; Interactive functions ;;;;;;;;;;;;;;;;;;;;;;;
   (defun tabbar-switch-group (&optional groupname)
     "Switch tab groups using ido."
@@ -175,7 +190,7 @@ Other buffer group by `projectile-project-p' with project name."
        "Emacs")
       (t
        (if (projectile-project-p)
-           (projectile-project-name)
+           (tabbar-get-group-name (current-buffer))
          "Common"))
       )))
 
