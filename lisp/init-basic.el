@@ -36,7 +36,15 @@
     (setq exec-path-from-shell-check-startup-files nil)
     (setq exec-path-from-shell-variables '("PATH" "MANPATH" "PYTHONPATH" "GOPATH"))
     (setq exec-path-from-shell-arguments '("-l"))
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-initialize)
+    (defvar cache-path-from-shell-loaded-p nil)
+
+    (defadvice exec-path-from-shell-initialize (around cache-path-from-shell-advice activate)
+      (if cache-path-from-shell-loaded-p
+          (message "All shell environment variables has loaded in Emacs, yow!")
+        (setq cache-path-from-shell-loaded-p t)
+        ad-do-it
+        ))))
 
 ;; History
 (use-package saveplace
