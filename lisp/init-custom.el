@@ -19,6 +19,7 @@
           (const :tag "madhat2r" madhat2r)
           (const :tag "tangotango" tangotango)
           (const :tag "lazycat theme" lazycat)
+          (const :tag "zerodark theme" zerodark)
           (const :tag "gruvbox theme" gruvbox)))
 
 (defcustom my-completion 'helm

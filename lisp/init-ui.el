@@ -73,6 +73,9 @@
  ((eq my-theme 'gruvbox)
   (use-package gruvbox-theme
     :init (load-theme 'gruvbox t)))
+ ((eq my-theme 'zerodark)
+  (use-package zerodark-theme
+    :init (load-theme 'zerodark t)))
  ((eq my-theme 'lazycat)
   (use-package lazycat-theme
     :load-path "site-lisp/lazycat-theme"
