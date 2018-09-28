@@ -59,9 +59,9 @@
  "f" 'avy-goto-char-in-line
  "gd" 'counsel-etags-find-tag-at-point
  "gb" 'pop-tag-mark
- "<tab>" 'tabbar-forward
- "TAB" 'tabbar-forward
- "<backtab>" 'tabbar-backward)
+ "<tab>" 'awesome-tab-forward-tab
+ "TAB" 'awesome-tab-forward-tab
+ "<backtab>" 'awesome-tab-backward-tab)
 
 (cond
  ((eq my-completion 'ivy)

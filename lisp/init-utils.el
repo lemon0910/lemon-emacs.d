@@ -39,6 +39,21 @@
 (use-package projectile
   :commands projectile-project-p)
 
+(use-package awesome-tab
+  :load-path "site-lisp/awesome-tab"
+  :init
+  (require 'awesome-tab)
+  (awesome-tab-mode t)
+  (defun awesome-tab-theme ()
+    (custom-set-variables
+     '(tabbar-background-color "black")
+     )
+    (custom-set-faces
+     '(awesome-tab-selected ((t (:inherit awesome-tab-default :foreground "#00ccff" :overline "green3" :weight ultra-bold :width semi-expanded))))
+     '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "dark grey" :overline "dark green"))))
+     '(awesome-tab-default ((t (:height 1))))))
+  (awesome-tab-theme))
+
 (provide 'init-utils)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

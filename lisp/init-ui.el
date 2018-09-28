@@ -22,20 +22,6 @@
 
 (show-paren-mode 1)
 
-(defun doom-theme-tabbar ()
-  (custom-set-variables
-   '(tabbar-background-color "black")
-   )
-  (custom-set-faces
-   '(tabbar-button ((t (:inherit tabbar-default :background "black" :foreground "red" :box (:line-width 1 :color "black" :style released-button)))))
-   '(tabbar-button-highlight ((t (:inherit tabbar-default :background "black" :foreground "green" :box (:color "red")))))
-   '(tabbar-default ((t (:height 1))))
-   '(tabbar-selected ((t (:inherit tabbar-default :background "black" :foreground "#00ccff" :overline "#00ccff" :weight ultra-bold :width semi-expanded))))
-   '(tabbar-selected-face ((t (:inherit tabbar-default-face :background "black" :foreground "grey" :box (:line-width -1 :color "grey" :style released-button)))))
-   '(tabbar-separator ((t (:background "black" :distant-foreground "red" :foreground "brown" :height 0.1 :width condensed))))
-   '(tabbar-unselected ((t (:background "black" :foreground "dark grey" :overline "dark grey" :height 1.3))))
-   '(tabbar-unselected-face ((t (:inherit tabbar-default-face :background "black" :foreground "white" :box (:line-width -1 :color "black" :style pressed-button)))))))
-
 (defvar after-load-theme-hook nil
   "Hook run after a color theme is loaded using `load-theme'.")
 (defadvice load-theme (after run-after-load-theme-hook activate)
@@ -75,7 +61,8 @@
     :init (load-theme 'gruvbox t)))
  ((eq my-theme 'zerodark)
   (use-package zerodark-theme
-    :init (load-theme 'zerodark t)))
+    :init
+    (load-theme 'zerodark t)))
  ((eq my-theme 'lazycat)
   (use-package lazycat-theme
     :load-path "site-lisp/lazycat-theme"
@@ -85,7 +72,6 @@
   (use-package doom-themes
     :preface (defvar region-fg nil)
     :init
-    (doom-theme-tabbar)
     (use-package doom-modeline
       :hook (after-load-theme . doom-modeline-init))
     (load-theme 'doom-vibrant t)
