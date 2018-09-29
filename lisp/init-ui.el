@@ -72,8 +72,6 @@
   (use-package doom-themes
     :preface (defvar region-fg nil)
     :init
-    (use-package doom-modeline
-      :hook (after-load-theme . doom-modeline-init))
     (load-theme 'doom-vibrant t)
     :config
     (doom-themes-visual-bell-config)
