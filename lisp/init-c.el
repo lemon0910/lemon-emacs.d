@@ -99,33 +99,6 @@
     :init (add-to-list 'company-backends (company-backend-with-yas 'company-c-headers))
     :after company))
 
-(when my-lsp
-  (defun ccls//enable ()
-    (condition-case nil
-        (lsp-ccls-enable)
-      (user-error nil)))
-
-  (use-package ccls
-    :commands lsp-ccls-enable
-    :init (add-hook 'c-mode-common-hook #'(lambda()
-                                            (ignore-errors (ccls//enable))))
-    :config
-    (setq ccls-executable "/usr/local/bin/ccls")
-    (setq ccls-extra-init-params '(:cacheFormat "msgpack"))))
-
-(when (and more-feature (not my-lsp))
-  ;; git clone https://github.com/Valloric/ycmd.git
-  ;; cd ycmd && git submodule --init --recursive && ./build.py --all
-  (use-package ycmd
-    :init
-    (add-hook 'c-mode-common-hook 'ycmd-mode)
-    :config
-    ;; (set-variable 'ycmd-global-config "/path/to/global_config.py")
-    (set-variable 'ycmd-server-command `("python" ,(file-truename "~/.emacs.d/ycmd/ycmd/")))
-    (set-variable 'ycmd-global-config (file-truename "~/.emacs.d/ycmd/examples/.ycm_extra_conf.py"))
-    (use-package company-ycmd)
-    (company-ycmd-setup)))
-
 (provide 'init-c)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

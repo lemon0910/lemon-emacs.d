@@ -40,9 +40,7 @@
   (use-package ivy-hydra)
 
   ;; Ivy for GNU global
-  (use-package counsel-etags)
-
-  )
+  (use-package counsel-etags))
 
 (provide 'init-ivy)
 

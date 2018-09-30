@@ -1,6 +1,5 @@
 ;; Flycheck configurations.
 ;;
-
 ;;; Code:
 
 (when more-feature

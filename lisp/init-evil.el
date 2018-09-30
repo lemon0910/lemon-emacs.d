@@ -9,9 +9,6 @@
 (use-package general)
 (define-key evil-normal-state-map (kbd "SPC") (general-simulate-key "C-c"))
 
-(evil-set-initial-state 'helm-ag-mode 'emacs)
-(define-key evil-emacs-state-map [escape] 'evil-normal-state)
-
 (general-define-key
  :states '(normal visual)
  :prefix ","
@@ -89,21 +86,6 @@
    "bb" 'helm-mini
    ","  'helm-M-x
    "ss" 'helm-swoop)))
-
-(when my-lsp
-  (general-define-key
-   :states '(normal visual)
-   :keymaps 'ccls-tree-mode-map
-   "f" 'ccls-tree-press
-   "q" 'ccls-tree-quit
-   "Q" 'quit-window
-   "RET" 'ccls-tree-press-and-switch)
-  (general-define-key
-   :states '(normal visual)
-   :keymaps '(c++-mode-map c-mode-map)
-   "gd" 'xref-find-definitions
-   "fa" 'xref-find-apropos
-   "fc" 'ccls-call-hierarchy))
 
 ;; esc quits
 (provide 'init-evil)

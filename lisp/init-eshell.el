@@ -1,5 +1,5 @@
 ;; Emacs command shell
-(defun start-eshell()
+(defun start-shell()
   (interactive)
   (let ((w (split-window-below)))
     (select-window w)
