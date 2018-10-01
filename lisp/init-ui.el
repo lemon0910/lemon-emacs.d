@@ -59,6 +59,9 @@
  ((eq my-theme 'gruvbox)
   (use-package gruvbox-theme
     :init (load-theme 'gruvbox t)))
+ ((eq my-theme 'srcery)
+  (use-package srcery-theme
+    :init (load-theme 'srcery t)))
  ((eq my-theme 'zerodark)
   (use-package zerodark-theme
     :init

@@ -5,7 +5,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'dark
+(defcustom my-theme 'srcery
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
@@ -20,6 +20,7 @@
           (const :tag "tangotango" tangotango)
           (const :tag "lazycat theme" lazycat)
           (const :tag "zerodark theme" zerodark)
+          (const :tag "srcery theme" srcery)
           (const :tag "gruvbox theme" gruvbox)))
 
 (defcustom my-completion 'helm
