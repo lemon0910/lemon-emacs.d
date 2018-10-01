@@ -36,9 +36,7 @@
            ("f" . helm-ag-mode-jump-other-window)
            ("RET" . helm-ag-mode-jump)
            ("<return>" . helm-ag-mode-jump)))
-  (use-package helm-ls-git
-      :config
-      (setq helm-ls-git-fuzzy-match t))
+  (use-package helm-ls-git)
   (use-package helm-etags-plus)
   (use-package helm-swoop
     :config
