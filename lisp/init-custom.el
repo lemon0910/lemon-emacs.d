@@ -5,7 +5,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'srcery
+(defcustom my-theme 'doom
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
