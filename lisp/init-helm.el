@@ -33,9 +33,12 @@
   (use-package helm-ag
     :bind (
            :map helm-ag-mode-map
-           ("f" . helm-ag-mode-jump-other-window)
-           ("RET" . helm-ag-mode-jump)
-           ("<return>" . helm-ag-mode-jump)))
+           ("TAB" . helm-ag-mode-jump-other-window)
+           ("<tab>" . helm-ag-mode-jump-other-window)
+           ("j" . next-line)
+           ("k" . previous-line)
+           ("h" . backward-char)
+           ("l" . forward-char)))
   (use-package helm-ls-git)
   (use-package helm-etags-plus)
   (use-package helm-swoop
