@@ -60,6 +60,9 @@
  "TAB" 'awesome-tab-forward-tab
  "<backtab>" 'awesome-tab-backward-tab)
 
+(if (eq my-completion 'ivy)
+    (define-key evil-normal-state-map (kbd "gd") 'counsel-etags-find-tag-at-point))
+
 (cond
  ((eq my-completion 'ivy)
   (general-define-key
