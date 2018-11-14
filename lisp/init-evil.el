@@ -28,7 +28,7 @@
   "gm"  'magit-dispatch-popup
   "`"   'switch-to-previous-buffer
   "o"   'ace-window
-  "gb"  'magit-blame
+  "gb"  'magit-blame-echo
   "u"   'undo-tree-visualizer-mode
 )
 
