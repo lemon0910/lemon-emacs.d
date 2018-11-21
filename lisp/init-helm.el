@@ -30,15 +30,12 @@
   (setq helm-move-to-line-cycle-in-source     t) ; move to end or beginning of source when reaching top or bottom of source.
   (helm-autoresize-mode 1)
 
-  (use-package helm-ag
-    :bind (
-           :map helm-ag-mode-map
-           ("TAB" . helm-ag-mode-jump-other-window)
-           ("<tab>" . helm-ag-mode-jump-other-window)
-           ("j" . next-line)
-           ("k" . previous-line)
-           ("h" . backward-char)
-           ("l" . forward-char)))
+  (use-package helm-ag)
+  (evil-define-key '(normal visual) helm-ag-mode-map (kbd "TAB") 'helm-ag-mode-jump-other-window)
+  (evil-define-key '(normal visual) helm-ag-mode-map (kbd "<tab>") 'helm-ag-mode-jump-other-window)
+  (evil-define-key '(normal visual) helm-ag-mode-map (kbd "<return>") 'helm-ag-mode-jump)
+  (evil-define-key '(normal visual) helm-ag-mode-map (kbd "RET") 'helm-ag-mode-jump)
+  
   (use-package helm-ls-git)
   (use-package helm-etags-plus)
   (use-package helm-swoop
