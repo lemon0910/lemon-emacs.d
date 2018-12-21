@@ -5,7 +5,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'doom
+(defcustom my-theme 'gruvbox
   "Set color theme."
   :type '(choice
           (const :tag "Default theme" default)
@@ -15,6 +15,7 @@
           (const :tag "zenburn theme" zenburn)
           (const :tag "cyberpunk theme" cyberpunk)
           (const :tag "Doom theme" doom)
+          (const :tag "lemon theme" lemon)
           (const :tag "organic green theme" organic-green)
           (const :tag "madhat2r" madhat2r)
           (const :tag "tangotango" tangotango)

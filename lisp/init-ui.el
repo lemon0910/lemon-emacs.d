@@ -66,6 +66,11 @@
   (use-package zerodark-theme
     :init
     (load-theme 'zerodark t)))
+ ((eq my-theme 'lemon)
+  (use-package lemon-theme
+    :load-path "site-lisp/lemon-theme"
+    :init
+    (require 'lemon-theme)))
  ((eq my-theme 'lazycat)
   (use-package lazycat-theme
     :load-path "site-lisp/lazycat-theme"
