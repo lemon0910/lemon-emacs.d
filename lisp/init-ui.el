@@ -128,6 +128,29 @@
 (when (boundp 'x-gtk-use-system-tooltips)
   (setq x-gtk-use-system-tooltips nil))
 
+(use-package awesome-tab
+  :load-path "site-lisp/awesome-tab"
+  :init
+  (require 'awesome-tab)
+  (awesome-tab-mode t))
+
+(cond
+ ((eq my-theme 'gruvbox)
+  (custom-set-variables
+   '(tabbar-background-color "black")
+   )
+  (custom-set-faces
+   '(avy-lead-face ((t (:background "#4f57f9" :foreground "white"))))
+   '(avy-lead-face-1 ((t (:background "#4f57f9" :foreground "white"))))
+   '(avy-lead-face-2 ((t (:background "#4f57f9" :foreground "white"))))
+   '(awesome-tab-selected ((t (:inherit awesome-tab-default :foreground "#d65d0e" :overline "green3" :weight ultra-bold :width semi-expanded))))
+   '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "#b8bb26" :overline "dark green"))))
+   '(awesome-tab-default ((t (:height 1))))))
+ ((eq my-theme 'zerodark)
+  ;; 设置高亮当前行，在终端默写情况下高亮不明显，需要自己设置
+  (set-face-background 'hl-line "#434343")
+  ))
+
 (provide 'init-ui)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
