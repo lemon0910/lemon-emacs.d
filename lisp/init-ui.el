@@ -140,6 +140,7 @@
    '(tabbar-background-color "black")
    )
   (custom-set-faces
+   '(evil-search-highlight-persist-highlight-face ((t (:background "dark cyan"))))
    '(avy-lead-face ((t (:background "#4f57f9" :foreground "white"))))
    '(avy-lead-face-1 ((t (:background "#4f57f9" :foreground "white"))))
    '(avy-lead-face-2 ((t (:background "#4f57f9" :foreground "white"))))
