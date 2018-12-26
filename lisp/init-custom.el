@@ -5,10 +5,10 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'gruvbox
+(defcustom my-theme 'monokai
   "Set color theme."
   :type '(choice
-          (const :tag "Default theme" default)
+          (const :tag "monokai theme" monokai)
           (const :tag "Dark theme" dark)
           (const :tag "Light theme" light)
           (const :tag "Daylight theme" daylight)

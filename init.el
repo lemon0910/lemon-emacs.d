@@ -13,6 +13,7 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; set my own configuration
 (with-temp-message ""                   ;抹掉插件启动的输出

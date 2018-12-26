@@ -38,9 +38,8 @@
 
 ;;Color Theme
 (cond
- ((eq my-theme 'default)
-  (use-package monokai-theme
-    :init (load-theme 'monokai t)))
+ ((eq my-theme 'monokai)
+  (load-theme 'monokai t))
  ((eq my-theme 'dark)
   (use-package spacemacs-theme
     :init (load-theme 'spacemacs-dark t)))
@@ -149,8 +148,20 @@
    '(awesome-tab-default ((t (:height 1))))))
  ((eq my-theme 'zerodark)
   ;; 设置高亮当前行，在终端默写情况下高亮不明显，需要自己设置
-  (set-face-background 'hl-line "#434343")
-  ))
+  (set-face-background 'hl-line "#434343"))
+ ((eq my-theme 'monokai)
+  (custom-set-variables
+   '(tabbar-background-color "black")
+   )
+  (custom-set-faces
+   '(evil-search-highlight-persist-highlight-face ((t (:background "#98C379"))))
+   '(avy-lead-face ((t (:background "#4f57f9" :foreground "white"))))
+   '(avy-lead-face-1 ((t (:background "#4f57f9" :foreground "white"))))
+   '(avy-lead-face-2 ((t (:background "#4f57f9" :foreground "white"))))
+   '(awesome-tab-selected ((t (:inherit awesome-tab-default :foreground "#ff6188" :overline "green3" :weight ultra-bold :width semi-expanded))))
+   '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "#727072" :overline "dark green"))))
+   '(awesome-tab-default ((t (:height 1))))))
+ )
 
 (provide 'init-ui)
 
