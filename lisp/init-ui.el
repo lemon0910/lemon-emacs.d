@@ -46,35 +46,14 @@
  ((eq my-theme 'light)
   (use-package spacemacs-theme
     :init (load-theme 'spacemacs-light t)))
- ((eq my-theme 'daylight)
-  (use-package leuven-theme
-    :init (load-theme 'leuven t)))
- ((eq my-theme 'organic-green)
-  (use-package organic-green-theme
-    :init (load-theme 'organic-green t)))
- ((eq my-theme 'tangotango)
-  (use-package tangotango-theme
-    :init (load-theme 'tangotango t)))
  ((eq my-theme 'gruvbox)
   (use-package gruvbox-theme
     :init (load-theme 'gruvbox t)))
- ((eq my-theme 'srcery)
-  (use-package srcery-theme
-    :init (load-theme 'srcery t)))
- ((eq my-theme 'zerodark)
-  (use-package zerodark-theme
-    :init
-    (load-theme 'zerodark t)))
  ((eq my-theme 'lemon)
   (use-package lemon-theme
     :load-path "site-lisp/lemon-theme"
     :init
     (require 'lemon-theme)))
- ((eq my-theme 'lazycat)
-  (use-package lazycat-theme
-    :load-path "site-lisp/lazycat-theme"
-    :init
-    (require 'lazycat-theme)))
  ((eq my-theme 'doom)
   (use-package doom-themes
     :preface (defvar region-fg nil)
@@ -146,9 +125,6 @@
    '(awesome-tab-selected ((t (:inherit awesome-tab-default :foreground "#d65d0e" :overline "green3" :weight ultra-bold :width semi-expanded))))
    '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "#b8bb26" :overline "dark green"))))
    '(awesome-tab-default ((t (:height 1))))))
- ((eq my-theme 'zerodark)
-  ;; 设置高亮当前行，在终端默写情况下高亮不明显，需要自己设置
-  (set-face-background 'hl-line "#434343"))
  ((eq my-theme 'monokai)
   (custom-set-variables
    '(tabbar-background-color "black")
@@ -162,6 +138,10 @@
    '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "#727072" :overline "dark green"))))
    '(awesome-tab-default ((t (:height 1))))))
  )
+
+(use-package telephone-line
+  :init
+  (telephone-line-mode 1))
 
 (provide 'init-ui)
 

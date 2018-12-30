@@ -11,17 +11,8 @@
           (const :tag "monokai theme" monokai)
           (const :tag "Dark theme" dark)
           (const :tag "Light theme" light)
-          (const :tag "Daylight theme" daylight)
-          (const :tag "zenburn theme" zenburn)
-          (const :tag "cyberpunk theme" cyberpunk)
           (const :tag "Doom theme" doom)
           (const :tag "lemon theme" lemon)
-          (const :tag "organic green theme" organic-green)
-          (const :tag "madhat2r" madhat2r)
-          (const :tag "tangotango" tangotango)
-          (const :tag "lazycat theme" lazycat)
-          (const :tag "zerodark theme" zerodark)
-          (const :tag "srcery theme" srcery)
           (const :tag "gruvbox theme" gruvbox)))
 
 (defcustom my-completion 'helm
