@@ -29,8 +29,7 @@
     (kill-buffer)
     (jump-to-register :magit-fullscreen))
 
-  (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-  (evil-define-key 'normal magit-blame-read-only-mode-map (kbd "c") 'magit-blame-cycle-style))
+  (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
 (use-package find-file-in-project
   :config

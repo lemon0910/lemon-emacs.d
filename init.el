@@ -50,5 +50,5 @@
   (require 'init-go)
   (require 'init-python)
 
-  (require 'init-eshell)
-  (require 'init-restore))
+  (require 'init-eshell))
+  ; (require 'init-restore))
