@@ -49,6 +49,10 @@
  ((eq my-theme 'gruvbox)
   (use-package gruvbox-theme
     :init (load-theme 'gruvbox t)))
+ ((eq my-theme 'kaolin)
+  (use-package kaolin-themes
+    :init
+    (load-theme 'kaolin-bubblegum t)))
  ((eq my-theme 'lemon)
   (use-package lemon-theme
     :load-path "site-lisp/lemon-theme"
@@ -136,6 +140,10 @@
    '(avy-lead-face-2 ((t (:background "#4f57f9" :foreground "white"))))
    '(awesome-tab-selected ((t (:inherit awesome-tab-default :foreground "#ff6188" :overline "green3" :weight ultra-bold :width semi-expanded))))
    '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "#727072" :overline "dark green"))))
+   '(awesome-tab-default ((t (:height 1))))))
+ ((eq my-theme 'kaolin)
+  (custom-set-faces
+   '(evil-search-highlight-persist-highlight-face ((t (:background "red" :foreground "dark"))))
    '(awesome-tab-default ((t (:height 1))))))
  )
 
