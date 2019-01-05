@@ -9,8 +9,6 @@
   "Set color theme."
   :type '(choice
           (const :tag "monokai theme" monokai)
-          (const :tag "Dark theme" dark)
-          (const :tag "Light theme" light)
           (const :tag "Doom theme" doom)
           (const :tag "lemon theme" lemon)
           (const :tag "gruvbox theme" gruvbox)
