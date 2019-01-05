@@ -44,6 +44,7 @@
  "n" 'global-display-line-numbers-mode
  "oc" 'occur
  "ff" 'lemon-fzf
+ "r" 'helm-show-kill-ring
  )
 
 (general-define-key
