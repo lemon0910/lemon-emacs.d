@@ -31,7 +31,7 @@
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
-(defun magit-blame()
+(defun lemon-magit-blame()
   (interactive)
   (magit-blame-echo)
   (magit-blame-cycle-style))
