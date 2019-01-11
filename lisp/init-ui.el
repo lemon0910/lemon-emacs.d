@@ -36,28 +36,26 @@
                   treemacs-mode-hook))
     (add-hook hook #'hide-mode-line-mode)))
 
+(use-package awesome-tab
+  :load-path "site-lisp/tab"
+  :init
+  (require 'awesome-tab)
+  (awesome-tab-mode t)
+  :config
+  (defun awesome-tab-hide-tab-function (x)
+  (let ((name (format "%s" x)))
+    (and
+     (not (string-prefix-p "*" name))
+     (not (and (string-prefix-p "magit" name)
+               (not (file-name-extension name))))
+     )))
+  :custom-face
+  (awesome-tab-selected ((t (:foreground "#ff6188"))))
+  (awesome-tab-unselected ((t (:foreground "#727072"))))
+  (awesome-tab-default ((t (:height 1 :background "dark")))))
+
 ;;Color Theme
 (cond
- ((eq my-theme 'monokai)
-  (load-theme 'monokai t))
- ((eq my-theme 'dark)
-  (use-package spacemacs-theme
-    :init (load-theme 'spacemacs-dark t)))
- ((eq my-theme 'light)
-  (use-package spacemacs-theme
-    :init (load-theme 'spacemacs-light t)))
- ((eq my-theme 'gruvbox)
-  (use-package gruvbox-theme
-    :init (load-theme 'gruvbox t)))
- ((eq my-theme 'kaolin)
-  (use-package kaolin-themes
-    :init
-    (load-theme 'kaolin-bubblegum t)))
- ((eq my-theme 'lemon)
-  (use-package lemon-theme
-    :load-path "site-lisp/lemon-theme"
-    :init
-    (require 'lemon-theme)))
  ((eq my-theme 'doom)
   (use-package doom-themes
     :preface (defvar region-fg nil)
@@ -65,7 +63,10 @@
     (load-theme 'doom-vibrant t)
     :config
     (doom-themes-visual-bell-config)
-    (doom-themes-org-config)))
+    (doom-themes-org-config)
+    (use-package doom-modeline
+      :ensure t
+      :hook (after-init . doom-modeline-init))))
  (t
   (ignore-errors (load-theme my-theme t))))
 
@@ -109,47 +110,6 @@
 ;; Don't use GTK+ tooltip
 (when (boundp 'x-gtk-use-system-tooltips)
   (setq x-gtk-use-system-tooltips nil))
-
-(use-package awesome-tab
-  :load-path "site-lisp/awesome-tab"
-  :init
-  (require 'awesome-tab)
-  (awesome-tab-mode t))
-
-(cond
- ((eq my-theme 'gruvbox)
-  (custom-set-variables
-   '(tabbar-background-color "black")
-   )
-  (custom-set-faces
-   '(evil-search-highlight-persist-highlight-face ((t (:background "dark cyan"))))
-   '(avy-lead-face ((t (:background "#4f57f9" :foreground "white"))))
-   '(avy-lead-face-1 ((t (:background "#4f57f9" :foreground "white"))))
-   '(avy-lead-face-2 ((t (:background "#4f57f9" :foreground "white"))))
-   '(awesome-tab-selected ((t (:inherit awesome-tab-default :foreground "#d65d0e" :overline "green3" :weight ultra-bold :width semi-expanded))))
-   '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "#b8bb26" :overline "dark green"))))
-   '(awesome-tab-default ((t (:height 1))))))
- ((eq my-theme 'monokai)
-  (custom-set-variables
-   '(tabbar-background-color "black")
-   )
-  (custom-set-faces
-   '(evil-search-highlight-persist-highlight-face ((t (:background "#98C379"))))
-   '(avy-lead-face ((t (:background "#4f57f9" :foreground "white"))))
-   '(avy-lead-face-1 ((t (:background "#4f57f9" :foreground "white"))))
-   '(avy-lead-face-2 ((t (:background "#4f57f9" :foreground "white"))))
-   '(awesome-tab-selected ((t (:inherit awesome-tab-default :foreground "#ff6188" :overline "green3" :weight ultra-bold :width semi-expanded))))
-   '(awesome-tab-unselected ((t (:inherit awesome-tab-default :foreground "#727072" :overline "dark green"))))
-   '(awesome-tab-default ((t (:height 1))))))
- ((eq my-theme 'kaolin)
-  (custom-set-faces
-   '(evil-search-highlight-persist-highlight-face ((t (:background "red" :foreground "dark"))))
-   '(awesome-tab-default ((t (:height 1))))))
- )
-
-(use-package telephone-line
-  :init
-  (telephone-line-mode 1))
 
 (provide 'init-ui)
 

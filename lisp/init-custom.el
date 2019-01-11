@@ -5,14 +5,10 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'kaolin
+(defcustom my-theme 'doom
   "Set color theme."
   :type '(choice
-          (const :tag "monokai theme" monokai)
-          (const :tag "Doom theme" doom)
-          (const :tag "lemon theme" lemon)
-          (const :tag "gruvbox theme" gruvbox)
-          (const :tag "kaolin theme" kaolin)))
+          (const :tag "Doom theme" doom)))
 
 (defcustom my-completion 'helm
   "set completion type"
