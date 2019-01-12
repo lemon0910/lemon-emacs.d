@@ -1,8 +1,13 @@
+(eval-when-compile
+ (require 'init-const))
+
 (defcustom my-package-archives 'emacs-china
   "Set package archives from which to fetch."
   :type '(choice
           (const :tag "Melpa" melpa)
+          (const :tag "Melpa Mirror" melpa-mirror)
           (const :tag "Emacs-China" emacs-china)
+          (const :tag "Netease" netease)
           (const :tag "Tuna" tuna)))
 
 (defcustom my-theme 'doom
@@ -10,13 +15,7 @@
   :type '(choice
           (const :tag "Doom theme" doom)))
 
-(defcustom my-completion 'helm
-  "set completion type"
-  :type '(choice
-          (const :tag "ivy" ivy)
-          (const :tag "helm" helm)))
-
-(defcustom my-yas nil
+(defcustom use-yas nil
   "Enable yasnippet for company backends or not."
   :type 'boolean)
 
@@ -24,7 +23,7 @@
   "Enable more feature for mac"
   :type 'boolean)
 
-(defcustom my-lsp nil
+(defcustom use-lsp nil
   "enable lsp-mode"
   :type 'boolean)
 

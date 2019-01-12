@@ -9,13 +9,6 @@
   (interactive)
   (set-buffer-file-coding-system 'undecided-dos nil))
 
-;; Create a new scratch buffer
-(defun create-scratch-buffer ()
-  "Create a scratch buffer."
-  (interactive)
-  (switch-to-buffer (get-buffer-create "*scratch*"))
-  (lisp-interaction-mode))
-
 ;; Save a file as utf-8
 (defun save-buffer-as-utf8 (coding-system)
   "Revert a buffer with `CODING-SYSTEM' and save as UTF-8."
@@ -106,10 +99,6 @@
                                   nil
                                 (find-file-noselect opening-file-name))))
     (progn 
-      ;(print opened-file-name)
-      ;(print opened-file-name-prefix)
-      ;(print opened-file-ext-type)
-      ;(print opening-file-name)
       (if (null opening-file-buffer)
           (message "not found relational file")
         (switch-to-buffer opening-file-buffer)))))
@@ -131,10 +120,7 @@ Repeated invocations toggle between the two most recently open buffers."
   (let ((filename (read-directory-name "the project directory is ")))
     (setq my-saved-launch-directory (expand-file-name filename))
     (setq current-directory (expand-file-name filename))
-    (setq ffip-project-root (expand-file-name filename))
-    (setq projectile-file (concat my-saved-launch-directory "/.projectile"))
-    (if (not (file-exists-p projectile-file))
-        (write-region "" nil projectile-file))))
+    (setq ffip-project-root (expand-file-name filename))))
 
 (defun lemon-ag ()
   (interactive)
@@ -247,11 +233,6 @@ Including indent-buffer, which should not be called automatically on save."
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
-
-(defun lemon-counsel-fzf()
-  (interactive)
-  (let ((root-directory (expand-file-name directory-name)))
-    (counsel-fzf nil root-directory nil)))
 
 (defun lemon-fzf ()
   (interactive)

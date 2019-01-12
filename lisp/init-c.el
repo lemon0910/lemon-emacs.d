@@ -1,3 +1,6 @@
+(eval-when-compile
+  (require 'init-custom))
+
 (defconst lemon-c-style
   '((c-backslash-column . 70)
     (c-basic-offset . 2)
@@ -91,8 +94,7 @@
 
 (use-package cc-mode
   :ensure nil
-  :init
-  (add-hook 'c-mode-common-hook #'lemon-c-mode-common-hook)
+  :hook (c-mode-common . lemon-c-mode-common-hook)
   :config
   ;; Company mode backend for C/C++ header files
   (use-package company-c-headers

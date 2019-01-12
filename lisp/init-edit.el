@@ -26,12 +26,12 @@
 (use-package autorevert
   :ensure nil
   :diminish auto-revert-mode
-  :init (add-hook 'after-init-hook #'global-auto-revert-mode))
+  :hook (after-init . global-auto-revert-mode))
 
 ;; Jump to Chinese characters
 (use-package ace-pinyin
   :diminish ace-pinyin-mode
-  :init (add-hook 'after-init-hook #'ace-pinyin-global-mode))
+  :hook (after-init . ace-pinyin-global-mode))
 
 ;; An all-in-one comment command to rule them all
 (use-package comment-dwim-2)
@@ -39,12 +39,12 @@
 ;; Automatic parenthesis pairing
 (use-package elec-pair
   :ensure nil
-  :init (add-hook 'after-init-hook #'electric-pair-mode))
+  :hook (after-init . electric-pair-mode))
 
 ;; Hungry deletion
 (use-package hungry-delete
   :diminish hungry-delete-mode
-  :init (add-hook 'after-init-hook #'global-hungry-delete-mode)
+  :hook (after-init-hook . global-hungry-delete-mode)
   :config (setq-default hungry-delete-chars-to-skip " \t\f\v"))
 
 ;; Move to the beginning/end of line or code
@@ -53,7 +53,7 @@
 ;; Treat undo history as a tree
 (use-package undo-tree
   :diminish undo-tree-mode
-  :init (add-hook 'after-init-hook #'global-undo-tree-mode))
+  :hook (after-init . global-undo-tree-mode))
 
 (provide 'init-edit)
 

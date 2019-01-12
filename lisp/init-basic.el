@@ -14,16 +14,6 @@
 ;; disable the annoying bell ring
 (setq ring-bell-function 'ignore)
 
-;; Key Modifiers
-(when sys/win32p
-  ;; make PC keyboard's Win key or other to type Super or Hyper
-  ;; (setq w32-pass-lwindow-to-system nil)
-  (setq w32-lwindow-modifier 'super)    ; Left Windows key
-  (setq w32-apps-modifier 'hyper)       ; Menu/App key
-
-  ;; (w32-register-hot-key [s-])
-  (w32-register-hot-key [s-t]))
-
 ;; Environment
 (when (or sys/mac-x-p sys/linux-x-p)
   (use-package exec-path-from-shell
@@ -31,50 +21,41 @@
     (setq exec-path-from-shell-check-startup-files nil)
     (setq exec-path-from-shell-variables '("PATH" "MANPATH" "PYTHONPATH" "GOPATH"))
     (setq exec-path-from-shell-arguments '("-l"))
-    (exec-path-from-shell-initialize)
-    (defvar cache-path-from-shell-loaded-p nil)
-
-    (defadvice exec-path-from-shell-initialize (around cache-path-from-shell-advice activate)
-      (if cache-path-from-shell-loaded-p
-          (message "All shell environment variables has loaded in Emacs, yow!")
-        (setq cache-path-from-shell-loaded-p t)
-        ad-do-it
-        ))))
+    (exec-path-from-shell-initialize)))
 
 ;; History
 (use-package saveplace
   :ensure nil
-  :init
-  ;; Emacs 25 has a proper mode for `save-place'
-  (if (fboundp 'save-place-mode)
-      (add-hook 'after-init-hook #'save-place-mode)))
+  :hook (after-init . save-place-mode))
 
 (use-package recentf
   :ensure nil
+  :hook (after-init . recentf-mode)
   :init
   (setq recentf-max-saved-items 200)
-  ;; lazy load recentf
-  ;; (add-hook 'after-init-hook #'recentf-mode)
-  (add-hook 'find-file-hook (lambda () (unless recentf-mode
-                                         (recentf-mode)
-                                         (recentf-track-opened-file))))
-  :config
-  (add-to-list 'recentf-exclude (expand-file-name package-user-dir))
-  (add-to-list 'recentf-exclude "bookmarks")
-  (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'"))
+  (setq recentf-exclude '((expand-file-name package-user-dir)
+                          ".cache"
+                          ".cask"
+                          ".elfeed"
+                          "bookmarks"
+                          "cache"
+                          "ido.*"
+                          "persp-confs"
+                          "recentf"
+                          "url"
+                          "COMMIT_EDITMSG\\'")))
 
 (use-package savehist
   :ensure nil
-  :init
-  (setq enable-recursive-minibuffers t ; Allow commands in minibuffers
-        history-length 1000
-        savehist-additional-variables '(mark-ring
-                                        global-mark-ring
-                                        search-ring
-                                        regexp-search-ring
-                                        extended-command-history)
-        savehist-autosave-interval 60)
-  (add-hook 'after-init-hook #'savehist-mode))
+  :hook (after-init . savehist-mode)
+  :init (setq enable-recursive-minibuffers t ; Allow commands in minibuffers
+              history-length 1000
+              savehist-additional-variables '(mark-ring
+                                              global-mark-ring
+                                              search-ring
+                                              regexp-search-ring
+                                              extended-command-history)
+              savehist-autosave-interval 300))
 
 (setq mouse-drag-copy-region t)
 

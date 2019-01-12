@@ -70,22 +70,6 @@
  (t
   (ignore-errors (load-theme my-theme t))))
 
-;; Fonts
-(when more-feature
-  (use-package cnfonts
-    :init
-    (add-hook 'after-init-hook #'cnfonts-enable)
-    :config
-    (setq cnfonts-keep-frame-size nil)
-    (setq cnfonts-use-cache t)
-    (setq cnfonts-profiles
-          '("program1" "program2" "program3" "org-mode" "read-book"))
-    (setq cnfonts--profiles-steps '(("program1" . 4)
-                                    ("program2" . 5)
-                                    ("program3" . 3)
-                                    ("org-mode" . 6)
-                                    ("read-book" . 8)))))
-
 ;; Line and Column
 (setq-default fill-column 80)
 (setq column-number-mode t)
@@ -110,6 +94,13 @@
 ;; Don't use GTK+ tooltip
 (when (boundp 'x-gtk-use-system-tooltips)
   (setq x-gtk-use-system-tooltips nil))
+
+;; highlight
+(use-package symbol-overlay)
+(global-hl-line-mode t)
+
+(when (eq my-theme 'doom)
+  (set-face-background 'hl-line "#434343"))
 
 (provide 'init-ui)
 

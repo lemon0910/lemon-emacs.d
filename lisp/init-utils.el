@@ -36,10 +36,6 @@
   (magit-blame-echo)
   (magit-blame-cycle-style))
 
-(use-package find-file-in-project
-  :config
-  (setq ffip-project-root current-directory))
-
 (use-package projectile
   :commands projectile-project-p)
 

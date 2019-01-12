@@ -31,17 +31,6 @@
   (use-package py-autopep8
     :init (add-hook 'python-mode-hook #'py-autopep8-enable-on-save))
 
-  ;; Anaconda mode
-  ;; (use-package anaconda-mode
-  ;;   :diminish anaconda-mode
-  ;;   :init
-  ;;   (add-hook 'python-mode-hook #'anaconda-mode)
-  ;;   (add-hook 'python-mode-hook #'anaconda-eldoc-mode)
-  ;;   :config
-  ;;   (with-eval-after-load 'company
-  ;;     (use-package company-anaconda
-  ;;       :defines company-backends
-  ;;       :init (add-to-list 'company-backends (company-backend-with-yas 'company-anaconda))))))
   (use-package company-jedi
     :init
     (add-hook 'python-mode-hook #'lemon-python-mode-hook)

@@ -17,12 +17,13 @@
 ;; go get -u github.com/davidrjenni/reftools/cmd/fillstruct
 ;;
 (use-package go-mode
-  :config
-  ;; `goimports' or `gofmt'
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook #'gofmt-before-save)
+  :bind (:map go-mode-map
+              ([remap xref-find-definitions] . godef-jump))
 
-  (use-package go-guru)
+  :config
+  (use-package go-guru
+    :bind (:map go-mode-map
+                ([remap xref-find-references] . go-guru-referrers)))
 
   (use-package company-go
     :init (add-to-list 'company-backends (company-backend-with-yas 'company-go))

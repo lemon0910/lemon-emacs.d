@@ -1,3 +1,6 @@
+(eval-when-compile
+  (require 'init-custom))
+
 (use-package company
   :diminish company-mode
   :bind (
@@ -7,8 +10,7 @@
          :map company-search-map
               ("C-p" . company-select-previous)
               ("C-n" . company-select-next))
-  :init
-  (add-hook 'after-init-hook #'global-company-mode)
+  :hook (after-init . global-company-mode)
   :config
   ;; aligns annotation to the right hand side
   (setq company-tooltip-align-annotations t)
@@ -23,7 +25,7 @@
         ;; company-show-numbers t
         company-backends '(company-files company-dabbrev-code company-dabbrev company-keywords))
 
-  (defvar company-enable-yas my-yas
+  (defvar company-enable-yas use-yas
     "Enable yasnippet for all backends.")
 
   (defun company-backend-with-yas (backend)

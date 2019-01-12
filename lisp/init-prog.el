@@ -2,7 +2,4 @@
 
 (use-package vimrc-mode)
 
-(unless (fboundp 'conf-toml-mode)
-  (use-package toml-mode))
-
 (provide 'init-prog)
