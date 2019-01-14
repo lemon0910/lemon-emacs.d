@@ -52,7 +52,7 @@
   :custom-face
   (awesome-tab-selected ((t (:foreground "#ff6188"))))
   (awesome-tab-unselected ((t (:foreground "#727072"))))
-  (awesome-tab-default ((t (:height 1 :background "dark")))))
+  (awesome-tab-default ((t (:height 1 :background "#000000")))))
 
 ;;Color Theme
 (cond
