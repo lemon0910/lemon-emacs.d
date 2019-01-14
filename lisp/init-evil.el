@@ -26,7 +26,6 @@
  "wd"  'delete-window
  "gs"  'magit-status
  "gm"  'magit-dispatch-popup
- "`"   'switch-to-previous-buffer
  "o"   'ace-window
  "gb"  'lemon-magit-blame
  "u"   'undo-tree-visualizer-mode
