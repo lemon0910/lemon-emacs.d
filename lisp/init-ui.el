@@ -66,7 +66,16 @@
     (doom-themes-org-config)
     (use-package doom-modeline
       :ensure t
-      :hook (after-init . doom-modeline-init))))
+      :hook (after-init . doom-modeline-init)
+      :config
+      (size-indication-mode -1))))
+ ((eq my-theme 'spacemacs)
+  (use-package spacemacs-theme
+    :init
+    (load-theme 'spacemacs-dark t))
+  (use-package spaceline
+    :init
+    (spaceline-spacemacs-theme)))
  (t
   (ignore-errors (load-theme my-theme t))))
 

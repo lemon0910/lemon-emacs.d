@@ -5,15 +5,14 @@
   "Set package archives from which to fetch."
   :type '(choice
           (const :tag "Melpa" melpa)
-          (const :tag "Melpa Mirror" melpa-mirror)
           (const :tag "Emacs-China" emacs-china)
-          (const :tag "Netease" netease)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'doom
+(defcustom my-theme 'spacemacs
   "Set color theme."
   :type '(choice
-          (const :tag "Doom theme" doom)))
+          (const :tag "Doom theme" doom)
+          (const :tag "spacemacs theme" spacemacs)))
 
 (defcustom use-yas nil
   "Enable yasnippet for company backends or not."
