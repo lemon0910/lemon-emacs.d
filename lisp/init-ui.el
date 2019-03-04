@@ -68,6 +68,8 @@
       :ensure t
       :hook (after-init . doom-modeline-init)
       :config
+      (setq doom-modeline-buffer-file-name-style 'buffer-name)
+      (setq doom-modeline-minor-modes nil)
       (size-indication-mode -1))))
  ((eq my-theme 'spacemacs)
   (use-package spacemacs-theme

@@ -31,11 +31,6 @@
 
   (define-key magit-status-mode-map (kbd "q") 'magit-quit-session))
 
-(defun lemon-magit-blame()
-  (interactive)
-  (magit-blame-echo)
-  (magit-blame-cycle-style))
-
 (use-package projectile
   :commands projectile-project-p)
 

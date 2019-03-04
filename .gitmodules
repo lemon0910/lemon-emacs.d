@@ -4,6 +4,3 @@
 [submodule "site-lisp/shell"]
 	path = site-lisp/shell
 	url = https://github.com/manateelazycat/aweshell.git
-[submodule "site-lisp/pair"]
-	path = site-lisp/pair
-	url = https://github.com/manateelazycat/awesome-pair.git

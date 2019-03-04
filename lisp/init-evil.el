@@ -27,7 +27,7 @@
  "gs"  'magit-status
  "gm"  'magit-dispatch-popup
  "o"   'ace-window
- "gb"  'lemon-magit-blame
+ "gb"  'magit-blame-echo
  "u"   'undo-tree-visualizer-mode
  "ff" 'helm-find-files
  "fg" 'helm-ls-git-ls
