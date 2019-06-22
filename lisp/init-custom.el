@@ -22,10 +22,6 @@
   "Enable more feature for mac"
   :type 'boolean)
 
-(defcustom use-lsp nil
-  "enable lsp-mode"
-  :type 'boolean)
-
 (provide 'init-custom)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

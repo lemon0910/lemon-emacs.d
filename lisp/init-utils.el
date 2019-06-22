@@ -16,7 +16,8 @@
   :init
   (add-hook 'magit-blame-mode-hook
             (lambda ()
-              (setq magit-blame--style '(headings (heading-format . "%H %-20a %C %s\n")))))
+              ;; heading-format %H %-20a %C %
+              (setq magit-blame--style '(headings (heading-format . "%H %-20a %C\n")))))
   :config
   (defadvice magit-status (around magit-fullscreen activate)
     (window-configuration-to-register :magit-fullscreen)

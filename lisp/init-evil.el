@@ -28,7 +28,7 @@
  "gm"  'magit-dispatch-popup
  "o"   'ace-window
  "gb"  'magit-blame-echo
- "u"   'undo-tree-visualizer-mode
+ "u"   'undo-tree-visualize
  "ff" 'helm-find-files
  "fg" 'helm-ls-git-ls
  "ft" 'helm-imenu
@@ -61,7 +61,6 @@
  "H" 'mwim-beginning-of-code-or-line
  "L" 'mwim-end-of-code-or-line
  "f" 'avy-goto-char-in-line
- "gd" 'counsel-etags-find-tag-at-point
  "gb" 'pop-tag-mark
  "<tab>" 'awesome-tab-forward-tab
  "TAB" 'awesome-tab-forward-tab
