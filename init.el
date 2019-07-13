@@ -53,7 +53,7 @@
   (require 'init-evil)
   (require 'init-edit)
 
-  (require 'init-helm)
+  (require 'init-ivy)
   (require 'init-company)
   (require 'init-dired)
   (require 'init-window)

@@ -8,7 +8,7 @@
           (const :tag "Emacs-China" emacs-china)
           (const :tag "Tuna" tuna)))
 
-(defcustom my-theme 'spacemacs
+(defcustom my-theme 'doom
   "Set color theme."
   :type '(choice
           (const :tag "Doom theme" doom)
@@ -16,10 +16,6 @@
 
 (defcustom use-yas nil
   "Enable yasnippet for company backends or not."
-  :type 'boolean)
-
-(defcustom more-feature t
-  "Enable more feature for mac"
   :type 'boolean)
 
 (provide 'init-custom)

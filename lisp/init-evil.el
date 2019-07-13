@@ -29,13 +29,13 @@
  "o"   'ace-window
  "gb"  'magit-blame-echo
  "u"   'undo-tree-visualize
- "ff" 'helm-find-files
- "fg" 'helm-ls-git-ls
- "ft" 'helm-imenu
- "ag" 'helm-do-ag
- "bb" 'helm-mini
- ","  'helm-M-x
- "ss" 'helm-swoop
+ "ff" 'counsel-find-file
+ "fg" 'counsel-git
+ "ft" 'counsel-imenu
+ "ag" 'lemon-ag
+ "bb" 'counsel-switch-buffer
+ ","  'counsel-M-x
+ "ss" 'swiper
  )
 
 (general-define-key
@@ -48,9 +48,7 @@
  "R" 'lemon-rename-current-buffer-file
  "K" 'lemon-delete-current-buffer-file
  "n" 'global-display-line-numbers-mode
- "oc" 'occur
  "ff" 'lemon-fzf
- "r" 'helm-show-kill-ring
  )
 
 (general-define-key
