@@ -60,7 +60,7 @@
   (use-package doom-themes
     :preface (defvar region-fg nil)
     :init
-    (load-theme 'doom-vibrant t)
+    (load-theme 'doom-gruvbox t)
     :config
     (doom-themes-visual-bell-config)
     (doom-themes-org-config)

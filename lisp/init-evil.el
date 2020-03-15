@@ -36,6 +36,7 @@
  "bb" 'counsel-switch-buffer
  ","  'counsel-M-x
  "ss" 'swiper
+ "zz" 'lemon-fzf
  )
 
 (general-define-key
@@ -48,7 +49,6 @@
  "R" 'lemon-rename-current-buffer-file
  "K" 'lemon-delete-current-buffer-file
  "n" 'global-display-line-numbers-mode
- "ff" 'lemon-fzf
  )
 
 (general-define-key
