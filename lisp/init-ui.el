@@ -36,23 +36,12 @@
                   treemacs-mode-hook))
     (add-hook hook #'hide-mode-line-mode)))
 
-(use-package awesome-tab
-  :load-path "site-lisp/tab"
-  :init
-  (require 'awesome-tab)
-  (awesome-tab-mode t)
+(use-package centaur-tabs
+  :demand
   :config
-  (defun awesome-tab-hide-tab-function (x)
-  (let ((name (format "%s" x)))
-    (and
-     (not (string-prefix-p "*" name))
-     (not (and (string-prefix-p "magit" name)
-               (not (file-name-extension name))))
-     )))
-  :custom-face
-  (awesome-tab-selected ((t (:foreground "#ff6188"))))
-  (awesome-tab-unselected ((t (:foreground "#727072"))))
-  (awesome-tab-default ((t (:height 1 :background "#000000")))))
+  (centaur-tabs-mode t)
+  (setq centaur-tabs-cycle-scope 'tabs)
+  (setq centaur-tabs-set-icons t))
 
 ;;Color Theme
 (cond

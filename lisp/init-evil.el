@@ -60,9 +60,9 @@
  "L" 'mwim-end-of-code-or-line
  "f" 'avy-goto-char-in-line
  "gb" 'pop-tag-mark
- "<tab>" 'awesome-tab-forward-tab
- "TAB" 'awesome-tab-forward-tab
- "<backtab>" 'awesome-tab-backward-tab
+ "<tab>" 'centaur-tabs-forward
+ "TAB" 'centaur-tabs-forward
+ "<backtab>" 'centaur-tabs-backward
  "<f1>" 'start-eshell)
 
 ;; esc quits
