@@ -9,8 +9,7 @@
   (setq elpamr-default-output-directory "~/.emacs.d/myelpa/"))
 
 (use-package expand-region
-  :ensure t
-  :bind ("C-=" . er/expand-region))
+  :ensure t)
 
 (use-package magit
   :init

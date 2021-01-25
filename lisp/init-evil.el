@@ -25,18 +25,17 @@
  "cc"  'comment-dwim-2
  "wd"  'delete-window
  "gs"  'magit-status
+ "ff" 'counsel-find-file
  "gm"  'magit-dispatch-popup
  "o"   'ace-window
  "gb"  'magit-blame-echo
- "u"   'undo-tree-visualize
- "ff" 'counsel-find-file
  "fg" 'counsel-git
  "ft" 'counsel-imenu
  "ag" 'lemon-ag
- "bb" 'counsel-switch-buffer
+ "bb" 'counsel-buffer-or-recentf
  ","  'counsel-M-x
  "ss" 'swiper
- "zz" 'lemon-fzf
+ "zz"  'lemon-fzf
  )
 
 (general-define-key
@@ -49,6 +48,8 @@
  "R" 'lemon-rename-current-buffer-file
  "K" 'lemon-delete-current-buffer-file
  "n" 'global-display-line-numbers-mode
+ "ff" 'counsel-find-file
+ "r" 'er/expand-region
  )
 
 (general-define-key
@@ -58,7 +59,6 @@
  "k" 'evil-previous-visual-line
  "H" 'mwim-beginning-of-code-or-line
  "L" 'mwim-end-of-code-or-line
- "f" 'avy-goto-char-in-line
  "gb" 'pop-tag-mark
  "<tab>" 'centaur-tabs-forward
  "TAB" 'centaur-tabs-forward

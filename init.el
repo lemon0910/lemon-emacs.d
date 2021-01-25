@@ -46,12 +46,12 @@
   ;; Preferences
   (require 'init-basic)
   (require 'init-funcs)
-  (require 'init-utils)
   (require 'init-ui)
   (require 'init-eshell)
 
   (require 'init-evil)
   (require 'init-edit)
+  (require 'init-utils)
 
   (require 'init-ivy)
   (require 'init-company)
@@ -61,6 +61,7 @@
   ;; Programming
   (require 'init-prog)
   (require 'init-lisp)
-  (require 'init-c)
-  (require 'init-go)
-  (require 'init-python))
+  (require 'init-c))
+  ;; (require 'init-helm)
+  ;; (require 'init-go)
+  ;; (require 'init-python)

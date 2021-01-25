@@ -50,11 +50,6 @@
 ;; Move to the beginning/end of line or code
 (use-package mwim)
 
-;; Treat undo history as a tree
-(use-package undo-tree
-  :diminish undo-tree-mode
-  :hook (after-init . global-undo-tree-mode))
-
 (provide 'init-edit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

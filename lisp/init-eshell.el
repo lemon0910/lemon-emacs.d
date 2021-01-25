@@ -12,7 +12,7 @@
   (add-hook 'eshell-exit-hook #'(lambda ()
                                   (if (> (count-windows) 1)
                                       (delete-window))))
-  :load-path "site-lisp/shell")
+  :load-path "site-lisp/aweshell")
 
 
 (provide 'init-eshell)

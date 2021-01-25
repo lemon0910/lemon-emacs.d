@@ -234,12 +234,16 @@ Including indent-buffer, which should not be called automatically on save."
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
 
+;; (defun lemon-fzf ()
+;;   (interactive)
+;;   (use-package fzf
+;;     :commands
+;;     (fzf/start))
+;;   (fzf/start current-directory nil))
+
 (defun lemon-fzf ()
   (interactive)
-  (use-package fzf
-    :commands
-    (fzf/start))
-  (fzf/start current-directory nil))
+  (counsel-fzf nil current-directory))
 
 (defun lemon-no-hlsearch ()
   (interactive)
